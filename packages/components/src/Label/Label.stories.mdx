@@ -1,0 +1,88 @@
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+import Details from '../Details';
+import Label from './Label';
+import Tag from '../Tag';
+
+<Meta
+  id="D-Label"
+  title="Internal/Label"
+  component={ Label }
+/>
+
+# Label
+
+<p><Tag text="Internal" /></p>
+
+A label for a form field.
+
+<Canvas>
+  <Story name="Default">
+    <form action="#" method="get">
+      <Label id="form-field">Form field</Label>
+      <input className="govuk-input" id="form-field" />
+    </form>
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ Label } />
+</Details>
+
+# Variants
+## Optional
+An optional field has an `(optional)` suffix.
+
+<Canvas>
+  <Story name="Optional">
+    <form action="#" method="get">
+      <Label id="optional-field">Optional field</Label>
+      <input className="govuk-input" id="optional-field" />
+    </form>
+  </Story>
+</Canvas>
+
+## Required
+A required field displays without the `(optional)` suffix.
+
+<Canvas>
+  <Story name="Required">
+    <form action="#" method="get">
+      <Label id="required-field" required={true}>Required field</Label>
+      <input className="govuk-input" id="required-field" />
+    </form>
+  </Story>
+</Canvas>
+
+## With markup
+A label that contains markup.
+
+**Note:** this will <em>not</em> display the `(optional)` suffix as it contains markup.
+
+<Canvas>
+  <Story name="Markup">
+    <form action="#" method="get">
+      <Label id="markup-field">
+        This is normal apart from the <strong>bold</strong> bit
+        and the <em>italic</em> bit (and the <a href="#">link</a>)
+      </Label>
+      <input className="govuk-input" id="markup-field" />
+    </form>
+  </Story>
+</Canvas>
+
+## Inline
+A label that contains the field to which it refers.
+
+**Note:** this will <em>not</em> display the `(optional)` suffix as it contains markup.
+
+<Canvas>
+  <Story name="Inline">
+    <form action="#" method="get">
+      <Label id="inline-field">
+        Inline label
+        <input className="govuk-input" id="inline-field" />
+      </Label>
+    </form>
+  </Story>
+</Canvas>
