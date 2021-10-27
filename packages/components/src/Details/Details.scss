@@ -1,0 +1,9 @@
+@import "node_modules/govuk-frontend/govuk/_base";
+@import "node_modules/govuk-frontend/govuk/components/details/_index";
+
+.govuk-details.no-indent {
+  .govuk-details__text {
+    padding: 0 0 0 0;
+    border-left: none;
+  }
+}
