@@ -1,0 +1,98 @@
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+import Details from '../Details';
+import Tag from './Tag';
+import './Tag.stories.scss';
+
+<Meta title="Tag" id="D-Tag" component={ Tag } />
+
+# Tag
+
+A component to display the status of something.
+
+<Canvas>
+  <Story name="Default">
+    <Tag>example tag</Tag>
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ Tag } />
+</Details>
+
+### Using colour with tags
+
+You can use colour to help distinguish between different tags – or to help draw the user’s attention to a tag if it’s especially important. For example, it probably makes sense to use `red` for a tag that reads ‘Urgent’.
+
+[Do not use colour alone to convey information] because it’s not accessible. If you use the same tag in more than one place, make sure you keep the colour consistent.
+
+Because tags with solid colours tend to stand out more, it’s usually best to avoid mixing solid colours and tints: use one or the other. This matters less if you’re only using two colours. For example, it’s okay to use the tint `grey` and solid blue tags together if you only need two statuses.
+
+
+#### Additional colours
+
+If you need more tag colours, you can use the following tints.
+
+<Canvas>
+  <Story name="Colours">
+    <table className="govuk-table">
+      <thead className="govuk-table__head">
+        <tr className="govuk-table__row">
+          <th className="govuk-table__header"><code>classModifiers="..."</code></th>
+          <th className="govuk-table__header">Example usage</th>
+        </tr>
+      </thead>
+      <tbody className="govuk-table__body">
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>grey</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="grey">inactive</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>green</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="green">new</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>turquoise</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="turquoise">active</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>blue</code></td><td className="govuk-table__col"><Tag classModifiers="blue">pending</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>purple</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="purple">received</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>pink</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="pink">sent</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>red</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="red">rejected</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>orange</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="orange">declined</Tag></td>
+        </tr>
+        <tr className="govuk-table__row">
+          <td className="govuk-table__col"><code>yellow</code></td>
+          <td className="govuk-table__col"><Tag classModifiers="yellow">delayed</Tag></td>
+        </tr>
+      </tbody>
+    </table>
+  </Story>
+</Canvas>
+
+## Variation from GDS standard
+
+The styling deviates from the GDS one, in which the text within a tag is uppercase. Here,
+the text is in sentence case - i.e., it's all lowercase, apart from the first letter, which is
+capitalised.
+
+In reality, this is *pseudo*-sentence case - it literally transforms everything to lowercase
+and then capitalises the first letter. It will *not* capitalise the first letter of a word
+after a full stop.
+
+To accomplish this, the `classBlock` defaults to `hods-tag`, which extends and overrides
+`govuk-tag`. If you need to display a tag in the GDS format, you can simply set the `classBlock`
+to `govuk-tag`, though this is not advised for Home Office applications.
