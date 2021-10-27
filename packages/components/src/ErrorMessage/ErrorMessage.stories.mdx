@@ -1,0 +1,22 @@
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+import Details from '../Details';
+import ErrorMessage from './ErrorMessage';
+
+<Meta title="ErrorMessage" id="D-ErrorMessage" component={ ErrorMessage } />
+
+# Error message
+
+Follow the validation pattern and show an error message when there is a
+validation error. In the error message explain what went wrong and how to fix
+it.
+
+<Canvas>
+  <Story name="Default">
+    <ErrorMessage>Your date of birth must be in the past</ErrorMessage>
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ ErrorMessage } />
+</Details>
