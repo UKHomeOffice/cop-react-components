@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "@ukhomeoffice/cop-react-components",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
@@ -13,34 +13,51 @@
     "@babel/cli": "^7.15.4",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
+    "@storybook/addon-a11y": "^6.3.8",
     "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-docs": "^6.3.8",
     "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/node-logger": "^6.3.8",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8",
+    "@storybook/theming": "^6.3.8",
     "cross-env": "^7.0.3",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3"
   },
+  "optionalDependencies": {
+    "babel-loader": "8.1.0",
+    "webpack": "4.44.2"
+  },
   "main": "dist/index.js",
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/UKHomeOffice/cop-react-design-system"
+    "type": "git",
+    "url": "https://github.com/UKHomeOffice/cop-react-design-system"
   },
   "publishConfig": {
     "@Ali-Baker:registry": "https://npm.pkg.github.com"
-  }, 
+  },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "test": "react-scripts test",
+    "lint": "eslint --ext .js,.jsx src",
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files && yarn post-compile",
+    "post-compile": "rimraf dist/**/*.test.* dist/**/*.stories.*"
   },
   "eslintConfig": {
     "extends": [

@@ -3,5 +3,13 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "storybook": "yarn --cwd packages/components storybook",
+    "build-storybook": "yarn --cwd packages/components build-storybook",
+    "clean": "yarn --cwd packages/components clean",
+    "test": "yarn --cwd packages/components test",
+    "lint": "yarn --cwd packages/components lint",
+    "compile": "yarn --cwd packages/components compile"
   }
 }
