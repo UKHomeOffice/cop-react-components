@@ -1,0 +1,39 @@
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+import Details from '../Details';
+import Hint from './Hint';
+import Tag from '../Tag';
+
+<Meta title="Internal/Hint" id="D-Hint" component={ Hint } />
+
+# Hint
+
+<p><Tag text="Internal" /></p>
+
+A hint for a form field.
+
+<Canvas>
+  <Story name="Default">
+    <Hint>This is a hint</Hint>
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ Hint } />
+</Details>
+
+# Variants
+## With markup
+
+A hint that contains markup, showing it supports something other than plain text.
+
+<Canvas>
+  <Story name="Markup">
+    <Hint>
+      <ol>
+        <li>Check your answers carefully</li>
+        <li>Don't make a mistake</li>
+      </ol>
+    </Hint>
+  </Story>
+</Canvas>
