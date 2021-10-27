@@ -1,0 +1,85 @@
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+import Details from '../Details';
+import TextInput from './TextInput';
+
+<Meta title="Text input" id="D-TextInput" component={ TextInput } />
+
+# Text input
+
+<Canvas>
+  <Story name="Default">
+    <TextInput id="input" fieldId="input" />
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ TextInput } />
+</Details>
+
+# Variants
+## Disabled
+
+A disabled text input.
+
+<Canvas>
+  <Story name="Disabled">
+    <TextInput id="disabledInput" fieldId="disabledInput" disabled={true} />
+  </Story>
+</Canvas>
+
+## Error
+
+A text input in an error state.
+
+<Canvas>
+  <Story name="Error">
+    <TextInput id="errorInput" fieldId="errorInput" error="This is an error" />
+  </Story>
+</Canvas>
+
+## Track changes
+
+A text input with an `onChange` handler that tracks changes as you type.
+
+<Canvas>
+  <Story name="Track changes">
+    {() => {
+      const [value, setValue] = useState({});
+      const [changes, setChanges] = useState([]);
+      const onChange = ({ target }) => {
+        setValue(prev => {
+          const next = { ...prev, [target.name]: target.value };
+          setChanges(prevChanges => {
+            return [...prevChanges, { ts: Date.now(), value: next }];
+          });
+          return next;
+        });
+      };
+      const fieldId = 'textInput';
+      const options = {
+        id: 'textInput',
+        fieldId,
+        value: value[fieldId] || '',
+        onChange
+      };
+      return (
+        <>
+          <TextInput {...options} />
+          {changes && 
+            <>
+              <br /><br />
+              <Details summary="Change series" className="no-indent">
+                <ol>
+                  {changes && changes.map(change => (
+                    <li key={change.ts}>{JSON.stringify(change.value)}</li>
+                  ))}
+                </ol>
+              </Details>
+            </>
+          }
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
