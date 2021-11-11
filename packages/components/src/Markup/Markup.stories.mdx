@@ -1,0 +1,55 @@
+<!-- Global imports -->
+
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
+import Details from '../Details';
+import Tag from '../Tag';
+import Markup from './Markup';
+
+<Meta title="internal/Markup" id="D-FormattedText" component={ Markup } />
+
+# Markup
+
+<p><Tag text="Internal" /></p>
+
+An element for displaying formatted text - e.g., a paragraph or heading. By default, this will be a paragraph (`p`).
+
+<Canvas>
+  <Story name="Default">
+    <Markup>
+      The changes will show in your profile when they accept your request.
+    </Markup>
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <ArgsTable of={ Markup } />
+</Details>
+
+## Stories
+### With `tagName`.
+
+The content can be additional markup, not just plain text, and the `tagName` can be appropriately specified.
+
+<Canvas>
+  <Story name="With specified tagName">
+    <Markup tagName="ol">
+      <li>Check your answers carefully</li>
+      <li>Don't make a mistake</li>
+    </Markup>
+  </Story>
+</Canvas>
+
+### With `className`.
+
+You can specify a `className` for styling purposes.
+
+<Canvas>
+  <Story name="With specified className">
+    <Markup tagName="h1" className="govuk-heading-l">
+      Large heading
+    </Markup>
+  </Story>
+</Canvas>
