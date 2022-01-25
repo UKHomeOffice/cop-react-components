@@ -1,0 +1,187 @@
+<!-- Global imports -->
+
+import { useState } from "react";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<!-- Local imports -->
+
+import Details from "../Details";
+import FormGroup from "../FormGroup";
+import Checkboxes from "./Checkboxes";
+
+<Meta id="D-Checkboxes" title="Checkboxes" component={Checkboxes} />
+
+# Checkboxes
+
+<Canvas withToolbar>
+  <Story name="Checkboxes">
+    {() => {
+      const OPTIONS = [
+        { value: "animalCarcasses", label: "Waste from animal carcasses" },
+        {
+          value: "minesOrQuarries",
+          label: "Waste from mines or quarries",
+        },
+        {
+          value: "farmAagriculturalWaste",
+          label: "Farm or agricultural waste",
+        },
+      ];
+      return (
+        <FormGroup
+          id="checkboxes"
+          label={
+            <h1 className="govuk-heading-l">
+              Which types of waste do you transport?
+            </h1>
+          }
+        >
+          <Checkboxes
+            id="checkboxes"
+            fieldId="where-do-you-live-checkboxes"
+            options={OPTIONS}
+            hint="Select all that apply"
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <ArgsTable of={Checkboxes} />
+</Details>
+
+## When to use this component
+
+Use the checkboxes component when you need to help users:
+
+- select multiple options from a list
+- toggle a single option on or off
+
+## When not to use this component
+
+Do not use the checkboxes component if users can only choose one option from a selection. In this case, use the radios component.
+
+## How it works
+
+Always position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.
+
+Unlike with radios, users can select multiple options from a list of checkboxes. Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone.
+
+If needed, add a hint explaining this, for example, 'Select all that apply'.
+
+Do not pre-select checkbox options as this makes it more likely that users will:
+
+not realise they've missed a question
+submit the wrong answer
+Order checkbox options alphabetically by default.
+
+In some cases, it can be helpful to order them from most-to-least common options. For example, you could order options for 'What is your nationality?'' based on population size.
+
+Group checkboxes together in a <fieldset\> with a <legend\> that describes them, as shown in the examples on this page. This is usually a question, like 'How would you like to be contacted?''.
+
+### If you’re asking one question on the page
+
+If you’re asking just [one question per page] as recommended, you can set the
+contents of the <legend\> as the page heading. This is good practice as it
+means that users of screen readers will only hear the contents once.
+
+Read more about [why and how to set legends as headings].
+
+<Canvas>
+  <Story name="Standard">
+    <FormGroup
+      id="standard"
+      label={
+        <h1 className="govuk-heading-l">
+          Which types of waste do you transport?
+        </h1>
+      }
+    >
+      <Checkboxes
+        id="standard"
+        fieldId="which-types-of-waste-standard"
+        options={[
+          { value: "animalCarcasses", label: "Waste from animal carcasses" },
+          {
+            value: "minesOrQuarries",
+            label: "Waste from mines or quarries",
+          },
+          {
+            value: "farmAagriculturalWaste",
+            label: "Farm or agricultural waste",
+          },
+        ]}
+        hint="Select all that apply"
+      />
+    </FormGroup>
+  </Story>
+</Canvas>
+
+### If you’re asking more than one question on the page
+
+If you’re asking more than one question on the page, do not set the contents of
+the <legend\> as the page heading. Read more about [asking multiple questions
+on question pages].
+
+<Canvas>
+  <Story name="No heading">
+    <FormGroup id="no-heading" label="Which types of waste do you transport?">
+      <Checkboxes
+        id="no-heading"
+        fieldId="which-types-of-waste-no-heading"
+        options={[
+          { value: "animalCarcasses", label: "Waste from animal carcasses" },
+          {
+            value: "minesOrQuarries",
+            label: "Waste from mines or quarries",
+          },
+          {
+            value: "farmAagriculturalWaste",
+            label: "Farm or agricultural waste",
+          },
+        ]}
+        hint="Select all that apply"
+      />
+    </FormGroup>
+  </Story>
+</Canvas>
+
+### Checkbox items with hints
+
+You can add hints to checkbox items to provide additional information about the option
+
+<Canvas>
+  <Story name="With Hints">
+    <FormGroup
+      id="standard"
+      label={<h1 className="govuk-heading-l">What is your nationality?</h1>}
+    >
+      <Checkboxes
+        id="standard"
+        fieldId="what-nationality-hints"
+        options={[
+          {
+            value: "British",
+            label: "British",
+            hint: "including English, Scottish, Welsh and Northern Irish",
+          },
+          {
+            value: "Irish",
+            label: "Irish",
+          },
+          {
+            value: "CitizenOfAnotherCountry",
+            label: "Citizen of another country",
+          },
+        ]}
+        hint="If you have dual nationality, select all options that are relevant to you."
+      />
+    </FormGroup>
+  </Story>
+</Canvas>
+
+[one question per page]: https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page
+[why and how to set legends as headings]: https://design-system.service.gov.uk/get-started/labels-legends-headings
+[asking multiple questions on question pages]: https://design-system.service.gov.uk/patterns/question-pages/#asking-multiple-questions-on-a-page
