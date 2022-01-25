@@ -20,6 +20,7 @@ import Tag from './Tag';
 import TextInput from './TextInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
+import Checkboxes from './Checkboxes';
 
 export {
   Alert,
@@ -49,5 +50,6 @@ export {
   TextInput,
   Utils,
   VisuallyHidden,
-  XLargeHeading
+  XLargeHeading,
+  Checkboxes
 };
