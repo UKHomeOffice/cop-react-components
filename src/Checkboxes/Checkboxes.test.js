@@ -28,19 +28,13 @@ describe('Checkboxes', () => {
         id={ID}
         fieldId={FIELD_ID}
         options={OPTIONS}
-        ß
-        hint={HINT}
       />
     );
     const wrapper = checkSetup(container, ID);
-    expect(wrapper.childNodes.length).toEqual(OPTIONS.length + 1); //+1 for the hint
-
-    const hint = wrapper.childNodes[0];
-    expect(hint.classList).toContain('govuk-hint');
-    expect(hint.innerHTML).toContain(HINT);
+    expect(wrapper.childNodes.length).toEqual(OPTIONS.length); 
 
     OPTIONS.forEach((opt, index) => {
-      const item = wrapper.childNodes[index + 1]; //+1 for the hint
+      const item = wrapper.childNodes[index]; //+1 for the hint
       expect(item.classList).toContain(`${DEFAULT_CLASS}__item`);
       expect(item.innerHTML).toContain(opt.label);
       const input = item.childNodes[0];

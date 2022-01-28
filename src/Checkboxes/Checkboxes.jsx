@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // Local imports
 import Checkbox from './Checkbox';
-import Hint from '../Hint/Hint';
 import { classBuilder } from '../utils/Utils';
 import './Checkboxes.scss';
 
@@ -19,18 +18,12 @@ const Checkboxes = ({
   classBlock,
   classModifiers,
   className,
-  hint,
   ...attrs
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
 
   return (
     <div id={id} className={classes()} {...attrs}>
-      {hint && (
-        <Hint id={`${id}-hint`} className='govuk-hint'>
-          {hint}
-        </Hint>
-      )}
       {options &&
         options.map((option, index) => {
           const optionId = `${fieldId}-${index}`;
@@ -78,7 +71,6 @@ Checkboxes.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
   ]),
   className: PropTypes.string,
-  hint: PropTypes.string,
 };
 
 Checkboxes.defaultProps = {
