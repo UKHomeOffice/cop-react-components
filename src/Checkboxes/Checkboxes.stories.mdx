@@ -1,46 +1,46 @@
 <!-- Global imports -->
 
-import { useState } from "react";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 
 <!-- Local imports -->
 
-import Details from "../Details";
-import FormGroup from "../FormGroup";
-import Checkboxes from "./Checkboxes";
+import Details from '../Details';
+import FormGroup from '../FormGroup';
+import Checkboxes from './Checkboxes';
 
-<Meta id="D-Checkboxes" title="Checkboxes" component={Checkboxes} />
+<Meta id='D-Checkboxes' title='Checkboxes' component={Checkboxes} />
 
 # Checkboxes
 
 <Canvas withToolbar>
-  <Story name="Checkboxes">
+  <Story name='Checkboxes'>
     {() => {
       const OPTIONS = [
-        { value: "animalCarcasses", label: "Waste from animal carcasses" },
+        { value: 'animalCarcasses', label: 'Waste from animal carcasses' },
         {
-          value: "minesOrQuarries",
-          label: "Waste from mines or quarries",
+          value: 'minesOrQuarries',
+          label: 'Waste from mines or quarries',
         },
         {
-          value: "farmAagriculturalWaste",
-          label: "Farm or agricultural waste",
+          value: 'farmAagriculturalWaste',
+          label: 'Farm or agricultural waste',
         },
       ];
       return (
         <FormGroup
-          id="checkboxes"
+          id='checkboxes'
           label={
-            <h1 className="govuk-heading-l">
+            <h1 className='govuk-heading-l'>
               Which types of waste do you transport?
             </h1>
           }
         >
           <Checkboxes
-            id="checkboxes"
-            fieldId="where-do-you-live-checkboxes"
+            id='checkboxes'
+            fieldId='which-types-of-waste-checkboxes'
             options={OPTIONS}
-            hint="Select all that apply"
+            hint='Select all that apply'
           />
         </FormGroup>
       );
@@ -48,7 +48,7 @@ import Checkboxes from "./Checkboxes";
   </Story>
 </Canvas>
 
-<Details summary="Properties" className="no-indent">
+<Details summary='Properties' className='no-indent'>
   <ArgsTable of={Checkboxes} />
 </Details>
 
@@ -66,7 +66,7 @@ Do not use the checkboxes component if users can only choose one option from a s
 ## How it works
 
 Always position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.
-
+Í
 Unlike with radios, users can select multiple options from a list of checkboxes. Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone.
 
 If needed, add a hint explaining this, for example, 'Select all that apply'.
@@ -90,30 +90,30 @@ means that users of screen readers will only hear the contents once.
 Read more about [why and how to set legends as headings].
 
 <Canvas>
-  <Story name="Standard">
+  <Story name='Standard'>
     <FormGroup
-      id="standard"
+      id='standard'
       label={
-        <h1 className="govuk-heading-l">
+        <h1 className='govuk-heading-l'>
           Which types of waste do you transport?
         </h1>
       }
     >
       <Checkboxes
-        id="standard"
-        fieldId="which-types-of-waste-standard"
+        id='standard'
+        fieldId='which-types-of-waste-standard'
         options={[
-          { value: "animalCarcasses", label: "Waste from animal carcasses" },
+          { value: 'animalCarcasses', label: 'Waste from animal carcasses' },
           {
-            value: "minesOrQuarries",
-            label: "Waste from mines or quarries",
+            value: 'minesOrQuarries',
+            label: 'Waste from mines or quarries',
           },
           {
-            value: "farmAagriculturalWaste",
-            label: "Farm or agricultural waste",
+            value: 'farmAagriculturalWaste',
+            label: 'Farm or agricultural waste',
           },
         ]}
-        hint="Select all that apply"
+        hint='Select all that apply'
       />
     </FormGroup>
   </Story>
@@ -126,23 +126,23 @@ the <legend\> as the page heading. Read more about [asking multiple questions
 on question pages].
 
 <Canvas>
-  <Story name="No heading">
-    <FormGroup id="no-heading" label="Which types of waste do you transport?">
+  <Story name='No heading'>
+    <FormGroup id='no-heading' label='Which types of waste do you transport?'>
       <Checkboxes
-        id="no-heading"
-        fieldId="which-types-of-waste-no-heading"
+        id='no-heading'
+        fieldId='which-types-of-waste-no-heading'
         options={[
-          { value: "animalCarcasses", label: "Waste from animal carcasses" },
+          { value: 'animalCarcasses', label: 'Waste from animal carcasses' },
           {
-            value: "minesOrQuarries",
-            label: "Waste from mines or quarries",
+            value: 'minesOrQuarries',
+            label: 'Waste from mines or quarries',
           },
           {
-            value: "farmAagriculturalWaste",
-            label: "Farm or agricultural waste",
+            value: 'farmAagriculturalWaste',
+            label: 'Farm or agricultural waste',
           },
         ]}
-        hint="Select all that apply"
+        hint='Select all that apply'
       />
     </FormGroup>
   </Story>
@@ -153,30 +153,30 @@ on question pages].
 You can add hints to checkbox items to provide additional information about the option
 
 <Canvas>
-  <Story name="With Hints">
+  <Story name='With Hints'>
     <FormGroup
-      id="standard"
-      label={<h1 className="govuk-heading-l">What is your nationality?</h1>}
+      id='standard'
+      label={<h1 className='govuk-heading-l'>What is your nationality?</h1>}
     >
       <Checkboxes
-        id="standard"
-        fieldId="what-nationality-hints"
+        id='standard'
+        fieldId='what-nationality-hints'
         options={[
           {
-            value: "British",
-            label: "British",
-            hint: "including English, Scottish, Welsh and Northern Irish",
+            value: 'British',
+            label: 'British',
+            hint: 'including English, Scottish, Welsh and Northern Irish',
           },
           {
-            value: "Irish",
-            label: "Irish",
+            value: 'Irish',
+            label: 'Irish',
           },
           {
-            value: "CitizenOfAnotherCountry",
-            label: "Citizen of another country",
+            value: 'CitizenOfAnotherCountry',
+            label: 'Citizen of another country',
           },
         ]}
-        hint="If you have dual nationality, select all options that are relevant to you."
+        hint='If you have dual nationality, select all options that are relevant to you.'
       />
     </FormGroup>
   </Story>
