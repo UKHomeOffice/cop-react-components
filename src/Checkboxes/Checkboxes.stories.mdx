@@ -30,6 +30,7 @@ import Checkboxes from './Checkboxes';
       return (
         <FormGroup
           id='checkboxes'
+          hint='Select all that apply'
           label={
             <h1 className='govuk-heading-l'>
               Which types of waste do you transport?
@@ -40,7 +41,6 @@ import Checkboxes from './Checkboxes';
             id='checkboxes'
             fieldId='which-types-of-waste-checkboxes'
             options={OPTIONS}
-            hint='Select all that apply'
           />
         </FormGroup>
       );
@@ -93,6 +93,7 @@ Read more about [why and how to set legends as headings].
   <Story name='Standard'>
     <FormGroup
       id='standard'
+      hint='Select all that apply'
       label={
         <h1 className='govuk-heading-l'>
           Which types of waste do you transport?
@@ -113,7 +114,6 @@ Read more about [why and how to set legends as headings].
             label: 'Farm or agricultural waste',
           },
         ]}
-        hint='Select all that apply'
       />
     </FormGroup>
   </Story>
@@ -127,7 +127,11 @@ on question pages].
 
 <Canvas>
   <Story name='No heading'>
-    <FormGroup id='no-heading' label='Which types of waste do you transport?'>
+    <FormGroup
+      id='no-heading'
+      label='Which types of waste do you transport?'
+      hint='Select all that apply'
+    >
       <Checkboxes
         id='no-heading'
         fieldId='which-types-of-waste-no-heading'
@@ -142,7 +146,6 @@ on question pages].
             label: 'Farm or agricultural waste',
           },
         ]}
-        hint='Select all that apply'
       />
     </FormGroup>
   </Story>
@@ -157,6 +160,7 @@ You can add hints to checkbox items to provide additional information about the 
     <FormGroup
       id='standard'
       label={<h1 className='govuk-heading-l'>What is your nationality?</h1>}
+      hint='If you have dual nationality, select all options that are relevant to you.'
     >
       <Checkboxes
         id='standard'
@@ -176,7 +180,6 @@ You can add hints to checkbox items to provide additional information about the 
             label: 'Citizen of another country',
           },
         ]}
-        hint='If you have dual nationality, select all options that are relevant to you.'
       />
     </FormGroup>
   </Story>
