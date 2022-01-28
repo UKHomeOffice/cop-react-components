@@ -39,6 +39,25 @@ describe('Checkbox', () => {
     expect(hint).toBeUndefined();
   });
 
+  it('should appropriately set up the necessary components with a hint', async () => {
+    const ID = 'checkbox';
+    const FIELD_ID = 'checkboxFieldId';
+    const OPTION = { value: 'checkableOption', label: 'checkableOption', hint: 'This is a hint' };
+    const { container } = render(
+      <Checkbox data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} />
+    );
+    const { input, label, hint } = checkSetup(container, ID);
+    // Input
+    expect(input).toBeDefined();
+    // Label
+    expect(label).toBeDefined();
+    // No hint
+    expect(hint).toBeDefined();
+    expect(hint.classList).toContain(`${DEFAULT_CLASS}__hint`);
+    expect(hint.innerHTML).toEqual(OPTION.hint);
+    expect(hint.id).toEqual(`${ID}-hint`);
+  });
+
   it('should not be checked by default', async () => {
     const ID = 'checkbox';
     const FIELD_ID = 'checkboxFieldId';
@@ -49,4 +68,5 @@ describe('Checkbox', () => {
     const { input } = checkSetup(container, ID);
     expect(input.checked).toEqual(false);
   });
+  
 });
