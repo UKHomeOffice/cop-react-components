@@ -3,6 +3,7 @@ import Autocomplete from './Autocomplete';
 import BackLink from './BackLink';
 import Button, { StartButton } from './Button';
 import ButtonGroup from './ButtonGroup';
+import Checkboxes from './Checkboxes';
 import Details from './Details';
 import FormGroup from './FormGroup';
 import ErrorMessage from './ErrorMessage';
@@ -20,7 +21,6 @@ import Tag from './Tag';
 import TextInput from './TextInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
-import Checkboxes from './Checkboxes';
 
 export {
   Alert,
@@ -28,6 +28,7 @@ export {
   BackLink,
   Button,
   ButtonGroup,
+  Checkboxes,
   Details,
   ErrorMessage,
   ErrorSummary,
@@ -50,6 +51,5 @@ export {
   TextInput,
   Utils,
   VisuallyHidden,
-  XLargeHeading,
-  Checkboxes
+  XLargeHeading
 };

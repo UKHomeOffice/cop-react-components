@@ -1,12 +1,10 @@
 // Global imports
-import React from 'react';
 import { getByTestId, render } from '@testing-library/react';
 
 // Local imports
 import Radio, { DEFAULT_CLASS } from './Radio';
 
 describe('Radio', () => {
-
   const checkSetup = (container, testId) => {
     const wrapper = getByTestId(container, testId);
     expect(wrapper.classList).toContain(`${DEFAULT_CLASS}__item`);
@@ -44,7 +42,11 @@ describe('Radio', () => {
   it('should appropriately set up the necessary components with a hint', async () => {
     const ID = 'radio';
     const FIELD_ID = 'radioFieldId';
-    const OPTION = { value: 'england', label: 'England', hint: 'This is a hint' };
+    const OPTION = {
+      value: 'england',
+      label: 'England',
+      hint: 'This is a hint',
+    };
     const { container } = render(
       <Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} />
     );
@@ -76,7 +78,13 @@ describe('Radio', () => {
     const FIELD_ID = 'radioFieldId';
     const OPTION = { value: 'england', label: 'England' };
     const { container } = render(
-      <Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={false} />
+      <Radio
+        data-testid={ID}
+        id={ID}
+        name={FIELD_ID}
+        option={OPTION}
+        selected={false}
+      />
     );
     const { input } = checkSetup(container, ID);
     expect(input.checked).toEqual(false);
@@ -87,7 +95,13 @@ describe('Radio', () => {
     const FIELD_ID = 'radioFieldId';
     const OPTION = { value: 'england', label: 'England' };
     const { container } = render(
-      <Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />
+      <Radio
+        data-testid={ID}
+        id={ID}
+        name={FIELD_ID}
+        option={OPTION}
+        selected={true}
+      />
     );
     const { input } = checkSetup(container, ID);
     expect(input.checked).toEqual(true);
@@ -103,11 +117,26 @@ describe('Radio', () => {
     const { input } = checkSetup(container, ID);
     expect(input.checked).toEqual(false);
     // Use re-render to pass a new selected value.
-    rerender(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />);
+    rerender(
+      <Radio
+        data-testid={ID}
+        id={ID}
+        name={FIELD_ID}
+        option={OPTION}
+        selected={true}
+      />
+    );
     expect(input.checked).toEqual(true);
     // And toggle it back to false.
-    rerender(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={false} />);
+    rerender(
+      <Radio
+        data-testid={ID}
+        id={ID}
+        name={FIELD_ID}
+        option={OPTION}
+        selected={false}
+      />
+    );
     expect(input.checked).toEqual(false);
   });
-
 });

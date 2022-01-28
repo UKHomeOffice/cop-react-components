@@ -1,11 +1,13 @@
-import PropTypes from "prop-types";
+// Global imports
+import PropTypes from 'prop-types';
 
-import { DEFAULT_CLASS as DEFAULT_LABEL_CLASS } from "../Label/Label";
-import "./Checkboxes.scss";
-import Hint, { DEFAULT_CLASS as DEFAULT_HINT_CLASS } from "../Hint/Hint";
-import { classBuilder } from "../utils/Utils";
+// Local imports
+import Hint, { DEFAULT_CLASS as DEFAULT_HINT_CLASS } from '../Hint/Hint';
+import { DEFAULT_CLASS as DEFAULT_LABEL_CLASS } from '../Label/Label';
+import { classBuilder } from '../utils/Utils';
+import './Checkboxes.scss';
 
-export const DEFAULT_CLASS = "govuk-checkboxes";
+export const DEFAULT_CLASS = 'govuk-checkboxes';
 const Checkbox = ({
   id,
   name,
@@ -19,26 +21,26 @@ const Checkbox = ({
   const classes = classBuilder(classBlock, classModifiers, className);
 
   return (
-    <div className={classes("item")} {...attrs}>
+    <div className={classes('item')} {...attrs}>
       <input
-        className={classes("input")}
+        className={classes('input')}
         id={id}
         name={name}
-        type="checkbox"
+        type='checkbox'
         value={option.value}
       />
       <label
-        className={`${DEFAULT_LABEL_CLASS} ${classes("label")}`}
+        className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`}
         htmlFor={id}
         disabled={option.disabled}
       >
         {option.label}
       </label>
 
-      {option?.hint && (
+      {option.hint && (
         <Hint
           id={`${id}-hint`}
-          className={`${DEFAULT_HINT_CLASS} ${classes("hint")}`}
+          className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}
         >
           {option.hint}
         </Hint>

@@ -1,14 +1,15 @@
-import { getByTestId, render } from "@testing-library/react";
-import { ContextExclusionPlugin } from "webpack";
+// Global imports
+import { getByTestId, render } from '@testing-library/react';
 
-import Checkboxes, { DEFAULT_CLASS } from "./Checkboxes";
+// Local imports
+import Checkboxes, { DEFAULT_CLASS } from './Checkboxes';
 
-describe("Checkboxes", () => {
+describe('Checkboxes', () => {
   const OPTIONS = [
-    { value: "england", label: "England" },
-    { value: "scotland", label: "Scotland" },
-    { value: "wales", label: "Wales" },
-    { value: "northern-ireland", label: "Northern Ireland" },
+    { value: 'england', label: 'England' },
+    { value: 'scotland', label: 'Scotland' },
+    { value: 'wales', label: 'Wales' },
+    { value: 'northern-ireland', label: 'Northern Ireland' },
   ];
 
   const checkSetup = (container, testId) => {
@@ -17,16 +18,17 @@ describe("Checkboxes", () => {
     return wrapper;
   };
 
-  it("should appropriately set up the necessary components", async () => {
-    const ID = "checkboxes";
-    const FIELD_ID = "checkboxesFieldId";
-    const HINT = "thisisahint";
+  it('should appropriately set up the necessary components', async () => {
+    const ID = 'checkboxes';
+    const FIELD_ID = 'checkboxesFieldId';
+    const HINT = 'thisisahint';
     const { container } = render(
       <Checkboxes
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
         options={OPTIONS}
+        ß
         hint={HINT}
       />
     );
@@ -34,7 +36,7 @@ describe("Checkboxes", () => {
     expect(wrapper.childNodes.length).toEqual(OPTIONS.length + 1); //+1 for the hint
 
     const hint = wrapper.childNodes[0];
-    expect(hint.classList).toContain("govuk-hint");
+    expect(hint.classList).toContain('govuk-hint');
     expect(hint.innerHTML).toContain(HINT);
 
     OPTIONS.forEach((opt, index) => {

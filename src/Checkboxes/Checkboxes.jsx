@@ -1,11 +1,13 @@
-import PropTypes from "prop-types";
+// Global imports
+import PropTypes from 'prop-types';
 
-import Hint from "../Hint/Hint";
-import "./Checkboxes.scss";
-import Checkbox from "./Checkbox";
-import { classBuilder } from "../utils/Utils";
+// Local imports
+import Checkbox from './Checkbox';
+import Hint from '../Hint/Hint';
+import { classBuilder } from '../utils/Utils';
+import './Checkboxes.scss';
 
-export const DEFAULT_CLASS = "govuk-checkboxes";
+export const DEFAULT_CLASS = 'govuk-checkboxes';
 
 const Checkboxes = ({
   id,
@@ -25,7 +27,7 @@ const Checkboxes = ({
   return (
     <div id={id} className={classes()} {...attrs}>
       {hint && (
-        <Hint id={`${id}-hint`} className="govuk-hint">
+        <Hint id={`${id}-hint`} className='govuk-hint'>
           {hint}
         </Hint>
       )}
@@ -34,7 +36,7 @@ const Checkboxes = ({
           const optionId = `${fieldId}-${index}`;
           const name = fieldId;
           const selected =
-            typeof value === "object"
+            typeof value === 'object'
               ? option.value === value?.value
               : option.value === value;
           return (
