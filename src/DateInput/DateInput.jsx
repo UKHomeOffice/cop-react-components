@@ -1,5 +1,5 @@
 // Global Imports
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -24,6 +24,31 @@ const DateInput = ({
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
 
+  const [date, setDate] = useState({
+    [`${id}-day`]: value?.day ? value.day : '',
+    [`${id}-month`]: value?.month ? value.month : '',
+    [`${id}-year`]: value?.year ? value.year : '',
+  });
+
+  const handleChange = (event) => {
+    setDate((prev) => ({ ...prev, [event.target.name]: event.target.value }));
+  };
+
+  useEffect(() => {
+    if (typeof onChange === 'function') {
+      let singleVal = '';
+      if (date[`${id}-day`] && date[`${id}-month`] && date[`${id}-year`]) {
+        singleVal = `${date[`${id}-day`]}-${date[`${id}-month`]}-${date[`${id}-year`]}`;
+      }
+      onChange({
+        target: {
+          name: id,
+          value: singleVal,
+        },
+      });
+    }
+  }, [date]);
+
   const convertMonth = (monthNum) => {
     return [
       'January',
@@ -42,9 +67,10 @@ const DateInput = ({
   };
 
   if (readonly) {
+    const dateParts = value.split('-');
     return (
       <Readonly id={id} classModifiers={classModifiers} className={className} {...attrs}>
-        {value?.day} {value?.month ? convertMonth(value.month) : ''} {value?.year}
+        {dateParts[0]} {convertMonth(dateParts[1])} {dateParts[2]}
       </Readonly>
     );
   }
@@ -58,8 +84,8 @@ const DateInput = ({
         <TextInput
           id={`${id}-day`}
           fieldId={`${fieldId}-day`}
-          value={value?.day}
-          onChange={onChange}
+          value={`${date[`${id}-day`]}`}
+          onChange={handleChange}
           pattern='[0-9]*'
           inputMode='numeric'
           error={error?.day ? 'error' : ''}
@@ -74,8 +100,8 @@ const DateInput = ({
         <TextInput
           id={`${id}-month`}
           fieldId={`${fieldId}-month`}
-          value={value?.month}
-          onChange={onChange}
+          value={`${date[`${id}-month`]}`}
+          onChange={handleChange}
           pattern='[0-9]*'
           inputMode='numeric'
           error={error?.month ? 'error' : ''}
@@ -90,8 +116,8 @@ const DateInput = ({
         <TextInput
           id={`${id}-year`}
           fieldId={`${fieldId}-year`}
-          value={value?.year}
-          onChange={onChange}
+          value={`${date[`${id}-year`]}`}
+          onChange={handleChange}
           pattern='[0-9]*'
           inputMode='numeric'
           error={error?.year ? 'error' : ''}
@@ -114,11 +140,7 @@ DateInput.propTypes = {
     month: PropTypes.bool,
     year: PropTypes.bool,
   }),
-  value: PropTypes.shape({
-    day: PropTypes.number,
-    month: PropTypes.number,
-    year: PropTypes.number,
-  }),
+  value: PropTypes.any,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
 };

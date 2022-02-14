@@ -118,19 +118,19 @@ describe('DateInput', () => {
     const dayInput = wrapper.childNodes[0].childNodes[1];
     expect(dayInput.value).toEqual('6');
     fireEvent.change(dayInput, { target: { name: FIELD_ID, value: 12 } });
-    expect(onChangeCalls).toEqual(1);
+    expect(onChangeCalls).toEqual(2);
 
     //month
     const monthInput = wrapper.childNodes[1].childNodes[1];
     expect(monthInput.value).toEqual('3');
     fireEvent.change(monthInput, { target: { value: 2 } });
-    expect(onChangeCalls).toEqual(2);
+    expect(onChangeCalls).toEqual(3);
 
     //year
     const yearInput = wrapper.childNodes[2].childNodes[1];
     expect(yearInput.value).toEqual('2076');
     fireEvent.change(yearInput, { target: { value: 1999 } });
-    expect(onChangeCalls).toEqual(3);
+    expect(onChangeCalls).toEqual(4);
   });
 
   it('should appropriately set up the necessary components when read only', async () => {
@@ -141,26 +141,25 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        value={{ day: 6, month: 3, year: 2076 }}
+        value='12-12-2012'
         readonly
       />
     );
     const input = checkSetup(container, ID);
     expect(input.tagName).toEqual('DIV');
     expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
-    expect(input.textContent).toEqual('6 March 2076');
+    expect(input.textContent).toEqual('12 December 2012');
   });
 
   it('should convert month number values to the word equivalent', async () => {
     const ID = 'dateinput';
     const FIELD_ID = 'dateinputId';
-    let MONTH = 7;
     const { container } = render(
       <DateInput
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        value={{ day: 6, month: MONTH, year: 2076 }}
+        value={'6-7-2076'}
         readonly
       />
     );
