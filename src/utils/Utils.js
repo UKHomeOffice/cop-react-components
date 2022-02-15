@@ -60,8 +60,36 @@ export const classBuilder = (block, blockModifiers, blockExtra) => {
   };
 };
 
+/**
+ * Should be used to convert from a number between 1 and 12 to the corresponding months name.
+ * @param {*} month
+ * @returns The name of the month corresponding to the number given.
+ */
+export const getMonthName = (month) => {
+  const MONTH_NAMES = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const monthIndex = parseInt(month, 10) - 1;
+  if (monthIndex > -1 && monthIndex < 12) {
+    return MONTH_NAMES[monthIndex];
+  }
+  return '';
+};
+
 const Utils = {
   classBuilder,
+  getMonthName,
   interpolateString,
   toArray
 };

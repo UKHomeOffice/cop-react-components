@@ -6,33 +6,10 @@ import React, { useEffect, useState } from 'react';
 import FormGroup from '../FormGroup/FormGroup';
 import Readonly from '../Readonly';
 import TextInput from '../TextInput';
-import { classBuilder } from '../utils/Utils';
+import { classBuilder, getMonthName } from '../utils/Utils';
 
 // Styles
 import './DateInput.scss';
-
-// Consider moving this array and function beneath to /utils.
-const MONTH_NAMES = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-const getMonthName = (month) => {
-  const monthIndex = parseInt(month, 10) - 1;
-  if (monthIndex > -1 && monthIndex < 12) {
-    return MONTH_NAMES[monthIndex];
-  }
-  return '';
-};
 
 export const DEFAULT_CLASS = 'govuk-date-input';
 const DateInput = ({
@@ -73,7 +50,8 @@ const DateInput = ({
 
   useEffect(() => {
     if (typeof onChange === 'function' && date) {
-      const newValue = `${date.day}-${date.month}-${date.year}`;
+      let newValue = `${date.day}-${date.month}-${date.year}`;
+      newValue = (newValue === '--') ? '' : newValue;
       if (newValue !== value) {
         onChange({ target: { name: fieldId, value: newValue }});
       }
@@ -95,7 +73,7 @@ const DateInput = ({
   return (
     <div className={DEFAULT_CLASS} id={id} {...attrs}>
       {DATE_PARTS.map(part => (
-        <FormGroup id={`${id}-${part.id}`} label={part.label} required classBlock={classes('item')}>
+        <FormGroup id={`${id}-${part.id}`} label={part.label} required classBlock={classes('item')} key={`${id}-${part.id}`}>
           <TextInput
             id={`${id}-${part.id}`}
             fieldId={`${fieldId}-${part.id}`}
@@ -119,11 +97,7 @@ DateInput.propTypes = {
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   className: PropTypes.string,
-  error: PropTypes.shape({
-    day: PropTypes.bool,
-    month: PropTypes.bool,
-    year: PropTypes.bool,
-  }),
+  error: PropTypes.any,
   value: PropTypes.string,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
