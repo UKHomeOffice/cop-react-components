@@ -96,9 +96,9 @@ describe('DateInput', () => {
     const ID = 'dateinput';
     const FIELD_ID = 'dateinputId';
 
-    let onChangeCalls = 0;
-    const ON_CHANGE = () => {
-      onChangeCalls++;
+    const onChangeCalls = [];
+    const ON_CHANGE = (event) => {
+      onChangeCalls.push(event);
     };
 
     const { container } = render(
@@ -107,7 +107,7 @@ describe('DateInput', () => {
         id={ID}
         fieldId={FIELD_ID}
         error={{ year: true, month: true, day: true }}
-        value={{ day: 6, month: 3, year: 2076 }}
+        value={'6-3-2076'}
         onChange={ON_CHANGE}
       />
     );
@@ -117,20 +117,26 @@ describe('DateInput', () => {
     //day
     const dayInput = wrapper.childNodes[0].childNodes[1];
     expect(dayInput.value).toEqual('6');
-    fireEvent.change(dayInput, { target: { name: FIELD_ID, value: 12 } });
-    expect(onChangeCalls).toEqual(2);
+    fireEvent.change(dayInput, { target: { name: `${FIELD_ID}-day`, value: 12 } });
+    expect(onChangeCalls.length).toEqual(1);
+    expect(onChangeCalls[0]).toMatchObject({
+      target: {
+        name: FIELD_ID,
+        value: '12-3-2076'
+      }
+    });
 
     //month
     const monthInput = wrapper.childNodes[1].childNodes[1];
     expect(monthInput.value).toEqual('3');
     fireEvent.change(monthInput, { target: { value: 2 } });
-    expect(onChangeCalls).toEqual(3);
+    expect(onChangeCalls.length).toEqual(2);
 
     //year
     const yearInput = wrapper.childNodes[2].childNodes[1];
     expect(yearInput.value).toEqual('2076');
     fireEvent.change(yearInput, { target: { value: 1999 } });
-    expect(onChangeCalls).toEqual(4);
+    expect(onChangeCalls.length).toEqual(3);
   });
 
   it('should appropriately set up the necessary components when read only', async () => {
@@ -141,7 +147,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        value='12-12-2012'
+        value={'12-12-2012'}
         readonly
       />
     );
@@ -167,5 +173,23 @@ describe('DateInput', () => {
     expect(input.tagName).toEqual('DIV');
     expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
     expect(input.textContent).toEqual('6 July 2076');
+  });
+
+  it('should handle an invalid month in readonly mode', async () => {
+    const ID = 'dateinput';
+    const FIELD_ID = 'dateinputId';
+    const { container } = render(
+      <DateInput
+        data-testid={ID}
+        id={ID}
+        fieldId={FIELD_ID}
+        value={'6-13-2076'}
+        readonly
+      />
+    );
+    const input = checkSetup(container, ID);
+    expect(input.tagName).toEqual('DIV');
+    expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
+    expect(input.textContent).toEqual('6  2076');
   });
 });
