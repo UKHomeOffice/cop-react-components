@@ -1,6 +1,6 @@
 {
   "name": "@ukhomeoffice/cop-react-components",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "private": false,
   "scripts": {
     "clean": "rimraf dist",
@@ -63,7 +63,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/UKHomeOffice/cop-react-design-system"
+    "url": "https://github.com/UKHomeOffice/cop-react-components"
   },
   "publishConfig": {
     "@Ali-Baker:registry": "https://npm.pkg.github.com"
