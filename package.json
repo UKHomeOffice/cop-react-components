@@ -1,14 +1,14 @@
 {
   "name": "@ukhomeoffice/cop-react-components",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "private": false,
   "scripts": {
     "clean": "rimraf dist",
     "test": "react-scripts test",
     "test:coverage": "yarn test --coverage --watchAll=false",
     "lint": "eslint --ext .js,.jsx src",
-    "storybook:start": "start-storybook --docs -s src/assets --no-manager-cache -p 6006",
-    "storybook:build": "build-storybook --docs",
+    "storybook:start": "start-storybook --docs -s ./src/assets --no-manager-cache -p 6006",
+    "storybook:build": "build-storybook --docs -s ./src/assets",
     "storybook:deploy": "deploy-storybook",
     "storybook": "yarn storybook:start",
     "deploy-storybook": "storybook-to-ghpages",
@@ -43,17 +43,16 @@
     "node-sass": "^6.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "4.0.3"
+    "react-scripts": "4.0.3",
+    "babel-loader": "8.1.0",
+    "webpack": "4.44.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "4.0.3"
   },
-  "optionalDependencies": {
-    "babel-loader": "8.1.0",
-    "webpack": "4.44.2"
-  },
+  "optionalDependencies": {},
   "resolutions": {
     "immer": "9.0.6"
   },
@@ -64,7 +63,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/UKHomeOffice/cop-react-design-system"
+    "url": "https://github.com/UKHomeOffice/cop-react-components"
   },
   "publishConfig": {
     "@Ali-Baker:registry": "https://npm.pkg.github.com"
@@ -76,8 +75,12 @@
     ],
     "overrides": [
       {
-        "files": [ "**/*.stories.*" ],
-        "rules": { "import/no-anonymous-default-export": "off" }
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
       }
     ]
   },

@@ -79,7 +79,7 @@
 #storybook-explorer-tree .sidebar-item + a {
   display: block;
   position: relative;
-  /* display: none; This hides the "Skip to canvas" button */
+  display: none;
 }
 #storybook-explorer-tree .sidebar-item[data-selected="true"] {
   color: #1d70b8;
