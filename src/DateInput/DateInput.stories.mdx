@@ -9,9 +9,9 @@ import Details from '../Details';
 import FormGroup from '../FormGroup';
 import DateInput from './DateInput';
 
-<Meta id='D-DateInput' title='DateInput' component={DateInput} />
+<Meta id='D-DateInput' title='Date input' component={DateInput} />
 
-# DateInput
+# Date input
 
 <Canvas withToolbar>
   <Story name='DateInput'>
@@ -90,7 +90,7 @@ If you're asking more than one question on the page, do not set the contents of 
           <DateInput
             id='dateinputreadonly'
             fieldId='dateinputreadonly'
-            value={{ day: 6, month: 3, year: 2022 }}
+            value={'6-3-2022'}
             readonly
           />
         </FormGroup>
@@ -107,21 +107,10 @@ If you're highlighting the whole date, style all the fields like this:
   <Story name='DateInputError'>
     {() => {
       const ID='dateinputerror';
-      const [value, setValue] = useState({
-        day: 6, month: 3, year: 2076
-      });      
+      const [value, setValue] = useState('6-3-2076');
       const onChange = (event) => {
-        const id = event.target.id;
-        if(id === `${ID}-day`){
-          setValue((prev) => ({...prev, day: event.target.value}))
-        }
-        if(id === `${ID}-month`){
-          setValue((prev) => ({...prev, month: event.target.value}))
-        }
-        if(id === `${ID}-year`){
-          setValue((prev) => ({...prev, year: event.target.value}))
-        }
-      }
+        setValue(event.target.value);
+      };
       return (
         <FormGroup
           id='dateinput'
@@ -138,6 +127,7 @@ If you're highlighting the whole date, style all the fields like this:
             error={{ year: true, month: true, day: true }}
             onChange={(event) => onChange(event)}
           />
+          <div>Currently entered date: {value}</div>
         </FormGroup>
       );
     }}
@@ -150,20 +140,9 @@ If you're highlighting just one field - either the day, month or year - only sty
   <Story name='DateInputMissingYear'>
     {() => {
       const ID='dateinputmissingyear';
-      const [value, setValue] = useState({
-        day: 6, month: 3
-      });      
+      const [value, setValue] = useState('6-3-');      
       const onChange = (event) => {
-        const id = event.target.id;
-        if(id === `${ID}-day`){
-          setValue((prev) => ({...prev, day: event.target.value}))
-        }
-        if(id === `${ID}-month`){
-          setValue((prev) => ({...prev, month: event.target.value}))
-        }
-        if(id === `${ID}-year`){
-          setValue((prev) => ({...prev, year: event.target.value}))
-        }
+        setValue(event.value);
       }
       return (
         <FormGroup
