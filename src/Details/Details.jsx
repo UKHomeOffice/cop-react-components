@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { classBuilder } from '../utils/Utils';
 import './Details.scss';
 
-export const DEFAULT_CLASS = 'govuk-details';
+export const DEFAULT_CLASS = 'hods-details';
 const Details = ({ children, summary, classBlock, classModifiers, className, ...attrs }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
   return <details {...attrs} className={classes()}>

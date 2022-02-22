@@ -1,17 +1,23 @@
 @font-face {
-  font-family: "GDS Transport";
-  src:  url('/fonts/bold-b542beb274-v2.woff2') format('woff2'),
-        url('/fonts/bold-affa96571d-v2.woff') format('woff');
-  font-weight: bold;
+  font-family: 'Roboto';
   font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v29-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''), url('../fonts/roboto-v29-latin-regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('../fonts/roboto-v29-latin-regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('../fonts/roboto-v29-latin-regular.woff') format('woff'),
+    /* Modern Browsers */ url('../fonts/roboto-v29-latin-regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('../fonts/roboto-v29-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
-@font-face {
-  font-family: "GDS Transport";
-  src:  url('/fonts/light-94a07e06a1-v2.woff2') format('woff2'),
-        url('/fonts/light-f591b13f7d-v2.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+body {
+  font-family: 'Roboto', arial, sans-serif !important;
+}
+
+[class*='govuk-'],
+[class*=' govuk-'],
+a {
+  font-family: 'Roboto', arial, sans-serif !important;
 }
 
 /* Fix the size of the sidebar */
@@ -62,7 +68,7 @@
   display: inline-block;
 }
 #storybook-explorer-tree .sidebar-item[data-nodetype="document"] {
-  color: #1d70b8;
+  color: #005ea5;
   margin-left: 30px;
 }
 #storybook-explorer-tree .sidebar-item[data-nodetype="document"]:focus,
@@ -82,16 +88,16 @@
   display: none;
 }
 #storybook-explorer-tree .sidebar-item[data-selected="true"] {
-  color: #1d70b8;
+  color: #005ea5;
   background: none;
 }
 #storybook-explorer-tree .sidebar-item[data-selected="true"]::before {
   content: " ";
-  border-left: 4px solid #1d70b8;
+  border-left: 4px solid #005ea5;
   position: absolute;
-  left: -8px;
-  top: -3px;
-  bottom: -3px;
+  left: 18px;
+  top: 3px;
+  bottom: 3px;
 }
 #storybook-explorer-tree .sidebar-item svg {
   display: none;
