@@ -1,9 +1,22 @@
+$govuk-font-family: 'Roboto', arial, sans-serif;
+
 @import "node_modules/govuk-frontend/govuk/_base";
 @import "node_modules/govuk-frontend/govuk/components/details/_index";
 
-.govuk-details.no-indent {
-  .govuk-details__text {
-    padding: 0 0 0 0;
-    border-left: none;
+.hods-details {
+  @extend .govuk-details;
+
+  &__summary {
+    @extend .govuk-details__summary;
+  }
+  &__text {
+    @extend .govuk-details__text;
+  }
+
+  &.no-indent {
+    .hods-details__text {
+      padding: 0 0 0 0;
+      border-left: none;
+    }
   }
 }

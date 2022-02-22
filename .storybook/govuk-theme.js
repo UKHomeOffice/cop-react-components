@@ -14,7 +14,7 @@ const GovUKTheme = create({
   appBorderRadius: 0,
 
   // Typography
-  fontBase: '"GDS Transport", arial, sans-serif',
+  fontBase: '"Roboto", arial, sans-serif',
   fontCode: 'monospace',
 
   // Text colors

@@ -1,6 +1,6 @@
 {
   "name": "@ukhomeoffice/cop-react-components",
-  "version": "0.8.3",
+  "version": "1.0.0-alpha",
   "private": false,
   "scripts": {
     "clean": "rimraf dist",
@@ -9,9 +9,9 @@
     "lint": "eslint --ext .js,.jsx src",
     "storybook:start": "start-storybook --docs -s ./src/assets --no-manager-cache -p 6006",
     "storybook:build": "build-storybook --docs -s ./src/assets",
-    "storybook:deploy": "deploy-storybook",
+    "storybook:deploy": "yarn deploy-storybook",
     "storybook": "yarn storybook:start",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages -e storybook-static",
     "compile": "yarn clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files && yarn post-compile",
     "post-compile": "rimraf dist/**/*.test.* dist/**/*.stories.* dist/json dist/assets"
   },
