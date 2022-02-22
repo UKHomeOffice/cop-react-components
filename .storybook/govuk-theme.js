@@ -5,7 +5,7 @@ const GovUKTheme = create({
   base: 'light',
 
   colorPrimary: '#0b0c0c',
-  colorSecondary: '#1d70b8',
+  colorSecondary: '#005ea5',
 
   // UI
   appBg: 'white',
@@ -22,7 +22,7 @@ const GovUKTheme = create({
   textInverseColor: 'rgba(255,255,255,0.9)',
 
   // Toolbar default and active colors
-  barTextColor: '#1d70b8',
+  barTextColor: '#005ea5',
   barSelectedColor: '#0b0c0c',
   // barBg: 'white',
 
