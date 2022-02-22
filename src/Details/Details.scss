@@ -8,6 +8,7 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
 
   &__summary {
     @extend .govuk-details__summary;
+    color: #005ea5;
   }
   &__text {
     @extend .govuk-details__text;
