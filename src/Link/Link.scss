@@ -1,11 +1,6 @@
 @import "node_modules/govuk-frontend/govuk/_base";
 @import "node_modules/govuk-frontend/govuk/core/_links";
 
-a, a:link {
+a {
   @extend .govuk-link;
-  color: #005ea5;
-}
-
-.govuk-link, .govuk-link:link {
-  color: #005ea5;
 }
