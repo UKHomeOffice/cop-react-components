@@ -12,7 +12,8 @@
     "storybook:deploy": "yarn deploy-storybook",
     "storybook": "yarn storybook:start",
     "deploy-storybook": "storybook-to-ghpages -e storybook-static",
-    "compile": "yarn clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files && yarn post-compile"
+    "compile": "yarn clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files && yarn post-compile",
+    "post-compile": "rimraf dist/**/*.test.* dist/**/*.stories.* dist/json dist/assets"
   },
   "dependencies": {
     "accessible-autocomplete": "2.0.3",
