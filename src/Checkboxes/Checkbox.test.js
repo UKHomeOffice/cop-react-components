@@ -68,5 +68,33 @@ describe('Checkbox', () => {
     const { input } = checkSetup(container, ID);
     expect(input.checked).toEqual(false);
   });
+
+  it('should be checked when selected is set to true', async () => {
+    const ID = 'checkbox';
+    const FIELD_ID = 'checkboxFieldId';
+    const OPTION = { value: 'checkableOption', label: 'checkableOption' };
+    const { container } = render(
+      <Checkbox data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />
+    );
+    const { input } = checkSetup(container, ID);
+    expect(input.checked).toEqual(true);
+  });
+
+  it('should toggle checked when selected changes value', async () => {
+    const ID = 'checkbox';
+    const FIELD_ID = 'checkboxFieldId';
+    const OPTION = { value: 'checkableOption', label: 'checkableOption' };
+    const { container, rerender } = render(
+      <Checkbox data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} />
+    );
+    const { input } = checkSetup(container, ID);
+    expect(input.checked).toEqual(false);
+    // Use re-render to pass a new selected value.
+    rerender(<Checkbox data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />);
+    expect(input.checked).toEqual(true);
+    // And toggle it back to false.
+    rerender(<Checkbox data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={false} />);
+    expect(input.checked).toEqual(false);
+  });
   
 });
