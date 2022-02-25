@@ -1,5 +1,5 @@
 // Global imports
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -14,12 +14,20 @@ const Checkbox = ({
   name,
   option,
   selected,
+  onChange,
   classBlock,
   classModifiers,
   className,
   ...attrs
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.checked = selected;
+    }
+  }, [inputRef, selected]);
 
   return (
     <div className={classes('item')} {...attrs}>
@@ -29,6 +37,8 @@ const Checkbox = ({
         name={name}
         type='checkbox'
         value={option.value}
+        onChange={onChange}
+        ref={inputRef}
       />
       <label
         className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`}
@@ -63,6 +73,7 @@ Checkbox.propTypes = {
     PropTypes.string,
   ]).isRequired,
   selected: PropTypes.bool,
+  onChange: PropTypes.func,
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([
     PropTypes.string,
