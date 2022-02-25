@@ -1,5 +1,5 @@
 // Global imports
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -43,18 +43,8 @@ const Checkboxes = ({
   if (readonly) {
     return (
       <Readonly id={id} className={className} {...attrs}>
-        {value.map((currentValue, index) => {
-          const option = options.find((option) => {
-            return option.value === currentValue;
-          });
-          return (
-            option && (
-              <Fragment key={index}>
-                {option.label}
-                <br />
-              </Fragment>
-            )
-          );
+        {options && options.filter(opt => selection.includes(opt.value)).map(opt => {
+          return <div key={opt.value}>{opt.label}</div>;
         })}
       </Readonly>
     );

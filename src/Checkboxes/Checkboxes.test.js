@@ -95,7 +95,7 @@ describe('Checkboxes', () => {
 
     expect(readOnlyCheckbox.tagName).toEqual('DIV');
     expect(readOnlyCheckbox.classList).toContain(DEFAULT_READONLY_CLASS);
-    expect(readOnlyCheckbox.innerHTML).toContain('England<br>Scotland<br>');
+    expect(readOnlyCheckbox.innerHTML).toContain('<div>England</div><div>Scotland</div>');
   });
 
   it('should appropriately render with checkboxes prechecked', async () => {
