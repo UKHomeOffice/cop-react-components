@@ -87,7 +87,7 @@ describe('Checkboxes', () => {
         id={ID}
         fieldId={FIELD_ID}
         options={OPTIONS}
-        value={['optionOne', 'optionTwo']}
+        value={['england', 'scotland']}
         readonly
       />
     );
@@ -95,7 +95,7 @@ describe('Checkboxes', () => {
 
     expect(readOnlyCheckbox.tagName).toEqual('DIV');
     expect(readOnlyCheckbox.classList).toContain(DEFAULT_READONLY_CLASS);
-    expect(readOnlyCheckbox.innerHTML).toContain('optionOne optionTwo');
+    expect(readOnlyCheckbox.innerHTML).toContain('England<br>Scotland<br>');
   });
 
   it('should appropriately render with checkboxes prechecked', async () => {

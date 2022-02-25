@@ -1,5 +1,5 @@
 // Global imports
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -28,22 +28,34 @@ const Checkboxes = ({
 
   const updateSelection = ({ target }) => {
     if (target.checked) {
-      setSelection((oldSelection) => [...oldSelection, target.value]);
+      setSelection((prev) => [...prev, target.value]);
     } else {
-      setSelection(selection.filter((s) => s !== target.value));
+      setSelection((prev) => prev.filter((s) => s !== target.value));
     }
   };
 
   useEffect(() => {
-    if(typeof onChange === 'function' && selection !== value){
-      onChange({target: {name: fieldId, value: selection}});
+    if (typeof onChange === 'function' && selection !== value) {
+      onChange({ target: { name: fieldId, value: selection } });
     }
   }, [selection, onChange, fieldId, value]);
 
-  if(readonly){
+  if (readonly) {
     return (
       <Readonly id={id} className={className} {...attrs}>
-        {value.join(' ')}
+        {value.map((currentValue, index) => {
+          const option = options.find((option) => {
+            return option.value === currentValue;
+          });
+          return (
+            option && (
+              <Fragment key={index}>
+                {option.label}
+                <br />
+              </Fragment>
+            )
+          );
+        })}
       </Readonly>
     );
   }
@@ -53,7 +65,7 @@ const Checkboxes = ({
       {options &&
         options.map((option, index) => {
           const optionId = `${fieldId}-${index}`;
-          const selected = typeof value === 'object' ? value.includes(option.value) : false;
+          const selected = Array.isArray(value) ? value.includes(option.value) : false;
           return (
             <Checkbox
               key={optionId}
