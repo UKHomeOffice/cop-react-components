@@ -1,0 +1,35 @@
+import { Meta, Props, Story, Canvas } from "@storybook/addon-docs";
+import Details from "../Details";
+import Accordion from "./Accordion.jsx";
+import AccordionItem from "./AccordionItem.jsx";
+
+<Meta title='Accordion' id='D-Accordion' component={Accordion} />
+
+# Accordion
+
+<Canvas>
+  <Story name='Default'>
+    <Accordion>
+      <AccordionItem heading='Actions' summary='Things you can do.'>
+        <h3>These are your actions</h3>
+      </AccordionItem>
+      <AccordionItem heading='Attachments' summary='View attachments.'>
+        <ul>
+          <li>Attachment A</li>
+          <li>Attachment B</li>
+          <li>Attachment C</li>
+        </ul>
+      </AccordionItem>
+      <AccordionItem
+        heading='Notes'
+        summary='Selected information from submitted forms.'
+      >
+        <h3>These are the notes for this case</h3>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Canvas>
+
+<Details summary='Properties' className='no-indent'>
+  <Props of={Accordion} />
+</Details>
