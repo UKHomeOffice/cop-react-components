@@ -1,5 +1,5 @@
-import Accordion from "./Accordion";
-import AccordionItem from "./AccordionItem";
+import Accordion from './Accordion';
+import AccordionItem from './AccordionItem';
 
 export default Accordion;
 export { AccordionItem };

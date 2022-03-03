@@ -1,19 +1,21 @@
-import { Meta, Props, Story, Canvas } from "@storybook/addon-docs";
-import Details from "../Details";
-import Accordion from "./Accordion.jsx";
-import AccordionItem from "./AccordionItem.jsx";
+import { Meta, Props, Story, Canvas } from '@storybook/addon-docs';
+import Details from '../Details';
+import Accordion from './Accordion.jsx';
+import AccordionItem from './AccordionItem.jsx';
 
-<Meta title='Accordion' id='D-Accordion' component={Accordion} />
+<Meta title="Accordion" id="D-Accordion" component={Accordion} />
 
 # Accordion
 
+A component to display a set of expanding Accordions
+
 <Canvas>
-  <Story name='Default'>
+  <Story name="Default">
     <Accordion>
-      <AccordionItem heading='Actions' summary='Things you can do.'>
+      <AccordionItem heading="Actions" summary="Things you can do.">
         <h3>These are your actions</h3>
       </AccordionItem>
-      <AccordionItem heading='Attachments' summary='View attachments.'>
+      <AccordionItem heading="Attachments" summary="View attachments.">
         <ul>
           <li>Attachment A</li>
           <li>Attachment B</li>
@@ -21,8 +23,8 @@ import AccordionItem from "./AccordionItem.jsx";
         </ul>
       </AccordionItem>
       <AccordionItem
-        heading='Notes'
-        summary='Selected information from submitted forms.'
+        heading="Notes"
+        summary="Selected information from submitted forms."
       >
         <h3>These are the notes for this case</h3>
       </AccordionItem>
@@ -30,6 +32,20 @@ import AccordionItem from "./AccordionItem.jsx";
   </Story>
 </Canvas>
 
-<Details summary='Properties' className='no-indent'>
+<Details summary="Properties" className="no-indent">
   <Props of={Accordion} />
 </Details>
+
+## When to use this component
+
+Accordions are most appropriate when users will only need a few specific pieces of content within a page or if you have only a small space to display a lot of content.
+
+## When not to use this component
+
+Do not use the accordion component to hide information that the majority of your users will need.
+
+## Details, accordions and tabs
+
+Details, accordions, and tabs all hide sections of content which a user can choose to reveal.
+
+Use the accordion component instead of details or tabs if you have multiple long sections of content.

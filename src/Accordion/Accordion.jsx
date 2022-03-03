@@ -1,20 +1,20 @@
-import React, { useEffect, useRef } from "react";
-import "./Accordion.scss";
-import { classBuilder } from "../utils/Utils";
-import PropTypes from "prop-types";
+import React, { useEffect, useRef } from 'react';
+import './Accordion.scss';
+import { classBuilder } from '../utils/Utils';
+import PropTypes from 'prop-types';
 
-export const DEFAULT_CLASS = "govuk-accordion";
+export const DEFAULT_CLASS = 'govuk-accordion';
 
-function Accordion(props) {
+const Accordion = ({ children, id, classBlock, classModifiers, className, ...attrs }) => {
   const accordionRef = useRef();
-  const { children, className, id, ...attrs } = props;
+  const classes = classBuilder(classBlock, classModifiers, className);
 
   useEffect(() => {
     (async () => {
-      if (typeof document !== "undefined") {
+      if (typeof document !== 'undefined') {
         const { default: AccordionJS } = await import(
-          "govuk-frontend/govuk/components/accordion/accordion"
-        );
+          'govuk-frontend/govuk/components/accordion/accordion'
+        ); 
 
         if (accordionRef.current) {
           new AccordionJS(accordionRef.current).init();
@@ -27,8 +27,8 @@ function Accordion(props) {
     <div
       {...attrs}
       id={id}
-      className={`govuk-accordion ${className || ""}`}
-      data-module='govuk-accordion'
+      className={`${classes()} ${className || ''}`}
+      data-module={classes()}
       ref={accordionRef}
     >
       {children}
@@ -38,8 +38,12 @@ function Accordion(props) {
 
 Accordion.propTypes = {
   className: PropTypes.string,
+  classBlock: PropTypes.string,
+  classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 };
 
-Accordion.defaultProps = {};
+Accordion.defaultProps = {
+  classBlock: DEFAULT_CLASS
+};
 
 export default Accordion;
