@@ -1,5 +1,8 @@
-import React from 'react';
+// Global imports
 import { getByTestId, render } from '@testing-library/react';
+import React from 'react';
+
+// Local imports
 import AccordionItem, { DEFAULT_CLASS } from './AccordionItem';
 
 describe('AccordionItem', () => {
@@ -31,14 +34,14 @@ describe('AccordionItem', () => {
     expect(sectionContent.classList).toContain(
       `${DEFAULT_CLASS}__section-content`
     );
-  
+
     return {
       accordionItem,
       sectionHeader,
       sectionHeading,
       sectionButton,
       sectionSummary,
-      sectionContent,
+      sectionContent
     };
   };
 
@@ -72,7 +75,7 @@ describe('AccordionItem', () => {
       sectionHeader,
       sectionHeading,
       sectionButton,
-      sectionContent,
+      sectionContent
     };
   };
 
@@ -113,7 +116,7 @@ describe('AccordionItem', () => {
       sectionHeading,
       sectionButton,
       sectionSummary,
-      sectionContent,
+      sectionContent
     };
   };
 

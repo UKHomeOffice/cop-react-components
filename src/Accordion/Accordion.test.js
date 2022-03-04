@@ -1,9 +1,11 @@
-import React from 'react';
+// Global imports
 import { getByTestId, render } from '@testing-library/react';
+import React from 'react';
+
+// Local imports
 import Accordion, { DEFAULT_CLASS } from './Accordion';
 
 describe('Accordion', () => {
-
   const checkSetup = (container, testId) => {
     const accordion = getByTestId(container, testId);
     expect(accordion.classList).toContain(DEFAULT_CLASS);
@@ -14,10 +16,13 @@ describe('Accordion', () => {
     const ACCORDION_ID = 'id';
     const CLASS_MODIFIERS = ['success', 'test'];
     const { container } = render(
-      <Accordion data-testid={ACCORDION_ID} classModifiers={CLASS_MODIFIERS}></Accordion>
+      <Accordion
+        data-testid={ACCORDION_ID}
+        classModifiers={CLASS_MODIFIERS}
+      ></Accordion>
     );
     const { accordion } = checkSetup(container, ACCORDION_ID);
-    CLASS_MODIFIERS.forEach(cm => {
+    CLASS_MODIFIERS.forEach((cm) => {
       expect(accordion.classList).toContain(`${DEFAULT_CLASS}--${cm}`);
     });
   });
