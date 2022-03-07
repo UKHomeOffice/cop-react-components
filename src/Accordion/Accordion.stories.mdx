@@ -2,20 +2,29 @@ import { Meta, Props, Story, Canvas } from '@storybook/addon-docs';
 import Details from '../Details';
 import Accordion from './Accordion.jsx';
 import AccordionItem from './AccordionItem.jsx';
+import Button from '../Button/Button.jsx';
 
-<Meta title="Accordion" id="D-Accordion" component={Accordion} />
+<Meta title='Accordion' id='D-Accordion' component={Accordion} />
 
 # Accordion
 
 A component to display a set of expanding Accordions
 
 <Canvas>
-  <Story name="Default">
-    <Accordion>
-      <AccordionItem heading="Actions" summary="Things you can do.">
+  <Story name='Default'>
+    <Accordion id='accord1'>
+      <AccordionItem
+        heading='Actions'
+        summary='Things you can do.'
+        expanded='false'
+      >
         <h3>These are your actions</h3>
       </AccordionItem>
-      <AccordionItem heading="Attachments" summary="View attachments.">
+      <AccordionItem
+        heading='Attachments'
+        summary='View attachments.'
+        expanded='false'
+      >
         <ul>
           <li>Attachment A</li>
           <li>Attachment B</li>
@@ -23,8 +32,9 @@ A component to display a set of expanding Accordions
         </ul>
       </AccordionItem>
       <AccordionItem
-        heading="Notes"
-        summary="Selected information from submitted forms."
+        heading='Notes'
+        summary='Selected information from submitted forms.'
+        expanded='false'
       >
         <h3>These are the notes for this case</h3>
       </AccordionItem>
@@ -32,7 +42,7 @@ A component to display a set of expanding Accordions
   </Story>
 </Canvas>
 
-<Details summary="Properties" className="no-indent">
+<Details summary='Properties' className='no-indent'>
   <Props of={Accordion} />
 </Details>
 
@@ -49,3 +59,31 @@ Do not use the accordion component to hide information that the majority of your
 Details, accordions, and tabs all hide sections of content which a user can choose to reveal.
 
 Use the accordion component instead of details or tabs if you have multiple long sections of content.
+
+<Canvas>
+  <Story name='Accordion'>
+    <Accordion id='accord2'>
+      <AccordionItem
+        heading='Actions'
+        summary='Things you can do.'
+        expanded='false'
+      >
+        <h3>These are your actions</h3>
+      </AccordionItem>
+      <AccordionItem
+        heading='Attachments'
+        summary='View attachments.'
+        expanded='false'
+      >
+        <Button>Click here</Button>
+      </AccordionItem>
+      <AccordionItem
+        heading='Notes'
+        summary='Selected information from submitted forms.'
+        expanded='false'
+      >
+        <h3>These are the notes for this case</h3>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Canvas>

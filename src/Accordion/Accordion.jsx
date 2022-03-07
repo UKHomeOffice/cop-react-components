@@ -18,17 +18,21 @@ const Accordion = ({
   id,
   ...attrs
 }) => {
-  const accordionRef = useRef();
+  const ref = useRef(false);
+  const accordionRef = useRef(null);
   const classes = classBuilder(classBlock, classModifiers, className);
 
   useEffect(() => {
-    if (accordionRef.current) {
-      new accordion(accordionRef.current).init();
+    if (!ref.current) {
+      if (accordionRef.current) {
+        new accordion(accordionRef.current).init();
+      }
+      ref.current = true;
     }
   }, [accordionRef]);
 
   return (
-    <div className="hods-accordion">
+    <div className='hods-accordion'>
       <div
         {...attrs}
         id={id}
@@ -43,6 +47,7 @@ const Accordion = ({
 };
 
 Accordion.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([

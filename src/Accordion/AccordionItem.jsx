@@ -9,6 +9,7 @@ import { classBuilder } from '../utils/Utils';
 import './Accordion.scss';
 
 export const DEFAULT_CLASS = 'govuk-accordion';
+
 const AccordionItem = ({
   children,
   classBlock,
@@ -20,16 +21,11 @@ const AccordionItem = ({
   expanded,
   ...attrs
 }) => {
-
   const classes = classBuilder(classBlock, classModifiers, className);
-  const sectionModifiers = expanded ? ['expanded']: [];
+  const sectionModifiers = expanded ? ['expanded'] : [];
 
   return (
-    <div
-      {...attrs}
-      id={id}
-      className={classes('section', sectionModifiers)}
-    >
+    <div {...attrs} id={id} className={classes('section', sectionModifiers)}>
       <div className={classes('section-header')}>
         <h2 className={classes('section-heading')}>
           <span className={classes('section-button')}>{heading}</span>
