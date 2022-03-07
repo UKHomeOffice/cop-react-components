@@ -1,2 +1,30 @@
 @import "node_modules/govuk-frontend/govuk/_base";
 @import "govuk-frontend/govuk/objects/_button-group";
+
+.hods-button-group {
+  @extend .govuk-button-group;
+  $horizontal-gap: govuk-spacing(3);
+  $vertical-gap: govuk-spacing(3);
+
+  // These need to be kept in sync with the button component's styles
+  $button-padding: govuk-spacing(2);
+  $button-shadow-size: $govuk-border-width-form-element;
+
+  $link-spacing: govuk-spacing(1);
+
+  .hods-button {
+    margin-bottom: $vertical-gap + $button-shadow-size;
+  }
+
+  @include govuk-media-query($from: tablet) {
+    .hods-button, .hods-link {
+      margin-right: $horizontal-gap * 2;
+    }
+    .hods-link {
+      text-align: left;
+    }
+    :last-child {
+      margin-right: 0;
+    }
+  }
+}

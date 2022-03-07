@@ -4,7 +4,7 @@ import Link from '../Link';
 import { classBuilder, toArray } from '../utils/Utils';
 import './Button.scss';
 
-export const DEFAULT_CLASS = 'govuk-button';
+export const DEFAULT_CLASS = 'hods-button';
 export const START_BUTTON_LABEL = 'Start now';
 
 const isAnchor = (href) => {

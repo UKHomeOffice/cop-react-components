@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { classBuilder } from '../utils/Utils';
 import './ButtonGroup.scss';
 
-export const DEFAULT_CLASS = 'govuk-button-group';
+export const DEFAULT_CLASS = 'hods-button-group';
 export const ButtonGroup = ({
   children,
   classBlock,
