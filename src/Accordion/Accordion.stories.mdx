@@ -1,0 +1,95 @@
+<!-- Global imports -->
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
+import Button from '../Button';
+import Details from '../Details';
+import Tag from '../Tag';
+import Accordion from './Accordion.jsx';
+import AccordionItem from './AccordionItem.jsx';
+
+<Meta title='Accordion' id='D-Accordion' component={Accordion} />
+
+# Accordion
+
+<p><Tag text="Alpha" /></p>
+
+A component to display a set of expanding Accordions
+
+<Canvas>
+  <Story name='Default'>
+    <Accordion id='accord1'>
+      <AccordionItem
+        heading='Actions'
+        summary='Things you can do.'
+        expanded='false'
+      >
+        <h3>These are your actions</h3>
+      </AccordionItem>
+      <AccordionItem
+        heading='Attachments'
+        summary='View attachments.'
+        expanded='false'
+      >
+        <ul>
+          <li>Attachment A</li>
+          <li>Attachment B</li>
+          <li>Attachment C</li>
+        </ul>
+      </AccordionItem>
+      <AccordionItem
+        heading='Notes'
+        summary='Selected information from submitted forms.'
+        expanded='false'
+      >
+        <h3>These are the notes for this case</h3>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Canvas>
+
+<Details summary='Properties' className='no-indent'>
+  <Props of={Accordion} />
+</Details>
+
+## When to use this component
+
+Accordions are most appropriate when users will only need a few specific pieces of content within a page or if you have only a small space to display a lot of content.
+
+## When not to use this component
+
+Do not use the accordion component to hide information that the majority of your users will need.
+
+## Details, accordions and tabs
+
+Details, accordions, and tabs all hide sections of content which a user can choose to reveal.
+
+Use the accordion component instead of details or tabs if you have multiple long sections of content.
+
+<Canvas>
+  <Story name='Accordion'>
+    <Accordion id='accord2'>
+      <AccordionItem
+        heading='Actions'
+        summary='Things you can do.'
+        expanded='false'
+      >
+        <h3>These are your actions</h3>
+      </AccordionItem>
+      <AccordionItem
+        heading='Attachments'
+        summary='View attachments.'
+        expanded='false'
+      >
+        <Button>Click here</Button>
+      </AccordionItem>
+      <AccordionItem
+        heading='Notes'
+        summary='Selected information from submitted forms.'
+        expanded='false'
+      >
+        <h3>These are the notes for this case</h3>
+      </AccordionItem>
+    </Accordion>
+  </Story>
+</Canvas>

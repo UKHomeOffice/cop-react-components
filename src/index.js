@@ -1,3 +1,4 @@
+import Accordion from './Accordion';
 import Alert from './Alert';
 import Autocomplete from './Autocomplete';
 import BackLink from './BackLink';
@@ -25,6 +26,7 @@ import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
 
 export {
+  Accordion,
   Alert,
   Autocomplete,
   BackLink,
