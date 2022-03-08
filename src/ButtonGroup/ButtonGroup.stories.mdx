@@ -1,13 +1,21 @@
-import { Meta, Props, Story, Canvas } from '@storybook/addon-docs';
+<!-- Global imports -->
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
 import Button from '../Button';
 import Details from '../Details';
 import Link from '../Link';
+import Tag from '../Tag';
 import ButtonGroup from './ButtonGroup';
+
+<!-- Styles -->
 import './ButtonGroup.stories.scss';
 
 <Meta title="Internal/Button group" id="D-ButtonGroup" component={ ButtonGroup } />
 
 # Button group
+
+<p><Tag text="Alpha" />&nbsp;<Tag text="New styling" /></p>
 
 A component for grouping buttons and links on a single line.
 
