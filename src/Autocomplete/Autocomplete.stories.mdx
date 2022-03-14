@@ -1,13 +1,16 @@
 <!-- Global imports -->
-import { useState, useEffect } from 'react';
 import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { useEffect, useState } from 'react';
 
 <!-- Local imports -->
-import Autocomplete, { RefDataAutocomplete } from './Autocomplete';
-import { Countries, CountriesAsRefData, CountriesByName } from './Countries-sb';
+import Button from '../Button';
+import ButtonGroup from '../ButtonGroup';
 import Details from '../Details';
 import Label from '../Label';
-import { interpolateString } from '../utils/Utils';
+import Autocomplete, { RefDataAutocomplete } from './Autocomplete';
+import { Countries, CountriesAsRefData, CountriesByName } from './Countries-sb';
+
+<!-- Styles -->
 import './Autocomplete.stories.scss';
 
 <Meta title="Autocomplete" id="D-Autocomplete" component={ Autocomplete } />
@@ -196,13 +199,13 @@ template looks like this: `'${label} (${value})'`.
             displayMenu="inline"
             onChange={onChange}
           /><br />
-          <div className="govuk-button-group">
-            <button type="button" className="govuk-button" onClick={() => changeValue('US')}>Set to US</button>
-            <button type="button" className="govuk-button" onClick={() => changeValue('GB')}>Set to UK</button>
-            <button type="button" className="govuk-button" onClick={() => changeValue('DE')}>Set to Germany</button>
-            <button type="button" className="govuk-button govuk-button--warning" onClick={setBadValue}>Bad value</button>
-            <button type="button" className="govuk-button govuk-button--secondary" onClick={clearValue}>Clear value</button>
-          </div>
+          <ButtonGroup>
+            <Button onClick={() => changeValue('US')}>Set to US</Button>
+            <Button onClick={() => changeValue('GB')}>Set to UK</Button>
+            <Button onClick={() => changeValue('DE')}>Set to Germany</Button>
+            <Button classModifiers="warning" onClick={setBadValue}>Bad value</Button>
+            <Button classModifiers="secondary" onClick={clearValue}>Clear value</Button>
+          </ButtonGroup>
         </form>
       );
     }}
