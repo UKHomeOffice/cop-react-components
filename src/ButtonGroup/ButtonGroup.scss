@@ -13,18 +13,19 @@
   $link-spacing: govuk-spacing(1);
 
   .hods-button {
+    margin-right: 0;
     margin-bottom: $vertical-gap + $button-shadow-size;
   }
 
   @include govuk-media-query($from: tablet) {
-    .hods-button, .hods-link {
+    .hods-button, .hods-link, .govuk-button, .govuk-link {
       margin-right: $horizontal-gap * 2;
+      &:last-child {
+        margin-right: 0;
+      }
     }
     .hods-link {
       text-align: left;
-    }
-    :last-child {
-      margin-right: 0;
     }
   }
 }
