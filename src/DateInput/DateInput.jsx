@@ -19,6 +19,7 @@ const DateInput = ({
   classModifiers,
   className,
   error,
+  propsinerror,
   value,
   onChange,
   readonly,
@@ -81,7 +82,7 @@ const DateInput = ({
             onChange={handleChange}
             pattern='[0-9]*'
             inputMode='numeric'
-            error={error && error[part.id] ? 'error' : ''}
+            error={propsinerror && propsinerror[part.id] ? 'error' : ''}
             className={classes('input')}
             classModifiers={`width-${part.width}`}
           />
@@ -98,6 +99,7 @@ DateInput.propTypes = {
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   className: PropTypes.string,
   error: PropTypes.any,
+  propsinerror: PropTypes.any,
   value: PropTypes.string,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
