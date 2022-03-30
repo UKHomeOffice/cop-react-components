@@ -70,7 +70,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        error={{ year: true, month: true, day: true }}
+        propsInError={{ year: true, month: true, day: true }}
       />
     );
     const wrapper = checkSetup(container, ID);
@@ -92,6 +92,36 @@ describe('DateInput', () => {
     expect(yearInput.classList).toContain('govuk-input--error');
   });
 
+  it('should show errors with appropriate styling on only selected inputs', async () => {
+    const ID = 'dateinput';
+    const FIELD_ID = 'dateinputId';
+    const { container } = render(
+      <DateInput
+        data-testid={ID}
+        id={ID}
+        fieldId={FIELD_ID}
+        propsInError={{ year: false, month: true, day: false }}
+      />
+    );
+    const wrapper = checkSetup(container, ID);
+    expect(wrapper.classList).toContain(`${DEFAULT_CLASS}`);
+
+    //day
+    const day = wrapper.childNodes[0];
+    const dayInput = day.childNodes[1];
+    expect(dayInput.classList).not.toContain('govuk-input--error');
+
+    //month
+    const month = wrapper.childNodes[1];
+    const monthInput = month.childNodes[1];
+    expect(monthInput.classList).toContain('govuk-input--error');
+
+    //year
+    const year = wrapper.childNodes[2];
+    const yearInput = year.childNodes[1];
+    expect(yearInput.classList).not.toContain('govuk-input--error');
+  });
+
   it('should update values when entered', async () => {
     const ID = 'dateinput';
     const FIELD_ID = 'dateinputId';
@@ -106,7 +136,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        error={{ year: true, month: true, day: true }}
+        propsInError={{ year: true, month: true, day: true }}
         value={'6-3-2076'}
         onChange={ON_CHANGE}
       />
