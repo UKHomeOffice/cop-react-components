@@ -70,7 +70,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        propsinerror={{ year: true, month: true, day: true }}
+        propsInError={{ year: true, month: true, day: true }}
       />
     );
     const wrapper = checkSetup(container, ID);
@@ -100,7 +100,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        propsinerror={{ year: false, month: true, day: false }}
+        propsInError={{ year: false, month: true, day: false }}
       />
     );
     const wrapper = checkSetup(container, ID);
@@ -136,7 +136,7 @@ describe('DateInput', () => {
         data-testid={ID}
         id={ID}
         fieldId={FIELD_ID}
-        propsinerror={{ year: true, month: true, day: true }}
+        propsInError={{ year: true, month: true, day: true }}
         value={'6-3-2076'}
         onChange={ON_CHANGE}
       />
