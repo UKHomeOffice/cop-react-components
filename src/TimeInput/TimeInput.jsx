@@ -1,13 +1,15 @@
 // Global Imports
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 // Local imports
-import { classBuilder } from '../utils/Utils';
-import './TimeInput.scss';
-import TextInput from '../TextInput';
-import Label from '../Label';
+import FormGroup  from '../Label';
 import Readonly from '../Readonly';
+import TextInput from '../TextInput';
+import { classBuilder } from '../utils/Utils';
+
+// Styles
+import './TimeInput.scss';
 
 export const DEFAULT_CLASS = 'govuk-date-input';
 const TimeInput = ({
@@ -35,9 +37,9 @@ const TimeInput = ({
   return (
     <div className={DEFAULT_CLASS} id={id} {...attrs}>
       <div className={classes('item')}>
-        <Label id={`${id}-hour-label`} className={`${classes('label')}`} htmlFor={`${id}-hour`} required>
+        <FormGroup  id={`${id}-hour-label`} className={`${classes('label')}`} htmlFor={`${id}-hour`} required>
           Hour
-        </Label>
+        </FormGroup >
         <TextInput
           id={`${id}-hour`}
           fieldId={`${fieldId}-hour`}
@@ -52,9 +54,9 @@ const TimeInput = ({
         />
       </div>
       <div className={classes('item')}>
-        <Label id={`${id}-minute-label`} className={`${classes('label')}`} htmlFor={`${id}-minute`} required>
+        <FormGroup  id={`${id}-minute-label`} className={`${classes('label')}`} htmlFor={`${id}-minute`} required>
           Minute
-        </Label>
+        </FormGroup >
         <TextInput
           id={`${id}-minute`}
           fieldId={`${fieldId}-minute`}
@@ -78,16 +80,8 @@ TimeInput.propTypes = {
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   className: PropTypes.string,
-  error: PropTypes.shape({
-    hour: PropTypes.bool,
-    minute: PropTypes.bool,
- 
-  }),
-  value: PropTypes.shape({
-    hour: PropTypes.number,
-    minute: PropTypes.number,
-
-  }),
+  error: PropTypes.any,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
 };

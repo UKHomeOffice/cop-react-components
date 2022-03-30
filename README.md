@@ -58,3 +58,15 @@ This section has moved here: [https://babeljs.io/docs/en/usage/#configuration](h
 ## To do
 
 - [ ] How to deploy
+
+# Using the Service
+## Versioning
+For versioning this project uses SemVer.
+
+## Authors
+This project is authored by the Home Office.
+
+## License
+This project is licensed under the MIT license. For details please see [License](./LICENSE).
+
+This project contains public sector information licensed under the Open Government Licence v3.0. (http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
