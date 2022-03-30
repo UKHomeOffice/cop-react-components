@@ -99,7 +99,11 @@ DateInput.propTypes = {
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   className: PropTypes.string,
   error: PropTypes.any,
-  propsinerror: PropTypes.any,
+  propsinerror: PropTypes.shape({
+    year: PropTypes.bool,
+    month: PropTypes.bool,
+    day: PropTypes.bool
+  }),
   value: PropTypes.string,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
