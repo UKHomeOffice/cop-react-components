@@ -127,7 +127,7 @@ If you're highlighting the whole date, style all the fields like this:
             id={ID}
             fieldId={ID}
             value={value}
-            error={{ year: true, month: true, day: true }}
+            propsInError={{ year: true, month: true, day: true }}
             onChange={(event) => onChange(event)}
           />
           <div>Currently entered date: {value}</div>
@@ -160,7 +160,7 @@ If you're highlighting just one field - either the day, month or year - only sty
             id={ID}
             fieldId={ID}
             value={value}
-            error={{ year: true }}
+            propsInError={{ year: true }}
             onChange={(event) => onChange(event)}
           />
         </FormGroup>
