@@ -15,21 +15,18 @@ export const DEFAULT_CLASS = "govuk-date-input";
 const TimeInput = ({
   id,
   fieldId,
-  classBlock,
-  classModifiers,
-  className,
   error,
   propsInError,
   value,
   onChange,
   readonly,
+  classBlock,
+  classModifiers,
+  className,
   ...attrs
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
   const [time, setTime] = useState(undefined);
-
-  
-
   useEffect(() => {
     if (value) {
       const [hour, minute] = value.split(":");
@@ -98,7 +95,7 @@ const TimeInput = ({
             inputMode="numeric"
             error={propsInError && propsInError[part.id] ? "error" : ""}
             className={classes("input")}
-            classModifiers={`width-${part.width}`}
+            classModifiers={`width-2`}
           />
         </FormGroup>
       ))}
