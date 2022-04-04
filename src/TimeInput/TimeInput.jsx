@@ -32,22 +32,17 @@ const TimeInput = ({
 
   useEffect(() => {
     if (value) {
-      console.log(value);
       const [hour, minute] = value.split(":");
       setTime({ hour, minute, });
     } else {
       setTime({ hour: "", minute: ""});
     }
-    console.log(value);
-    //console.log(time);
 
   }, [value, setTime]);
 
   const handleChange = (event) => {
     const name = event.target.name.replace(`${fieldId}-`, "");
     const value = event.target.value;
-    console.log(name);
-    console.log(value);
     setTime((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -59,9 +54,8 @@ const TimeInput = ({
 
   useEffect(() => {
     if (typeof onChange === "function" && time) {
-      let newValue = `${time.hour}-${time.minute}-${time}`;
+      let newValue = `${time.hour}-${time.minute}`;
       newValue = newValue === "--" ? "" : newValue;
-      console.log(newValue);
       if (newValue !== value) {
         onChange({ target: { name: fieldId, value: newValue } });
       }

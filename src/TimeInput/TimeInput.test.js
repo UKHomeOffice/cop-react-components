@@ -129,10 +129,10 @@ describe('TimeInput', () => {
     expect(hourInput.value).toEqual('14');
     fireEvent.change(hourInput, {target: {name: `${FIELD_ID}-hour`, value: 14 }});
     expect(onChangeCalls.length).toEqual(1);
-    // expect(onChangeCalls[0]).toMatchObject({ target:{
-    //   name:FIELD_ID,
-    //   value: '14:30'
-    // }});
+    expect(onChangeCalls[0]).toMatchObject({ target:{
+      name:FIELD_ID,
+      value: '14-30'
+    }});
 
     
 

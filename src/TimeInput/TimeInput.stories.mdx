@@ -112,7 +112,7 @@ If you're highlighting just one field - either the hour or minute - only style t
       const ID = "timeInputmissingminute";
       const [value, setValue] = useState('14:');
       const onChange = (event) => {
-       setValue(event.value);
+       setValue(event.target.value);
       };
       return (
         <FormGroup
@@ -140,7 +140,7 @@ If you're highlighting just one field - either the hour or minute - only style t
       const ID = "timeInputMissingHour";
       const [value, setValue] = useState(':30');
       const onChange = (event) => {
-       setValue(event.value);
+       setValue(event.target.value);
       };
       return (
         <FormGroup
