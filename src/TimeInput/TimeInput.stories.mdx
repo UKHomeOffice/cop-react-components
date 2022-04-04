@@ -7,6 +7,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 
 import Details from "../Details";
 import FormGroup from "../FormGroup";
+import Tag from '../Tag';
 import TimeInput from "./TimeInput";
 
 <Meta id="D-TimeInput" title="Time input" component={TimeInput} />
@@ -41,7 +42,7 @@ If you're asking more than one question on the page, do not set the contents of 
   <Story name="Standard">
     <FormGroup
       id="standard"
-      label="Time input?"
+      label="Time input"
       hint="Use 24-hour clock. For example, 14:30"
     >
       <TimeInput id="standard" fieldId="standard" />
@@ -62,7 +63,7 @@ If you're asking more than one question on the page, do not set the contents of 
           <TimeInput
             id="timeInputreadonly"
             fieldId="timeInputreadonly"
-            value={{ hour:14, minute:30 }}
+            value={'14:30'}
             readonly
           />
         </FormGroup>
@@ -79,18 +80,9 @@ If you're highlighting the whole time, style all the fields like this:
   <Story name="TimeInputError">
     {() => {
       const ID = "TimeInputerror";
-      const [value, setValue] = useState({
-        hour:  0,
-        minute:  0,
-      });
+      const [value, setValue] = useState('14:30');
       const onChange = (event) => {
-        const id = event.target.id;
-        if (id === `${ID}-hour`) {
-          setValue((prev) => ({ ...prev, hour: event.target.value }));
-        }
-        if (id === `${ID}-minute`) {
-          setValue((prev) => ({ ...prev, minute: event.target.value }));
-        }
+     setValue(event.target.value)
       };
       return (
         <FormGroup
@@ -102,10 +94,11 @@ If you're highlighting the whole time, style all the fields like this:
           <TimeInput
             id={ID}
             fieldId={ID}
-            
-            error={{ hour: true, minute: true }}
-            onChange={(event) => onChange(event)}
+            value={value}
+            propsInError={{ hour: true, minute: true }}
+           // onChange={(event) => onChange(event)}
           />
+           <div>Currently entered time: {value}</div>
         </FormGroup>
       );
     }}
@@ -113,60 +106,13 @@ If you're highlighting the whole time, style all the fields like this:
 </Canvas>
 
 If you're highlighting just one field - either the hour or minute - only style the field that has an error. The error message must say which field has an error, like this:
-
-<Canvas>
-  <Story name="timeInputMissingHour">
-    {() => {
-      const ID = "timeInputMissingHour";
-      const [value, setValue] = useState({
-        hour: 12,
-        minute: "",
-      });
-      const onChange = (event) => {
-        const id = event.target.id;
-        if (id === `${ID}-hour`) {
-          setValue((prev) => ({ ...prev, hour: event.target.value }));
-        }
-        if (id === `${ID}-minute`) {
-          setValue((prev) => ({ ...prev, minute: event.target.value }));
-        }
-      };
-      return (
-        <FormGroup
-          id="TimeInput"
-          hint="Use 24-hour clock. For example, 14:30"
-          error="Event time must include hours"
-          label={<h1 className="govuk-heading-l">Time input?</h1>}
-        >
-          <TimeInput
-            id={ID}
-            fieldId={ID}
-            value={{}}
-            error={{ hour: true }}
-            onChange={(event) => onChange(event)}
-          />
-        </FormGroup>
-      );
-    }}
-  </Story>
-</Canvas>
-
 <Canvas>
   <Story name="timeInputMissingMinute">
     {() => {
       const ID = "timeInputmissingminute";
-      const [value, setValue] = useState({
-        hour: 12,
-        minute: "",
-      });
+      const [value, setValue] = useState('14:');
       const onChange = (event) => {
-        const id = event.target.id;
-        if (id === `${ID}-hour`) {
-          setValue((prev) => ({ ...prev, hour: event.target.value }));
-        }
-        if (id === `${ID}-minute`) {
-          setValue((prev) => ({ ...prev, minute: event.target.value }));
-        }
+       setValue(event.value);
       };
       return (
         <FormGroup
@@ -178,8 +124,8 @@ If you're highlighting just one field - either the hour or minute - only style t
           <TimeInput
             id={ID}
             fieldId={ID}
-            value={{}}
-            error={{ minute: true }}
+            value={value}
+            propsInError={{minute: true }}
             onChange={(event) => onChange(event)}
           />
         </FormGroup>
@@ -187,6 +133,35 @@ If you're highlighting just one field - either the hour or minute - only style t
     }}
   </Story>
 </Canvas>
+
+<Canvas>
+  <Story name="timeInputMissingHour">
+    {() => {
+      const ID = "timeInputMissingHour";
+      const [value, setValue] = useState(':30');
+      const onChange = (event) => {
+       setValue(event.value);
+      };
+      return (
+        <FormGroup
+          id="TimeInput"
+          hint="Use 24-hour clock. For example, 14:30"
+          error="Event time must include hours"
+          label={<h1 className="govuk-heading-l">Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{ hour: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
 
 
 Make sure errors follow the guidance in error message and have specific error messages for specific error states.
