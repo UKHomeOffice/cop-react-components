@@ -15,14 +15,14 @@ export const DEFAULT_CLASS = 'govuk-date-input';
 const DateInput = ({
   id,
   fieldId,
-  classBlock,
-  classModifiers,
-  className,
   error,
   propsInError,
   value,
   onChange,
   readonly,
+  classBlock,
+  classModifiers,
+  className,
   ...attrs
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
