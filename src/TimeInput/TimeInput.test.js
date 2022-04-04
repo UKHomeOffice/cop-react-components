@@ -139,8 +139,13 @@ describe('TimeInput', () => {
     //minute
     const minuteInput = wrapper.childNodes[1].childNodes[1];
     expect(minuteInput.value).toEqual('30');
-    fireEvent.change(minuteInput, { target: {value: 2 }});
+    fireEvent.change(minuteInput, {target: {name: `${FIELD_ID}-minute`, value: 40 }});
     expect(onChangeCalls.length).toEqual(2);
+    expect(onChangeCalls[0]).toMatchObject({ target:{
+      name:FIELD_ID,
+      value: '20:30'
+    }});
+    
   });
 
   it('should appropriately set up the necessary components when read only', async () => {
