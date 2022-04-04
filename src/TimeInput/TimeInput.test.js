@@ -127,11 +127,11 @@ describe('TimeInput', () => {
     //hour
     const hourInput = wrapper.childNodes[0].childNodes[1];
     expect(hourInput.value).toEqual('14');
-    fireEvent.change(hourInput, {target: {name: `${FIELD_ID}-hour`, value: 14 }});
+    fireEvent.change(hourInput, {target: {name: `${FIELD_ID}-hour`, value: 20 }});
     expect(onChangeCalls.length).toEqual(1);
     expect(onChangeCalls[0]).toMatchObject({ target:{
       name:FIELD_ID,
-      value: '14:30'
+      value: '20:30'
     }});
 
     
