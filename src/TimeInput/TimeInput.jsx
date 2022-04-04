@@ -54,8 +54,8 @@ const TimeInput = ({
 
   useEffect(() => {
     if (typeof onChange === "function" && time) {
-      let newValue = `${time.hour}-${time.minute}`;
-      newValue = newValue === "--" ? "" : newValue;
+      let newValue = `${time.hour}:${time.minute}`;
+      newValue = newValue === ":" ? "" : newValue;
       if (newValue !== value) {
         onChange({ target: { name: fieldId, value: newValue } });
       }

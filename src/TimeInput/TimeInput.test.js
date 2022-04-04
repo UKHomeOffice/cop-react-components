@@ -102,7 +102,7 @@ describe('TimeInput', () => {
 
   });
 
-  it('should updage value when entered', async () => {
+  it('should update value when entered', async () => {
     const ID= 'timeinput';
     const FIELD_ID = 'timeinputId';
 
@@ -131,7 +131,7 @@ describe('TimeInput', () => {
     expect(onChangeCalls.length).toEqual(1);
     expect(onChangeCalls[0]).toMatchObject({ target:{
       name:FIELD_ID,
-      value: '14-30'
+      value: '14:30'
     }});
 
     
