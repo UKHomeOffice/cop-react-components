@@ -23,6 +23,7 @@ import Tag from './Tag';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import Utils from './utils/Utils';
+import TimeInput from './TimeInput/TimeInput';
 import VisuallyHidden from './VisuallyHidden';
 
 export {
@@ -55,6 +56,7 @@ export {
   Tag,
   TextArea,
   TextInput,
+  TimeInput,
   Utils,
   VisuallyHidden,
   XLargeHeading
