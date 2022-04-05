@@ -96,9 +96,9 @@ describe('TimeInput', () => {
     expect(hourInput.classList).not.toContain('govuk-input--error');
 
     //minute
-    const minute = wrapper.childNodes[0];
+    const minute = wrapper.childNodes[1];
     const minuteInput = minute.childNodes[1];
-    expect(minuteInput.classList).not.toContain('govuk-input-error')
+    expect(minuteInput.classList).toContain('govuk-input--error')
 
   });
 
