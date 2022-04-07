@@ -9,8 +9,7 @@ import { DEFAULT_CLASS as DEFAULT_READONLY_CLASS } from '../Readonly';
 
 describe('TimeInput', () => {
   const checkSetup = (container, testId) => {
-    const wrapper = getByTestId(container, testId);
-    return wrapper;
+    return getByTestId(container, testId);
   };
 
   it('should appropriately set up the necessary components', async () => {
@@ -25,8 +24,6 @@ describe('TimeInput', () => {
     /**** Hour ****/
     const hour = wrapper.childNodes[0];
     expect(hour.classList).toContain(`${DEFAULT_CLASS}__item`);
-
-
     const hourLabel = hour.childNodes[0];
     expect(hourLabel.classList).toContain(DEFAULT_LABEL_CLASS);
     expect(hourLabel.textContent).toEqual('Hour');
@@ -48,7 +45,6 @@ describe('TimeInput', () => {
     expect(minuteInput.classList).toContain('govuk-input--width-2');
     expect(minuteInput.id).toEqual(`${ID}-minute`);
     expect(minuteInput.name).toEqual(`${FIELD_ID}-minute`);
-
   });
 
   it('should show errors with appropriate styling', async () => {
@@ -99,13 +95,11 @@ describe('TimeInput', () => {
     const minute = wrapper.childNodes[1];
     const minuteInput = minute.childNodes[1];
     expect(minuteInput.classList).toContain('govuk-input--error')
-
   });
 
   it('should update value when entered', async () => {
     const ID= 'timeinput';
     const FIELD_ID = 'timeinputId';
-
     const onChangeCalls = [];
     const ON_CHANGE = (event) => {
       onChangeCalls.push(event);
@@ -123,7 +117,6 @@ describe('TimeInput', () => {
     const wrapper = checkSetup(container,ID);
     expect(wrapper.classList).toContain(`${DEFAULT_CLASS}`);
 
-
     //hour
     const hourInput = wrapper.childNodes[0].childNodes[1];
     expect(hourInput.value).toEqual('14');
@@ -134,8 +127,6 @@ describe('TimeInput', () => {
       value: '20:30'
     }});
 
-    
-
     //minute
     const minuteInput = wrapper.childNodes[1].childNodes[1];
     expect(minuteInput.value).toEqual('30');
@@ -145,7 +136,6 @@ describe('TimeInput', () => {
       name:FIELD_ID,
       value: '20:40'
     }});
-    
   });
 
   it('should appropriately set up the necessary components when read only', async () => {
@@ -165,5 +155,4 @@ describe('TimeInput', () => {
     expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
     expect(input.textContent).toEqual('14:30');
   });
-
 });

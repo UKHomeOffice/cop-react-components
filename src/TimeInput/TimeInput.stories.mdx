@@ -1,36 +1,34 @@
 <!-- Global imports -->
-
-import { useState } from "react";
-import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 
 <!-- Local imports -->
-
-import Details from "../Details";
-import FormGroup from "../FormGroup";
+import Details from '../Details';
+import FormGroup from '../FormGroup';
 import Tag from '../Tag';
-import TimeInput from "./TimeInput";
+import TimeInput from './TimeInput';
 
-<Meta id="D-TimeInput" title="Time input" component={TimeInput} />
+<Meta id='D-TimeInput' title='Time input' component={TimeInput} />
 
 # Time input
 
 <Canvas withToolbar>
-  <Story name="TimeInput">
+  <Story name='TimeInput'>
     {() => {
       return (
         <FormGroup
-          id="timeInput"
-          hint="Use 24-hour clock. For example, 14:30"
-          label={<h1 className="govuk-heading-l">Time Input</h1>}
+          id='timeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          label={<h1 className='govuk-heading-l'>Time Input</h1>}
         >
-          <TimeInput id="timeInput" fieldId="timeInput" />
+          <TimeInput id='timeInput' fieldId='timeInput' />
         </FormGroup>
       );
     }}
   </Story>
 </Canvas>
 
-<Details summary="Properties" className="no-indent">
+<Details summary='Properties' className='no-indent'>
   <ArgsTable of={TimeInput} />
 </Details>
 
@@ -39,13 +37,13 @@ import TimeInput from "./TimeInput";
 If you're asking more than one question on the page, do not set the contents of the <legend\> as the page heading. Read more about [asking multiple questions on question pages].
 
 <Canvas>
-  <Story name="Standard">
+  <Story name='Standard'>
     <FormGroup
-      id="standard"
-      label="Time input"
-      hint="Use 24-hour clock. For example, 14:30"
+      id='standard'
+      label='Time input'
+      hint='Use 24-hour clock. For example, 14:30'
     >
-      <TimeInput id="standard" fieldId="standard" />
+      <TimeInput id='standard' fieldId='standard' />
     </FormGroup>
   </Story>
 </Canvas>
@@ -53,16 +51,16 @@ If you're asking more than one question on the page, do not set the contents of 
 ## Read only
 
 <Canvas>
-  <Story name="timeInputReadOnly">
+  <Story name='timeInputReadOnly'>
     {() => {
       return (
         <FormGroup
-          id="timeInput"
-          label={<h1 className="govuk-heading-l">Time input?</h1>}
+          id='timeInput'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
         >
           <TimeInput
-            id="timeInputreadonly"
-            fieldId="timeInputreadonly"
+            id='timeInputreadonly'
+            fieldId='timeInputreadonly'
             value={'14:30'}
             readonly
           />
@@ -77,19 +75,19 @@ If you're asking more than one question on the page, do not set the contents of 
 If you're highlighting the whole time, style all the fields like this:
 
 <Canvas>
-  <Story name="TimeInputError">
+  <Story name='TimeInputError'>
     {() => {
-      const ID = "TimeInputerror";
+      const ID = 'TimeInputerror';
       const [value, setValue] = useState('14:30');
       const onChange = (event) => {
      setValue(event.target.value)
       };
       return (
         <FormGroup
-          id="timeInput"
-          hint="Use 24-hour clock. For example, 14:30"
-          error="Enter a valid time"
-          label={<h1 className="govuk-heading-l">Time input?</h1>}
+          id='timeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Enter a valid time'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
         >
           <TimeInput
             id={ID}
@@ -106,19 +104,19 @@ If you're highlighting the whole time, style all the fields like this:
 
 If you're highlighting just one field - either the hour or minute - only style the field that has an error. The error message must say which field has an error, like this:
 <Canvas>
-  <Story name="timeInputMissingMinute">
+  <Story name='timeInputMissingMinute'>
     {() => {
-      const ID = "timeInputmissingminute";
+      const ID = 'timeInputmissingminute';
       const [value, setValue] = useState('14:');
       const onChange = (event) => {
        setValue(event.target.value);
       };
       return (
         <FormGroup
-          id="TimeInput"
-          hint="Use 24-hour clock. For example, 14:30"
-          error="Event time must include minutes"
-          label={<h1 className="govuk-heading-l">Time input?</h1>}
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Event time must include minutes'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
         >
           <TimeInput
             id={ID}
@@ -134,19 +132,19 @@ If you're highlighting just one field - either the hour or minute - only style t
 </Canvas>
 
 <Canvas>
-  <Story name="timeInputMissingHour">
+  <Story name='timeInputMissingHour'>
     {() => {
-      const ID = "timeInputMissingHour";
+      const ID = 'timeInputMissingHour';
       const [value, setValue] = useState(':30');
       const onChange = (event) => {
        setValue(event.target.value);
       };
       return (
         <FormGroup
-          id="TimeInput"
-          hint="Use 24-hour clock. For example, 14:30"
-          error="Event time must include hours"
-          label={<h1 className="govuk-heading-l">Time input?</h1>}
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Event time must include hours'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
         >
           <TimeInput
             id={ID}
