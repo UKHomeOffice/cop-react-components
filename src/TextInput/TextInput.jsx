@@ -32,7 +32,6 @@ const TextInput = ({
   }
 
   const useWrapper = !!(prefix || suffix);
-
   const input = (
     <input
       {...attrs}
