@@ -1,17 +1,17 @@
 // Global Imports
-import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 // Local imports
-import FormGroup from "../FormGroup/FormGroup";
-import Readonly from "../Readonly";
-import TextInput from "../TextInput";
-import { classBuilder } from "../utils/Utils";
+import FormGroup from '../FormGroup/FormGroup';
+import Readonly from '../Readonly';
+import TextInput from '../TextInput';
+import { classBuilder } from '../utils/Utils';
 
 // Styles
-import "./TimeInput.scss";
+import './TimeInput.scss';
 
-export const DEFAULT_CLASS = "govuk-date-input";
+export const DEFAULT_CLASS = 'govuk-date-input';
 const TimeInput = ({
   id,
   fieldId,
@@ -29,30 +29,28 @@ const TimeInput = ({
   const [time, setTime] = useState(undefined);
   useEffect(() => {
     if (value) {
-      const [hour, minute] = value.split(":");
+      const [hour, minute] = value.split(':');
       setTime({ hour, minute, });
     } else {
-      setTime({ hour: "", minute: ""});
+      setTime({ hour: '', minute: ''});
     }
-
   }, [value, setTime]);
 
   const handleChange = (event) => {
-    const name = event.target.name.replace(`${fieldId}-`, "");
+    const name = event.target.name.replace(`${fieldId}-`, '');
     const value = event.target.value;
     setTime((prev) => ({ ...prev, [name]: value }));
   };
 
   const TIME_PARTS = [
-    { id: "hour", width: "2", label: "Hour" },
-    { id: "minute", width: "2", label: "Minute" },
- 
+    { id: 'hour', width: '2', label: 'Hour' },
+    { id: 'minute', width: '2', label: 'Minute' },
   ];
 
   useEffect(() => {
-    if (typeof onChange === "function" && time) {
+    if (typeof onChange === 'function' && time) {
       let newValue = `${time.hour}:${time.minute}`;
-      newValue = newValue === ":" ? "" : newValue;
+      newValue = newValue === ':' ? '' : newValue;
       if (newValue !== value) {
         onChange({ target: { name: fieldId, value: newValue } });
       }
@@ -83,7 +81,7 @@ const TimeInput = ({
           id={`${id}-${part.id}`}
           label={part.label}
           required
-          classBlock={classes("item")}
+          classBlock={classes('item')}
           key={`${id}-${part.id}`}
         >
           <TextInput
@@ -91,10 +89,10 @@ const TimeInput = ({
             fieldId={`${fieldId}-${part.id}`}
             value={time[part.id]}
             onChange={handleChange}
-            pattern="[0-9]*"
-            inputMode="numeric"
-            error={propsInError && propsInError[part.id] ? "error" : ""}
-            className={classes("input")}
+            pattern='[0-9]*'
+            inputMode='numeric'
+            error={propsInError && propsInError[part.id] ? 'error' : ''}
+            className={classes('input')}
             classModifiers={`width-2`}
           />
         </FormGroup>
@@ -112,7 +110,7 @@ TimeInput.propTypes = {
     PropTypes.arrayOf(PropTypes.string),
   ]),
   className: PropTypes.string,
-  error: PropTypes.any,
+  error: PropTypes.string,
   propsInError: PropTypes.shape({
     minute: PropTypes.bool,
     hour: PropTypes.bool,

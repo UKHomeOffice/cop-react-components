@@ -22,8 +22,8 @@ import Readonly from './Readonly';
 import Tag from './Tag';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
+import TimeInput from './TimeInput';
 import Utils from './utils/Utils';
-import TimeInput from './TimeInput/TimeInput';
 import VisuallyHidden from './VisuallyHidden';
 
 export {
