@@ -1,0 +1,208 @@
+<!-- Global imports -->
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
+import Details from '../Details';
+import FormGroup from '../FormGroup';
+import Tag from '../Tag';
+import TimeInput from './TimeInput';
+
+<Meta id='D-TimeInput' title='Time input' component={TimeInput} />
+
+# Time input
+
+<Canvas withToolbar>
+  <Story name='TimeInput'>
+    {() => {
+      return (
+        <FormGroup
+          id='timeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          label={<h1 className='govuk-heading-l'>Time Input</h1>}
+        >
+          <TimeInput id='timeInput' fieldId='timeInput' />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Details summary='Properties' className='no-indent'>
+  <ArgsTable of={TimeInput} />
+</Details>
+
+## If you're asking more than one question on the page
+
+If you're asking more than one question on the page, do not set the contents of the <legend\> as the page heading. Read more about [asking multiple questions on question pages].
+
+<Canvas>
+  <Story name='Standard'>
+    <FormGroup
+      id='standard'
+      label='Time input'
+      hint='Use 24-hour clock. For example, 14:30'
+    >
+      <TimeInput id='standard' fieldId='standard' />
+    </FormGroup>
+  </Story>
+</Canvas>
+
+## Read only
+
+<Canvas>
+  <Story name='timeInputReadOnly'>
+    {() => {
+      return (
+        <FormGroup
+          id='timeInput'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id='timeInputreadonly'
+            fieldId='timeInputreadonly'
+            value={'14:30'}
+            readonly
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Error messages
+
+If you're highlighting the whole time, style all the fields like this:
+
+<Canvas>
+  <Story name='TimeInputError'>
+    {() => {
+      const ID = 'TimeInputerror';
+      const [value, setValue] = useState('14:30');
+      const onChange = (event) => {
+     setValue(event.target.value)
+      };
+      return (
+        <FormGroup
+          id='timeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Enter a valid time'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{ hour: true, minute: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+If you're highlighting just one field - either the hour or minute - only style the field that has an error. The error message must say which field has an error, like this:
+<Canvas>
+  <Story name='timeInputMissingMinute'>
+    {() => {
+      const ID = 'timeInputmissingminute';
+      const [value, setValue] = useState('14:');
+      const onChange = (event) => {
+       setValue(event.target.value);
+      };
+      return (
+        <FormGroup
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Event time must include minutes'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{minute: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='timeInputMissingHour'>
+    {() => {
+      const ID = 'timeInputMissingHour';
+      const [value, setValue] = useState(':30');
+      const onChange = (event) => {
+       setValue(event.target.value);
+      };
+      return (
+        <FormGroup
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Event time must include hours'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{ hour: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+
+
+Make sure errors follow the guidance in error message and have specific error messages for specific error states.
+
+If there's more than one error, show the highest priority error message. In order of priority, show error messages about:
+
+- missing or incomplete informatio*
+- information that cannot be correct (for example, the number '25' in the hour field
+- information that fails validation for another reason
+
+### If nothing is entered
+
+Highlight the time input as a whole.
+
+Say 'Enter [whatever it is]'. For example, 'Enter event time'.
+
+### If the time is incomplete
+
+HHighlight the hour or minute field where the information is missing.
+
+Say '[whatever it is] must include a [whatever is missing]'.
+
+For example, 'Event time must include minutes'.
+
+### If invalid hours and minutes given
+
+Highlight the time input as a whole.
+
+Say 'Enter the event time in hours and minutes'.
+
+### If invalid hours given
+
+Highlight the hour field.
+
+Say 'Enter number of hours between 0 and 23'.
+
+### If invalid minutes given
+
+Highlight the minute field.
+
+Say 'Enter number of minutes between 0 and 59'.
+
+
+[ask users for times]: https://design-system.service.gov.uk/patterns/times/
+[why and how to set legends as headings]: https://design-system.service.gov.uk/get-started/labels-legends-headings/
+[asking multiple questions on question pages]: https://design-system.service.gov.uk/patterns/question-pages/#asking-multiple-questions-on-a-page
+[error message]: https://design-system.service.gov.uk/components/error-message/

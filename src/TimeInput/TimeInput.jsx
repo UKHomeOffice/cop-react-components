@@ -6,13 +6,13 @@ import React, { useEffect, useState } from 'react';
 import FormGroup from '../FormGroup/FormGroup';
 import Readonly from '../Readonly';
 import TextInput from '../TextInput';
-import { classBuilder, getMonthName } from '../utils/Utils';
+import { classBuilder } from '../utils/Utils';
 
 // Styles
-import './DateInput.scss';
+import './TimeInput.scss';
 
 export const DEFAULT_CLASS = 'govuk-date-input';
-const DateInput = ({
+const TimeInput = ({
   id,
   fieldId,
   error,
@@ -26,65 +26,74 @@ const DateInput = ({
   ...attrs
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
-  const [date, setDate] = useState(undefined);
-
+  const [time, setTime] = useState(undefined);
   useEffect(() => {
     if (value) {
-      const [ day, month, year ] = value.split('-');
-      setDate({ day, month, year });
+      const [hour, minute] = value.split(':');
+      setTime({ hour, minute, });
     } else {
-      setDate({ day: '', month: '', year: '' });
+      setTime({ hour: '', minute: ''});
     }
-  }, [value, setDate]);
+  }, [value, setTime]);
 
   const handleChange = (event) => {
     const name = event.target.name.replace(`${fieldId}-`, '');
     const value = event.target.value;
-    setDate((prev) => ({ ...prev, [name]: value }));
+    setTime((prev) => ({ ...prev, [name]: value }));
   };
 
-  const DATE_PARTS = [
-    { id: 'day', width: '2', label: 'Day' },
-    { id: 'month', width: '2', label: 'Month' },
-    { id: 'year', width: '4', label: 'Year' }
+  const TIME_PARTS = [
+    { id: 'hour', width: '2', label: 'Hour' },
+    { id: 'minute', width: '2', label: 'Minute' },
   ];
 
   useEffect(() => {
-    if (typeof onChange === 'function' && date) {
-      let newValue = `${date.day}-${date.month}-${date.year}`;
-      newValue = (newValue === '--') ? '' : newValue;
+    if (typeof onChange === 'function' && time) {
+      let newValue = `${time.hour}:${time.minute}`;
+      newValue = newValue === ':' ? '' : newValue;
       if (newValue !== value) {
-        onChange({ target: { name: fieldId, value: newValue }});
+        onChange({ target: { name: fieldId, value: newValue } });
       }
     }
-  }, [date, value, fieldId, onChange]);
+  }, [time, value, fieldId, onChange]);
 
-  if (!date) {
+  if (!time) {
     return null;
   }
 
   if (readonly) {
     return (
-      <Readonly id={id} classModifiers={classModifiers} className={className} {...attrs}>
-        {date.day} {getMonthName(date.month)} {date.year}
+      <Readonly
+        id={id}
+        classModifiers={classModifiers}
+        className={className}
+        {...attrs}
+      >
+        {time.hour}:{time.minute}
       </Readonly>
     );
   }
 
   return (
     <div className={DEFAULT_CLASS} id={id} {...attrs}>
-      {DATE_PARTS.map(part => (
-        <FormGroup id={`${id}-${part.id}`} label={part.label} required classBlock={classes('item')} key={`${id}-${part.id}`}>
+      {TIME_PARTS.map((part) => (
+        <FormGroup
+          id={`${id}-${part.id}`}
+          label={part.label}
+          required
+          classBlock={classes('item')}
+          key={`${id}-${part.id}`}
+        >
           <TextInput
             id={`${id}-${part.id}`}
             fieldId={`${fieldId}-${part.id}`}
-            value={date[part.id]}
+            value={time[part.id]}
             onChange={handleChange}
             pattern='[0-9]*'
             inputMode='numeric'
             error={propsInError && propsInError[part.id] ? 'error' : ''}
             className={classes('input')}
-            classModifiers={`width-${part.width}`}
+            classModifiers={`width-2`}
           />
         </FormGroup>
       ))}
@@ -92,25 +101,27 @@ const DateInput = ({
   );
 };
 
-DateInput.propTypes = {
+TimeInput.propTypes = {
   id: PropTypes.string.isRequired,
   fieldId: PropTypes.string.isRequired,
   classBlock: PropTypes.string,
-  classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  classModifiers: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
   className: PropTypes.string,
-  error: PropTypes.any,
+  error: PropTypes.string,
   propsInError: PropTypes.shape({
-    year: PropTypes.bool,
-    month: PropTypes.bool,
-    day: PropTypes.bool
+    minute: PropTypes.bool,
+    hour: PropTypes.bool,
   }),
   value: PropTypes.string,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
 };
 
-DateInput.defaultProps = {
+TimeInput.defaultProps = {
   classBlock: DEFAULT_CLASS,
 };
 
-export default DateInput;
+export default TimeInput;
