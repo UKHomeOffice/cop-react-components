@@ -78,7 +78,7 @@ If you're highlighting the whole time, style all the fields like this:
   <Story name='TimeInputError'>
     {() => {
       const ID = 'TimeInputerror';
-      const [value, setValue] = useState('14:30');
+      const [value, setValue] = useState('');
       const onChange = (event) => {
      setValue(event.target.value)
       };
@@ -158,6 +158,63 @@ If you're highlighting just one field - either the hour or minute - only style t
     }}
   </Story>
 </Canvas>
+
+<Canvas>
+  <Story name='timeInputHour'>
+    {() => {
+      const ID = 'timeInputHour';
+      const [value, setValue] = useState('26:30');
+      const onChange = (event) => {
+       setValue(event.target.value);
+      };
+      return (
+        <FormGroup
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Enter number of hours between 0 and 23'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{ hour: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name='timeInputMinute0'>
+    {() => {
+      const ID = 'timeInputMinute0';
+      const [value, setValue] = useState('14:65');
+      const onChange = (event) => {
+       setValue(event.target.value);
+      };
+      return (
+        <FormGroup
+          id='TimeInput'
+          hint='Use 24-hour clock. For example, 14:30'
+          error='Enter number of minutes between 0 and 59'
+          label={<h1 className='govuk-heading-l'>Time input?</h1>}
+        >
+          <TimeInput
+            id={ID}
+            fieldId={ID}
+            value={value}
+            propsInError={{ minute: true }}
+            onChange={(event) => onChange(event)}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
 
 
 
