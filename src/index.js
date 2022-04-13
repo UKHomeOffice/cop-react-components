@@ -22,6 +22,7 @@ import Readonly from './Readonly';
 import Tag from './Tag';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
+import TimeInput from './TimeInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
 
@@ -55,6 +56,7 @@ export {
   Tag,
   TextArea,
   TextInput,
+  TimeInput,
   Utils,
   VisuallyHidden,
   XLargeHeading
