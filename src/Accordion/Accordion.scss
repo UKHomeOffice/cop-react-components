@@ -1,18 +1,20 @@
-$govuk-link-colour: #005ea5;
-
 @import 'node_modules/govuk-frontend/govuk/_base';
 @import 'node_modules/govuk-frontend/govuk/components/accordion/';
+
+$govuk-link-colour: #005ea5;
+
+$hods-accordion-border: #000000;
 
 .hods-accordion {
   .govuk-accordion {
     // Border at the bottom of the whole accordion
-    border-bottom: 3px solid $govuk-link-colour;
+    border-bottom: 1px solid $hods-accordion-border;
 
     &__section-header {
       position: relative;
       // Safe area on the right to avoid clashing with icon
       padding-right: 40px;
-      border-top: 3px solid $govuk-link-colour;
+      border-top: 1px solid $hods-accordion-border;
       cursor: pointer;
     }
 
