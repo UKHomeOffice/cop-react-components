@@ -1,4 +1,4 @@
-import Accordion from './Accordion';
+import Accordion, { AccordionItem } from './Accordion';
 import Alert from './Alert';
 import Autocomplete from './Autocomplete';
 import BackLink from './BackLink';
@@ -28,6 +28,7 @@ import VisuallyHidden from './VisuallyHidden';
 
 export {
   Accordion,
+  AccordionItem,
   Alert,
   Autocomplete,
   BackLink,
