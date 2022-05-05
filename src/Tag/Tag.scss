@@ -15,6 +15,9 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
   &::first-letter {
     text-transform: uppercase;
   }
+  &--dark-grey{
+    background: #5C6367;
+  }
 }
 
 @include hods-tag-colours('inactive'); // Deprecated.
