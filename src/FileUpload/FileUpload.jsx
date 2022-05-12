@@ -144,15 +144,13 @@ FileUpload.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   readonly: PropTypes.bool,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      url: PropTypes.string,
-      name: PropTypes.string,
-      type: PropTypes.string,
-      file: PropTypes.any
-    })
-  ]),
+  value: PropTypes.shape({
+    name: PropTypes.string,
+    extension: PropTypes.string,
+    type: PropTypes.string,
+    file: PropTypes.any,
+    url: PropTypes.string,
+  }),
   onChange: PropTypes.func,
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),

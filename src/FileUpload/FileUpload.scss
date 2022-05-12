@@ -12,7 +12,7 @@
       border: solid 4px $govuk-input-border-colour;
       outline: 3px solid $govuk-focus-colour;
       margin: -3px;
-      padding: 6px 1px;
+      padding: 6px 2px;
     }
   }
   &__label {
@@ -20,7 +20,7 @@
     box-sizing: border-box;
     @include govuk-font($size: 19);
     color: $govuk-text-colour;
-    padding: 7px 2px;
+    padding: 7px 3px;
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
@@ -58,6 +58,7 @@
   &--error {
     .hods-file-upload__label {
       border: 2px solid $govuk-error-colour;
+      padding: 5px 1px;
     }
   }
 
