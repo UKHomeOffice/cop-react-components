@@ -1,0 +1,72 @@
+@import "node_modules/govuk-frontend/govuk/_base";
+
+.hods-file-upload {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  &__select {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    &:focus + label {
+      border: solid 4px $govuk-input-border-colour;
+      outline: 3px solid $govuk-focus-colour;
+      margin: -3px;
+      padding: 6px 1px;
+    }
+  }
+  &__label {
+    display: inline-block;
+    box-sizing: border-box;
+    @include govuk-font($size: 19);
+    color: $govuk-text-colour;
+    padding: 7px 2px;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &-button {
+      border: solid 1px $govuk-input-border-colour;
+      border-radius: 4px;
+      background-color: #efefef;
+      padding: 0.25rem;
+      margin-right: 3px;
+      &:hover {
+        background-color: #e5e5e5;
+        cursor: pointer;
+      }
+    }
+  }
+  &__remove {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
+
+  &--disabled {
+    .hods-file-upload__label {
+      pointer-events: none;
+      color: #0b0c0c99;
+      &-button {
+        color: #b1b4b6;
+        border-color: #b1b4b699;
+        background: #e0e0e080;
+      }
+    }
+  }
+
+  &--error {
+    .hods-file-upload__label {
+      border: 2px solid $govuk-error-colour;
+    }
+  }
+
+  &__thumb, &__icon {
+    display: block;
+    margin-top: 0.5rem;
+  }
+  &__thumb {
+    width: 50%;
+    border: solid 1px $govuk-input-border-colour;
+  }
+}

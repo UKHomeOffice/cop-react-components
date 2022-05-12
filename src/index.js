@@ -10,6 +10,7 @@ import Details from './Details';
 import FormGroup from './FormGroup';
 import ErrorMessage from './ErrorMessage';
 import ErrorSummary from './ErrorSummary';
+import FileUpload from './FileUpload';
 import Heading, { LargeHeading, MediumHeading, SmallHeading, XLargeHeading } from './Heading';
 import Hint from './Hint';
 import InsetText from './InsetText';
@@ -39,6 +40,7 @@ export {
   Details,
   ErrorMessage,
   ErrorSummary,
+  FileUpload,
   FormGroup,
   Heading,
   Hint,
