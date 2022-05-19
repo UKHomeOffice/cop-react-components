@@ -17,6 +17,7 @@ import InsetText from './InsetText';
 import Label from './Label';
 import Link from './Link';
 import Markup from './Markup';
+import NotificationBanner from './NotificationBanner';
 import Panel from './Panel';
 import Radios, { Radio } from './Radios';
 import Readonly from './Readonly';
@@ -50,6 +51,7 @@ export {
   Link,
   Markup,
   MediumHeading,
+  NotificationBanner,
   Panel,
   Radio,
   Radios,

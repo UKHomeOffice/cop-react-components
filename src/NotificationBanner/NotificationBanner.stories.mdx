@@ -1,0 +1,78 @@
+<!-- Global imports -->
+import { useState } from 'react';
+import { Canvas, Meta, Props, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
+import Details from '../Details';
+import Link from '../Link';
+import Tag from '../Tag';
+import NotificationBanner from './NotificationBanner';
+
+<Meta title="Notification banner" id="D-NotificationBanner" component={ NotificationBanner } />
+
+# Notification banner
+
+<p><Tag text="Experimental" /></p>
+
+This component is currently experimental because more research is needed to validate it.
+
+Use a notification banner to tell the user about something they need to know about, but that's not
+directly related to the page content.
+
+<Canvas>
+  <Story name="Default">
+    <NotificationBanner
+      title="Important"
+      heading={
+        <>
+          You have 7 days left to send your application. <Link href="#">View application</Link>
+        </>
+      }
+    />
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <Props of={ NotificationBanner } />
+</Details>
+
+# When to use this component
+A notification banner lets you tell the user about something that's not directly
+relevant to the thing they're trying to do on that page of the service. For example:
+
+* telling the user about a problem that's affecting the service as a whole (for
+example, delays in processing applications because of an emergency)
+* telling the user about something that affects them in particular (for example, an
+approaching deadline they need to meet)
+* telling the user about the outcome of something they've just done on a previous page
+(for example, confirming that an email has been sent)
+
+# When not to use this component
+Use notification banners sparingly.
+There's <Link href="https://www.nngroup.com/articles/banner-blindness-old-and-new-findings/">evidence that people often miss them</Link>,
+and using them too often is likely to make this problem worse.
+
+If the information is directly relevant to the thing the user is doing on that page,
+put the information in the main page content instead.
+Use <Link href="./?path=/docs/d-inset-text">inset text</Link>
+or <Link href="https://design-system.service.gov.uk/components/warning-text/">warning text</Link>
+if it needs to stand out.
+
+Do not:
+* use a notification banner to tell the user about validation errors - use an error message and error summary instead
+* show a notification banner and an error summary on the same page - just show the error summary
+
+# How it works
+Position a notification banner immediately before the page `h1`.
+The notification banner should be the same width as the page's other content, such as
+components, headings and body text. For example, if the other content takes up
+two-thirds of the screen on desktop devices, then the notification banner should also
+take up two-thirds. <Link href="https://design-system.service.gov.uk/components/notification-banner/#:~:text=Read%20about%20how%20to%20lay%20out%20pages">Read about how to lay out pages</Link>.
+
+It uses `role ="region"` and `aria-labelledby="govuk-notification-banner-title"`
+(with `id="govuk-notification-banner-title"` on `<govuk-notification-banner__title>`)
+so that screen reader users can navigate to the notification banner.
+
+Avoid showing more than one notification banner on the same page. Instead, combine the
+messages in a single notification banner. If the messages are too different to combine,
+only show the highest priority notification banner.
