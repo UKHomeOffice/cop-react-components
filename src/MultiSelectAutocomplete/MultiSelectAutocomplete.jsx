@@ -1,3 +1,11 @@
+/**
+ * EXPERIMENTAL
+ * 
+ * If this replaces the current "Autocomplete" in the future,
+ * the "MultiSelectAutocomplete" should remain an alias or else
+ * it would have to be a major release and not backwards compatible.
+ */
+
 import React, { useRef } from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
