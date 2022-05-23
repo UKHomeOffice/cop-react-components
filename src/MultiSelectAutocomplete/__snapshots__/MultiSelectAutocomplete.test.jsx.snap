@@ -114,7 +114,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
             alpha
           </div>
           <div
-            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
+            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
@@ -225,7 +225,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
             alpha
           </div>
           <div
-            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
+            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
@@ -253,7 +253,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
             bravo
           </div>
           <div
-            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
+            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
