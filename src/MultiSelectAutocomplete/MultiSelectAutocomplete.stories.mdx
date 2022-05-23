@@ -8,82 +8,35 @@ import ButtonGroup from '../ButtonGroup';
 import Details from '../Details';
 import Label from '../Label';
 import Tag from '../Tag';
-import MultiAutocomplete from './MultiAutocomplete';
+import MultiSelectAutocomplete from './MultiSelectAutocomplete';
 import { Countries, CountriesAsRefData } from './Countries-sb';
-import { Colours, ColoursAsRefData } from './Colours-sb'
 
 <!-- Styles -->
-import './MultiAutocomplete.stories.scss';
+import './MultiSelectAutocomplete.stories.scss';
 
-<Meta title="Multi Autocomplete" id="D-MultiAutocomplete" component={ MultiAutocomplete } />
+<Meta title="Multi Select Autocomplete" id="D-MultiSelectAutocomplete" component={ MultiSelectAutocomplete } />
 
-# Multi Autocomplete
+# Multi Select Autocomplete
 
 <p><Tag text="Experimental" /></p>
 
 Make a page easier to scan by letting users reveal more detailed information only if they need it.
 
-### Items is either an object or an array of objects
+### Items is an array of objects
 
-In this example, the data items take the form `{ "value": "GB", "label": "United Kingdom" }`.
+In this example, the data items take the form 
+`[{ "value": "GB", "label": "United Kingdom" }, { "value": "FR", "label": "France" }, ...]`.
 
 <Canvas>
   <Story name="Default">
     {() => {
-      const [selected, setSelected] = useState({ value: "", label: "Select..." });
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
         options: Countries,
-        isMulti: false,
-        className: DEFAULT_CLASS,
-        disabled: false,
-        readonly: false,
-        onConfirm: undefined,
-        templates: undefined,
-        item: { value: "id", label: "name" },
-        value: selected
-      };
-      const ON_CHANGE = ({ target }) => {
-        setSelected(target.value);
-      };
-      return (
-        <form autoComplete="off">
-          <Label id="multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
-            {...ATTRS}
-            onChange={ON_CHANGE}
-          />
-        </form>
-      );
-    }}
-  </Story>
-</Canvas>
-
-<Details summary="Properties" className="no-indent">
-  <ArgsTable of={ MultiAutocomplete } />
-</Details>
-
-
-# Variants
-
-## Multi selection
-
-In this example, the data items take the form 
-`[{ "value": "#d4351c", "label": "Red" }, { "value": "#00703c", "label": "Green" }]`, an array of objects.
-
-<Canvas>
-  <Story name="Multiple selection">
-    {() => {
-      const [selected, setSelected] = useState([]);
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
-      const ATTRS = {
-        id: DEFAULT_ID,
-        fieldId: DEFAULT_ID,
-        options: Colours,
         isMulti: true,
         className: DEFAULT_CLASS,
         disabled: false,
@@ -98,8 +51,56 @@ In this example, the data items take the form
       };
       return (
         <form autoComplete="off">
-          <Label id="selections-multi-autocomplete">Pick your favourite colours</Label>
-          <MultiAutocomplete
+          <Label id="multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
+            {...ATTRS}
+            onChange={ON_CHANGE}
+          />
+        </form>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <ArgsTable of={ MultiSelectAutocomplete } />
+</Details>
+
+
+# Variants
+
+## Single selection
+
+### Item is an object
+
+In this example, the data items take the form `{ "value": "#d4351c", "label": "Red" }`, an array of objects.
+
+<Canvas>
+  <Story name="Single selection">
+    {() => {
+      const [selected, setSelected] = useState({ value: "", label: "Select..." });
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
+      const ATTRS = {
+        id: DEFAULT_ID,
+        fieldId: DEFAULT_ID,
+        options: Countries,
+        isMulti: false,
+        className: DEFAULT_CLASS,
+        disabled: false,
+        readonly: false,
+        onConfirm: undefined,
+        templates: undefined,
+        item: { value: "id", label: "name" },
+        value: selected
+      };
+      const ON_CHANGE = ({ target }) => {
+        setSelected(target.value);
+      };
+      return (
+        <form autoComplete="off">
+          <Label id="single-multi-select-autocomplete">Find your country of birth</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -114,14 +115,14 @@ In this example, the data items take the form
 <Canvas>
   <Story name="Error">
     {() => {
-      const [selected, setSelected] = useState({ value: "", label: "Select..." });
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
-        options: Colours,
-        isMulti: false,
+        options: Countries,
+        isMulti: true,
         className: DEFAULT_CLASS,
         disabled: false,
         readonly: false,
@@ -136,8 +137,8 @@ In this example, the data items take the form
       };
       return (
         <form autoComplete="off">
-          <Label id="error-multi-autocomplete">Pick a colour</Label>
-          <MultiAutocomplete
+          <Label id="error-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -152,14 +153,14 @@ In this example, the data items take the form
 <Canvas>
   <Story name="Disabled">
     {() => {
-      const [selected, setSelected] = useState({ value: "", label: "Select..." });
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
         options: Countries,
-        isMulti: false,
+        isMulti: true,
         className: DEFAULT_CLASS,
         disabled: true,
         readonly: false,
@@ -173,8 +174,8 @@ In this example, the data items take the form
       };
       return (
         <form autoComplete="off">
-          <Label id="disabled-multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
+          <Label id="disabled-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -189,14 +190,14 @@ In this example, the data items take the form
 <Canvas>
   <Story name="Disabled and error">
     {() => {
-      const [selected, setSelected] = useState({ value: "", label: "Select..." });
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
         options: Countries,
-        isMulti: false,
+        isMulti: true,
         className: DEFAULT_CLASS,
         disabled: true,
         readonly: false,
@@ -211,8 +212,8 @@ In this example, the data items take the form
       };
       return (
         <form autoComplete="off">
-          <Label id="disabled-error-multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
+          <Label id="disabled-error-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -226,7 +227,7 @@ In this example, the data items take the form
 <Canvas>
   <Story name="Initial selection">
     {() => {
-      const [selected, setSelected] = useState({ value: "FR", label: "France" });
+      const [selected, setSelected] = useState([{ value: "FR", label: "France" }]);
       const changeValue = (code) => {
         setSelected(Countries.find(c => c.value === code));
       };
@@ -236,13 +237,13 @@ In this example, the data items take the form
       const clearValue = () => {
         setSelected(null);
       };
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
         options: Countries,
-        isMulti: false,
+        isMulti: true,
         className: DEFAULT_CLASS,
         disabled: false,
         readonly: false,
@@ -256,8 +257,8 @@ In this example, the data items take the form
       };
       return (
         <form autoComplete="off">
-          <Label id="initial-multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
+          <Label id="initial-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -282,14 +283,14 @@ Reference data items include `value` and `label` properties: `{ "value": "GB", "
 <Canvas>
   <Story name="Reference data">
     {() => {
-      const [selected, setSelected] = useState({ value: "", label: "Select..." });
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
         options: CountriesAsRefData,
-        isMulti: false,
+        isMulti: true,
         className: DEFAULT_CLASS,
         disabled: false,
         readonly: false,
@@ -302,8 +303,86 @@ Reference data items include `value` and `label` properties: `{ "value": "GB", "
       };
       return (
         <form autoComplete="off">
-          <Label id="refdata-multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
+          <Label id="refdata-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
+            {...ATTRS}
+            onChange={ON_CHANGE}
+          />
+        </form>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Placeholder
+
+In this example, the placeholder text is `Select all that applies` for a multi select autocomplete.
+
+<Canvas>
+    <Story name="Multi Select Placeholder">
+    {() => {
+      const [selected, setSelected] = useState([]);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
+      const ATTRS = {
+        id: DEFAULT_ID,
+        fieldId: DEFAULT_ID,
+        options: Countries,
+        isMulti: true,
+        className: DEFAULT_CLASS,
+        disabled: false,
+        readonly: false,
+        onConfirm: undefined,
+        templates: undefined,
+        item: { value: "id", label: "name" },
+        value: selected,
+        placeholder: 'Select all that applies'
+      };
+      const ON_CHANGE = ({ target }) => {
+        setSelected(target.value);
+      };
+      return (
+        <form autoComplete="off">
+          <Label id="single-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
+            {...ATTRS}
+            onChange={ON_CHANGE}
+          />
+        </form>
+      );
+    }}
+  </Story>
+</Canvas>
+
+In this example, the placeholder text is `Select an option` for a single select autocomplete.
+
+<Canvas>
+  <Story name="Single Select Placeholder">
+    {() => {
+      const [selected, setSelected] = useState(null);
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
+      const ATTRS = {
+        id: DEFAULT_ID,
+        fieldId: DEFAULT_ID,
+        options: Countries,
+        isMulti: false,
+        className: DEFAULT_CLASS,
+        disabled: false,
+        readonly: false,
+        onConfirm: undefined,
+        templates: undefined,
+        item: { value: "id", label: "name" },
+        value: selected,
+        placeholder: 'Select an option'
+      };
+      const ON_CHANGE = ({ target }) => {
+        setSelected(target.value);
+      };
+      return (
+        <form autoComplete="off">
+          <Label id="single-multi-select-autocomplete">Find your country of birth</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
             onChange={ON_CHANGE}
           />
@@ -321,8 +400,8 @@ template looks like this: `'${label} (${value})'`.
 <Canvas>
   <Story name="Readonly">
     {() => {
-      const DEFAULT_CLASS = 'hods-multi-autocomplete';
-      const DEFAULT_ID = 'hods-multi-autocomplete_id';
+      const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
+      const DEFAULT_ID = 'hods-multi-select-autocomplete_id';
       const STURCTURE = { format: '${label} (${value})' };
       const ATTRS = {
         id: DEFAULT_ID,
@@ -333,13 +412,16 @@ template looks like this: `'${label} (${value})'`.
         readonly: true,
         onConfirm: undefined,
         item: { value: "id", label: "label" },
-        value: Countries.find(c => c.value === 'GB'),
+        value: [
+          Countries.find(c => c.value === 'GB'),
+          Countries.find(c => c.value === 'FR')
+          ],
         item: STURCTURE
       };
       return (
         <form autoComplete="off">
-          <Label id="readonly-multi-autocomplete">Find your country of birth</Label>
-          <MultiAutocomplete
+          <Label id="readonly-multi-select-autocomplete">Pick your holiday destinations</Label>
+          <MultiSelectAutocomplete
             {...ATTRS}
           />
         </form>

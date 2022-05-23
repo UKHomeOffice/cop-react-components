@@ -2,7 +2,7 @@
 
 exports[`Autocomplete should render a fully wired-up autocomplete component 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
     className=" css-2b097c-container"
@@ -10,15 +10,15 @@ exports[`Autocomplete should render a fully wired-up autocomplete component 1`] 
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-e56m7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete__value-container css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container css-g1d714-ValueContainer"
       >
         <div
-          className="hods-multi-autocomplete__placeholder css-1wa3eu0-placeholder"
+          className="hods-multi-select-autocomplete__placeholder css-1wa3eu0-placeholder"
         >
           Select...
         </div>
@@ -26,7 +26,7 @@ exports[`Autocomplete should render a fully wired-up autocomplete component 1`] 
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete__input"
+            className="hods-multi-select-autocomplete__input"
             style={
               Object {
                 "display": "inline-block",
@@ -81,7 +81,7 @@ exports[`Autocomplete should render a fully wired-up autocomplete component 1`] 
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -90,7 +90,7 @@ exports[`Autocomplete should render a fully wired-up autocomplete component 1`] 
 
 exports[`Autocomplete should render an autocomplete component in multi select mode with preselected value of alpha 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
     className=" css-2b097c-container"
@@ -98,23 +98,23 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-e56m7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete__value-container hods-multi-autocomplete__value-container--is-multi hods-multi-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--is-multi hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="css-13jmfyo-multiValue hods-multi-autocomplete__multi-value"
+          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
         >
           <div
-            className="css-10ku62j hods-multi-autocomplete__multi-value__label"
+            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
           >
             alpha
           </div>
           <div
-            className="css-5dgs50 hods-multi-autocomplete__multi-value__remove"
+            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
@@ -137,7 +137,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete__input"
+            className="hods-multi-select-autocomplete__input"
             style={
               Object {
                 "display": "inline-block",
@@ -192,7 +192,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -201,7 +201,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
 
 exports[`Autocomplete should render an autocomplete component in multi select mode with preselected values of alpha, bravo  1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
     className=" css-2b097c-container"
@@ -209,23 +209,23 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-e56m7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete__value-container hods-multi-autocomplete__value-container--is-multi hods-multi-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--is-multi hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="css-13jmfyo-multiValue hods-multi-autocomplete__multi-value"
+          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
         >
           <div
-            className="css-10ku62j hods-multi-autocomplete__multi-value__label"
+            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
           >
             alpha
           </div>
           <div
-            className="css-5dgs50 hods-multi-autocomplete__multi-value__remove"
+            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
@@ -245,15 +245,15 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
           </div>
         </div>
         <div
-          className="css-13jmfyo-multiValue hods-multi-autocomplete__multi-value"
+          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
         >
           <div
-            className="css-10ku62j hods-multi-autocomplete__multi-value__label"
+            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
           >
             bravo
           </div>
           <div
-            className="css-5dgs50 hods-multi-autocomplete__multi-value__remove"
+            className="css-5dgs50 hods-multi-select-autocomplete__multi-value__remove"
             onClick={[Function]}
             onMouseDown={[Function]}
             onTouchEnd={[Function]}
@@ -276,7 +276,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete__input"
+            className="hods-multi-select-autocomplete__input"
             style={
               Object {
                 "display": "inline-block",
@@ -331,7 +331,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -340,7 +340,7 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
 
 exports[`Autocomplete should render an autocomplete component with a preselected value of "alpha" 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
     className=" css-2b097c-container"
@@ -348,15 +348,15 @@ exports[`Autocomplete should render an autocomplete component with a preselected
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-e56m7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete__value-container hods-multi-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="hods-multi-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
         >
           alpha
         </div>
@@ -364,7 +364,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete__input"
+            className="hods-multi-select-autocomplete__input"
             style={
               Object {
                 "display": "inline-block",
@@ -419,7 +419,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -428,7 +428,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
 
 exports[`Autocomplete should render an autocomplete component with a preselected value of "bravo" 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
     className=" css-2b097c-container"
@@ -436,15 +436,15 @@ exports[`Autocomplete should render an autocomplete component with a preselected
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-e56m7-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete__value-container hods-multi-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="hods-multi-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
         >
           bravo
         </div>
@@ -452,7 +452,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete__input"
+            className="hods-multi-select-autocomplete__input"
             style={
               Object {
                 "display": "inline-block",
@@ -507,7 +507,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -516,7 +516,7 @@ exports[`Autocomplete should render an autocomplete component with a preselected
 
 exports[`Autocomplete should render an autocomplete component with an error control 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper error"
+  className="hods-multi-select-autocomplete__outer-wrapper error"
 >
   <div
     className=" css-2b097c-container"
@@ -604,23 +604,23 @@ exports[`Autocomplete should render an autocomplete component with an error cont
 
 exports[`Autocomplete should render an input with disabled flag set and the error flag set 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper hods-multi-autocomplete error"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete error"
 >
   <div
-    className="hods-multi-autocomplete error--is-disabled css-14jk2my-container"
+    className="hods-multi-select-autocomplete error--is-disabled css-14jk2my-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
     <div
-      className="hods-multi-autocomplete error__control hods-multi-autocomplete error__control--is-disabled css-g8u311-control"
+      className="hods-multi-select-autocomplete error__control hods-multi-select-autocomplete error__control--is-disabled css-g8u311-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-autocomplete error__value-container css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete error__value-container css-g1d714-ValueContainer"
       >
         <div
-          className="hods-multi-autocomplete error__placeholder css-1wa3eu0-placeholder"
+          className="hods-multi-select-autocomplete error__placeholder css-1wa3eu0-placeholder"
         >
           Select...
         </div>
@@ -628,7 +628,7 @@ exports[`Autocomplete should render an input with disabled flag set and the erro
           className="css-b8ldur-Input"
         >
           <div
-            className="hods-multi-autocomplete error__input"
+            className="hods-multi-select-autocomplete error__input"
             style={
               Object {
                 "display": "inline-block",
@@ -683,7 +683,7 @@ exports[`Autocomplete should render an input with disabled flag set and the erro
         </div>
       </div>
       <div
-        className="hods-multi-autocomplete error__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete error__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -692,7 +692,7 @@ exports[`Autocomplete should render an input with disabled flag set and the erro
 
 exports[`Autocomplete should render when disabled flag is set 1`] = `
 <div
-  className="hods-multi-autocomplete__outer-wrapper "
+  className="hods-multi-select-autocomplete__outer-wrapper "
 >
   <div
     className=" css-14jk2my-container"

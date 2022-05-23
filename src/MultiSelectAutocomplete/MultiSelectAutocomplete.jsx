@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 
 import Readonly from '../Readonly';
 
-import { getTemplates } from './MultiAutocomplete.utils';
+import { getTemplates } from './MultiSelectAutocomplete.utils';
 
 import { concatClasses } from './Utils';
 
-import './MultiAutocomplete.scss';
+import './MultiSelectAutocomplete.scss';
 
-export const DEFAULT_CLASS = 'hods-multi-autocomplete';
+export const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
 
 const DEFAULT_VALUE = { value: "", label: "Select..." };
 const GOVUK_COLOR_BLUE = '#1d70b8';
@@ -18,7 +18,7 @@ const GOV_COLOR_BLACK = '#000000';
 const GOV_COLOR_WHITE = '#ffffff';
 const GOV_COLOR_NONE = '';
 
-const MultiAutocomplete = ({
+const MultiSelectAutocomplete = ({
   id,
   fieldId,
   disabled,
@@ -105,9 +105,7 @@ const MultiAutocomplete = ({
         ref={aacRef}
         {...attrs}
         options={[
-          attrs.isMulti ? 
-            disabled && undefined : 
-              disabled && DEFAULT_VALUE,
+          attrs.isMulti ? undefined : DEFAULT_VALUE,
           ...attrs.options
         ].filter(o => !!o)}
         id={id}
@@ -129,12 +127,13 @@ const MultiAutocomplete = ({
       })}
       menuShouldScrollIntoView={false}
       isDisabled={disabled}
+      isClearable={true}
       />
     </div>
   )
 };
 
-MultiAutocomplete.propTypes = {
+MultiSelectAutocomplete.propTypes = {
   id: PropTypes.string.isRequired,
   fieldId: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
@@ -157,9 +156,9 @@ MultiAutocomplete.propTypes = {
   className: PropTypes.string
 };
 
-MultiAutocomplete.defaultProps = {
+MultiSelectAutocomplete.defaultProps = {
   classBlock: DEFAULT_CLASS,
   value: DEFAULT_VALUE,
 };
 
-export default MultiAutocomplete;
+export default MultiSelectAutocomplete;

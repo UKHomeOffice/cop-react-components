@@ -1,4 +1,4 @@
-import { getTemplates } from './MultiAutocomplete.utils';
+import { getTemplates } from './MultiSelectAutocomplete.utils';
 
 describe('Autocomplete', () => {
   describe('utils', () => {

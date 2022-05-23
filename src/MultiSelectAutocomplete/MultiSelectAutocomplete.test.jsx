@@ -1,5 +1,5 @@
 import React from 'react';
-import MultiAutocomplete, { DEFAULT_CLASS } from './MultiAutocomplete';
+import MultiSelectAutocomplete, { DEFAULT_CLASS } from './MultiSelectAutocomplete';
 import renderer from 'react-test-renderer';
 
 describe('Autocomplete', () => {
@@ -21,7 +21,7 @@ describe('Autocomplete', () => {
       disabled: true
     };
 
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -36,7 +36,7 @@ describe('Autocomplete', () => {
       className:DEFAULT_CLASS
     };
     
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -52,7 +52,7 @@ describe('Autocomplete', () => {
       error: 'Error'
     };
 
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -67,7 +67,7 @@ describe('Autocomplete', () => {
       error: 'Error'
     };
 
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -81,7 +81,7 @@ describe('Autocomplete', () => {
       isMulti: false,
       className:DEFAULT_CLASS
     };
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -95,7 +95,7 @@ describe('Autocomplete', () => {
       isMulti: false,
       className:DEFAULT_CLASS
     };
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -112,7 +112,7 @@ describe('Autocomplete', () => {
       onChange: jest.fn()
     };
     
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -129,7 +129,7 @@ describe('Autocomplete', () => {
       onChange: jest.fn()
     };
     
-    const tree = renderer.create(<MultiAutocomplete {...OPTIONS} />).toJSON();
+    const tree = renderer.create(<MultiSelectAutocomplete {...OPTIONS} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

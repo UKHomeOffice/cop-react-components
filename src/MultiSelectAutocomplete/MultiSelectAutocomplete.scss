@@ -4,9 +4,9 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
 @import "node_modules/govuk-frontend/govuk/components/input";
 @import "node_modules/govuk-frontend/govuk/components/hint";
 
-.hods-multi-autocomplete__outer-wrapper {
+.hods-multi-select-autocomplete__outer-wrapper {
   
-  .hods-multi-autocomplete {
+  .hods-multi-select-autocomplete {
   
     .error__control,
     &__control {
@@ -73,17 +73,29 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
       margin-right: 0;
     }
 
+    &.error__multi-value__label,
+    &__multi-value__label {
+      padding-right: 6px;
+    }
+
     &.error__multi-value__remove,
-    &.error__multi-value__label {
-      color: govuk-colour("black");
+    &__multi-value__remove {
+      &:hover {
+        color: govuk-colour("white");
+        background-color: govuk-colour("red");
+      }
+    }
+
+    &__input {
+      // color: transparent;
     }
   }
 }
 
 
-.hods-multi-autocomplete__outer-wrapper {
+.hods-multi-select-autocomplete__outer-wrapper {
 
-  .hods-multi-autocomplete {
+  .hods-multi-select-autocomplete {
 
     &.error__control {
       border: $govuk-border-width-form-element-error solid $govuk-error-colour;
