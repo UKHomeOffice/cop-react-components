@@ -14,7 +14,7 @@ import Readonly from '../Readonly';
 
 import { getTemplates } from './MultiSelectAutocomplete.utils';
 
-import { concatClasses } from './Utils';
+import { concatClasses } from '../utils/Utils';
 
 import './MultiSelectAutocomplete.scss';
 
@@ -24,6 +24,7 @@ const DEFAULT_VALUE = { value: "", label: "Select..." };
 const GOVUK_COLOR_BLUE = '#1d70b8';
 const GOV_COLOR_BLACK = '#000000';
 const GOV_COLOR_WHITE = '#ffffff';
+const GOV_COLOR_RED = '#d4351c';
 const GOV_COLOR_NONE = '';
 
 const MultiSelectAutocomplete = ({
@@ -34,6 +35,8 @@ const MultiSelectAutocomplete = ({
   readonly,
   item,
   value,
+  options,
+  isMulti,
   templates: _templates,
   onChange,
   onConfirm: _onConfirm,
@@ -61,16 +64,61 @@ const MultiSelectAutocomplete = ({
     return lcLabel.includes(lcQuery)
   };
 
+  /**
+   * As this underlying component has two ways is handling is selected state, this method handles 
+   * isSelected for single select.
+   */
   const isSelected = (state) => {
     return state.data === state.selectProps.value;
   };
 
-  const selectComponents = { 
+  /**
+   * Provides another layer of customization for the autocomplete component (enables and disabled features, 
+   * inclusing overriding some default behaviour).
+   */
+  const customComponents = { 
     DropdownIndicator:() => null,
     ClearIndicator:() => null,
     IndicatorSeparator:() => null,
     NoOptionsMessage:() => 'No results found',
   };
+
+  /**
+   * Primarily styles the options items within the menu list based on the state of the option
+   * (Some of the desired behaviour can be achieve through regular css styling howver,
+   * this allows for handling multiple conditions).
+   */
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      ...(((state.isSelected || isSelected(state)) || (!state.isFocused && !state.isSelected)) 
+        && {
+        backgroundColor: GOV_COLOR_NONE,
+        color: GOV_COLOR_BLACK
+      }),
+      ...(((state.isFocused && (state.isSelected || isSelected(state))) 
+      || (state.isFocused && (!state.isSelected || !isSelected(state)))) && {
+        backgroundColor: GOVUK_COLOR_BLUE,
+        color: GOV_COLOR_WHITE
+      }),
+    }),
+  };
+
+  /**
+   * Applies styling to the menu list but primarily sets the highlight colour which
+   * appear on the menu list (for when travesing the available options and selecting an option),
+   * the remove option button when in multi-select mode.
+   */
+  const customTheme = (theme) => ({
+    ...theme,
+    borderRadius: 0,
+    colors: {
+      ...theme.colors,
+      primary50: GOVUK_COLOR_BLUE,
+      primary25: GOVUK_COLOR_BLUE,
+      dangerLight: GOV_COLOR_RED
+    },
+  });
 
   if (readonly) {
     let displayValue = '';
@@ -95,44 +143,23 @@ const MultiSelectAutocomplete = ({
   return (
     <div className={`${DEFAULT_CLASS}__outer-wrapper ${className ?? ''}`}>
       <Select
-        styles={{
-          option: (provided, state) => ({
-            ...provided,
-            ...(((state.isSelected || isSelected(state)) || (!state.isFocused && !state.isSelected)) 
-              && {
-              backgroundColor: GOV_COLOR_NONE,
-              color: GOV_COLOR_BLACK
-            }),
-            ...(((state.isFocused && (state.isSelected || isSelected(state))) 
-            || (state.isFocused && (!state.isSelected || !isSelected(state)))) && {
-              backgroundColor: GOVUK_COLOR_BLUE,
-              color: GOV_COLOR_WHITE
-            }),
-          }),
-        }}
-        ref={aacRef}
-        {...attrs}
-        options={[
-          attrs.isMulti ? undefined : DEFAULT_VALUE,
-          ...attrs.options
-        ].filter(o => !!o)}
-        id={id}
-        fieldId={fieldId}
-        components={selectComponents}
-        classNamePrefix={className}
-        onChange={onItemSelected}
-        openMenuOnClick={false}
-        filterOption={filterOptions}
-        value={value}
-        theme={theme => ({
-          ...theme,
-          borderRadius: 0,
-          colors: {
-              ...theme.colors,
-              primary50: GOVUK_COLOR_BLUE,
-              primary25: GOVUK_COLOR_BLUE
-          },
-      })}
+      components={customComponents}
+      styles={customStyles}
+      theme={customTheme}
+      ref={aacRef}
+      id={id}
+      fieldId={fieldId}
+      classNamePrefix={className}
+      value={value}
+      filterOption={filterOptions}
+      onChange={onItemSelected}
+      {...attrs}
+      options={[
+        isMulti ? undefined : DEFAULT_VALUE,
+        ...options
+      ].filter(o => !!o)}
+      isMulti={isMulti}
+      openMenuOnClick={false}
       menuShouldScrollIntoView={false}
       isDisabled={disabled}
       isClearable={true}
@@ -155,6 +182,9 @@ MultiSelectAutocomplete.propTypes = {
   }),
   /** The selected item. */
   value: PropTypes.any,
+  /** The autocomplete options */
+  options: PropTypes.arrayOf(PropTypes.object),
+  isMulti: PropTypes.bool,
   /** Functions for formatting the labels that appear in the options menu and in the input when a selection is made. */
   templates: PropTypes.shape({ inputValue: PropTypes.func.isRequired, suggestion: PropTypes.func.isRequired }),
   /** Handler for when the value changes. */

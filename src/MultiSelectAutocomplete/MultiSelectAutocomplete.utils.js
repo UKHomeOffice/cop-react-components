@@ -1,4 +1,4 @@
-import { interpolateString } from './Utils';
+import { interpolateString } from '../utils/Utils';
 
 const getItemLabel = (property) => {
   return (item) => {

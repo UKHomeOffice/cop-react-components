@@ -52,6 +52,7 @@ export {
   Link,
   Markup,
   MediumHeading,
+  MultiSelectAutocomplete,
   NotificationBanner,
   Panel,
   Radio,
@@ -65,6 +66,5 @@ export {
   TimeInput,
   Utils,
   VisuallyHidden,
-  XLargeHeading,
-  MultiSelectAutocomplete
+  XLargeHeading
 };

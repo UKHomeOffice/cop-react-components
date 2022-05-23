@@ -35,7 +35,7 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
     
     .error__value-container,
     &__value-container {
-      padding: 5px;
+      padding: 0.3125rem;
       font-size: 1.1875rem;
       line-height: 1.31579rem;
       
@@ -92,13 +92,6 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
     &__input {
       padding-left: 0px;
     }
-  }
-}
-
-
-.hods-multi-select-autocomplete__outer-wrapper {
-
-  .hods-multi-select-autocomplete {
 
     &.error__control {
       border: $govuk-border-width-form-element-error solid $govuk-error-colour;
