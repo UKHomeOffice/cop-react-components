@@ -71,6 +71,9 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
       color: govuk-colour("black");
       margin-left: 0;
       margin-right: 0;
+      position: relative;
+      display: inline-block;
+      top: 12px;
     }
 
     &.error__multi-value__label,
@@ -87,7 +90,7 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
     }
 
     &__input {
-      // color: transparent;
+      padding-left: 0px;
     }
   }
 }
