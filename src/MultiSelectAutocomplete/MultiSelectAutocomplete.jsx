@@ -23,14 +23,14 @@ export const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
 const DEFAULT_VALUE = { value: "", label: "Select..." };
 const COLORS = {
   GOVUK_COLOR_BLUE: '#1d70b8',
-  GOV_COLOR_BLACK: '#000000',
-  GOV_COLOR_WHITE: '#ffffff',
-  GOV_COLOR_RED: '#d4351c',
-  GOV_COLOR_NONE: ''
+  GOVUK_COLOR_BLACK: '#000000',
+  GOVUK_COLOR_WHITE: '#ffffff',
+  GOVUK_COLOR_RED: '#d4351c',
+  GOVUK_COLOR_NONE: ''
 }
 const STATE_COLOURS = {
-  FOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_BLUE, color: COLORS.GOV_COLOR_WHITE },
-  UNFOCUSED: { backgroundColor: COLORS.GOV_COLOR_NONE, color: COLORS.GOV_COLOR_BLACK }
+  FOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_BLUE, color: COLORS.GOVUK_COLOR_WHITE },
+  UNFOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_NONE, color: COLORS.GOVUK_COLOR_BLACK }
 };
 
 const MultiSelectAutocomplete = ({
@@ -106,7 +106,7 @@ const MultiSelectAutocomplete = ({
       primary50: COLORS.GOVUK_COLOR_BLUE,
       primary25: COLORS.GOVUK_COLOR_BLUE,
       primary: COLORS.GOVUK_COLOR_BLUE,
-      dangerLight: COLORS.GOV_COLOR_RED
+      dangerLight: COLORS.GOVUK_COLOR_RED
     },
   });
 
