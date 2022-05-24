@@ -6,7 +6,7 @@
  * it would have to be a major release and not backwards compatible.
  */
 
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
@@ -21,16 +21,17 @@ import './MultiSelectAutocomplete.scss';
 export const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
 
 const DEFAULT_VALUE = { value: "", label: "Select..." };
-const COLORS = {
-  GOVUK_COLOR_BLUE: '#1d70b8',
-  GOVUK_COLOR_BLACK: '#000000',
-  GOVUK_COLOR_WHITE: '#ffffff',
-  GOVUK_COLOR_RED: '#d4351c',
-  GOVUK_COLOR_NONE: ''
+
+const COLOURS = {
+  BLUE: '#1d70b8',
+  BLACK: '#000000',
+  WHITE: '#ffffff',
+  RED: '#d4351c',
+  NONE: ''
 }
 const STATE_COLOURS = {
-  FOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_BLUE, color: COLORS.GOVUK_COLOR_WHITE },
-  UNFOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_NONE, color: COLORS.GOVUK_COLOR_BLACK }
+  FOCUSED: { backgroundColor: COLOURS.BLUE, color: COLOURS.WHITE },
+  UNFOCUSED: { backgroundColor: COLOURS.NONE, color: COLOURS.BLACK }
 };
 
 const MultiSelectAutocomplete = ({
@@ -41,7 +42,7 @@ const MultiSelectAutocomplete = ({
   readonly,
   item,
   value,
-  options,
+  options: _options,
   multi,
   templates: _templates,
   onChange,
@@ -49,9 +50,24 @@ const MultiSelectAutocomplete = ({
   className: _className,
   ...attrs
 }) => {
+  const [options, setOptions] = useState([]);
   const aacRef = useRef(null);
   const className = concatClasses(_className, error ? 'error' : undefined);
   const templates = getTemplates(_templates, item);
+
+  useEffect(() => {
+    if (Array.isArray(_options)) {
+      setOptions(_options.map(opt => {
+        return {
+          ...opt,
+          value: opt[item.value],
+          label: opt[item.label],
+        };
+      }))
+    } else {
+      setOptions([]);
+    }
+  }, [_options, item, setOptions]);
 
   const onItemSelected = (selection) => {
     if (typeof onChange === 'function') {
@@ -103,10 +119,10 @@ const MultiSelectAutocomplete = ({
     borderRadius: 0,
     colors: {
       ...theme.colors,
-      primary50: COLORS.GOVUK_COLOR_BLUE,
-      primary25: COLORS.GOVUK_COLOR_BLUE,
-      primary: COLORS.GOVUK_COLOR_BLUE,
-      dangerLight: COLORS.GOVUK_COLOR_RED
+      primary50: COLOURS.BLUE,
+      primary25: COLOURS.BLUE,
+      primary: COLOURS.BLUE,
+      dangerLight: COLOURS.RED
     },
   });
 
@@ -142,6 +158,7 @@ const MultiSelectAutocomplete = ({
         classNamePrefix={className}
         value={value}
         filterOption={filterOptions}
+        //filterOption={filterFunction}
         onChange={onItemSelected}
         {...attrs}
         options={[
@@ -187,6 +204,7 @@ MultiSelectAutocomplete.propTypes = {
 
 MultiSelectAutocomplete.defaultProps = {
   value: DEFAULT_VALUE,
+  item: { value: 'value', label: 'label' }
 };
 
 export default MultiSelectAutocomplete;

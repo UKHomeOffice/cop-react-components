@@ -3,7 +3,6 @@ import { default as COUNTRIES } from './Countries.stories.json';
 export const Countries = [];
 export const CountriesAsRefData = [];
 export const CountriesByName = [];
-export const MultiSelectCountriesAsRefData = [];
 
 const setupCountries = () => {
   Countries.length = 0;
@@ -19,10 +18,6 @@ const setupCountries = () => {
       name: country.Name
     });
     CountriesByName.push(country.Name);
-    MultiSelectCountriesAsRefData.push({
-      value: country.Code,
-      label: country.Name
-    });
   });
 };
 

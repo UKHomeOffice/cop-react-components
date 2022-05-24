@@ -9,7 +9,7 @@ import Details from '../Details';
 import Label from '../Label';
 import Tag from '../Tag';
 import MultiSelectAutocomplete from './MultiSelectAutocomplete';
-import { Countries, MultiSelectCountriesAsRefData } from '../storybook-resources/Countries-sb';
+import { Countries, CountriesAsRefData } from '../storybook-resources/Countries-sb';
 
 <!-- Styles -->
 import './MultiSelectAutocomplete.stories.scss';
@@ -43,7 +43,6 @@ In this example, the data items take the form
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected
       };
       const ON_CHANGE = ({ target }) => {
@@ -90,7 +89,6 @@ In this example, the data items take the form `{ "value": "#d4351c", "label": "R
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected
       };
       const ON_CHANGE = ({ target }) => {
@@ -127,7 +125,6 @@ In this example, the data items take the form `{ "value": "#d4351c", "label": "R
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected,
         error: 'Error'
       };
@@ -165,7 +162,6 @@ In this example, the data items take the form `{ "value": "#d4351c", "label": "R
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected
       };
       const ON_CHANGE = ({ target }) => {
@@ -202,7 +198,6 @@ In this example, the data items take the form `{ "value": "#d4351c", "label": "R
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected,
         error: 'Error'
       };
@@ -248,7 +243,6 @@ In this example, the data items take the form `{ "value": "#d4351c", "label": "R
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected
       };
       const ON_CHANGE = ({ target }) => {
@@ -288,7 +282,7 @@ Reference data items include `value` and `label` properties: `{ "value": "GB", "
       const ATTRS = {
         id: DEFAULT_ID,
         fieldId: DEFAULT_ID,
-        options: MultiSelectCountriesAsRefData,
+        options: CountriesAsRefData,
         multi: true,
         className: DEFAULT_CLASS,
         disabled: false,
@@ -333,7 +327,6 @@ In this example, the placeholder text is `Select all that applies` for a multi s
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected,
         placeholder: 'Select all that applies'
       };
@@ -370,7 +363,6 @@ In this example, the placeholder text is `Select an option` for a single select 
         readonly: false,
         onConfirm: undefined,
         templates: undefined,
-        item: { value: "id", label: "name" },
         value: selected,
         placeholder: 'Select an option'
       };
@@ -409,7 +401,6 @@ template looks like this: `'${label} (${value})'`.
         disabled: false,
         readonly: true,
         onConfirm: undefined,
-        item: { value: "id", label: "label" },
         value: [
           Countries.find(c => c.value === 'GB'),
           Countries.find(c => c.value === 'FR')
