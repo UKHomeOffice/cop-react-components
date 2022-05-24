@@ -2,7 +2,7 @@ import React from 'react';
 import MultiSelectAutocomplete, { DEFAULT_CLASS } from './MultiSelectAutocomplete';
 import renderer from 'react-test-renderer';
 
-describe('Autocomplete', () => {
+describe('MultiSelectAutocomplete', () => {
   const AUTOCOMPLETE_ID = 'autocompleteId';
   const AUTOCOMPLETE_FIELD_ID = 'autocompleteFieldId';
   const AUTOCOMPLETE_TEST_ID = 'autocompleteTestId';
