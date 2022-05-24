@@ -122,7 +122,7 @@ const MultiSelectAutocomplete = ({
 
   if (readonly) {
     let displayValue = '';
-    if(Array.isArray(value)){
+    if (Array.isArray(value)) {
       const itemLabels = value.map((v) => templates.inputValue(v)); 
       const lastItem = itemLabels.pop();
       if(itemLabels.length > 0) {
