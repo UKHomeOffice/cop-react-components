@@ -21,11 +21,17 @@ import './MultiSelectAutocomplete.scss';
 export const DEFAULT_CLASS = 'hods-multi-select-autocomplete';
 
 const DEFAULT_VALUE = { value: "", label: "Select..." };
-const GOVUK_COLOR_BLUE = '#1d70b8';
-const GOV_COLOR_BLACK = '#000000';
-const GOV_COLOR_WHITE = '#ffffff';
-const GOV_COLOR_RED = '#d4351c';
-const GOV_COLOR_NONE = '';
+const COLORS = {
+  GOVUK_COLOR_BLUE: '#1d70b8',
+  GOV_COLOR_BLACK: '#000000',
+  GOV_COLOR_WHITE: '#ffffff',
+  GOV_COLOR_RED: '#d4351c',
+  GOV_COLOR_NONE: ''
+}
+const STATE_COLOURS = {
+  FOCUSED: { backgroundColor: COLORS.GOVUK_COLOR_BLUE, color: COLORS.GOV_COLOR_WHITE },
+  UNFOCUSED: { backgroundColor: COLORS.GOV_COLOR_NONE, color: COLORS.GOV_COLOR_BLACK }
+};
 
 const MultiSelectAutocomplete = ({
   id,
@@ -65,14 +71,6 @@ const MultiSelectAutocomplete = ({
   };
 
   /**
-   * As this underlying component has two ways is handling is selected state, this method handles 
-   * isSelected for single select.
-   */
-  const isSelected = (state) => {
-    return state.data === state.selectProps.value;
-  };
-
-  /**
    * Provides another layer of customization for the autocomplete component (enables and disabled features, 
    * inclusing overriding some default behaviour).
    */
@@ -88,20 +86,11 @@ const MultiSelectAutocomplete = ({
    * (Some of the desired behaviour can be achieve through regular css styling howver,
    * this allows for handling multiple conditions).
    */
-  const customStyles = {
+   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      ...(((state.isSelected || isSelected(state)) || (!state.isFocused && !state.isSelected)) 
-        && {
-        backgroundColor: GOV_COLOR_NONE,
-        color: GOV_COLOR_BLACK
-      }),
-      ...(((state.isFocused && (state.isSelected || isSelected(state))) 
-      || (state.isFocused && (!state.isSelected || !isSelected(state)))) && {
-        backgroundColor: GOVUK_COLOR_BLUE,
-        color: GOV_COLOR_WHITE
-      }),
-    }),
+      ...(state.isFocused ? STATE_COLOURS.FOCUSED : STATE_COLOURS.UNFOCUSED)
+    })
   };
 
   /**
@@ -114,9 +103,10 @@ const MultiSelectAutocomplete = ({
     borderRadius: 0,
     colors: {
       ...theme.colors,
-      primary50: GOVUK_COLOR_BLUE,
-      primary25: GOVUK_COLOR_BLUE,
-      dangerLight: GOV_COLOR_RED
+      primary50: COLORS.GOVUK_COLOR_BLUE,
+      primary25: COLORS.GOVUK_COLOR_BLUE,
+      primary: COLORS.GOVUK_COLOR_BLUE,
+      dangerLight: COLORS.GOV_COLOR_RED
     },
   });
 
@@ -125,7 +115,7 @@ const MultiSelectAutocomplete = ({
     if (Array.isArray(value)) {
       const itemLabels = value.map((v) => templates.inputValue(v)); 
       const lastItem = itemLabels.pop();
-      if(itemLabels.length > 0) {
+      if (itemLabels.length > 0) {
         displayValue = `${itemLabels.join(', ')} and ${lastItem}`;
       } else {
         displayValue = lastItem;
@@ -143,26 +133,26 @@ const MultiSelectAutocomplete = ({
   return (
     <div className={`${DEFAULT_CLASS}__outer-wrapper ${className ?? ''}`}>
       <Select
-      components={customComponents}
-      styles={customStyles}
-      theme={customTheme}
-      ref={aacRef}
-      id={id}
-      fieldId={fieldId}
-      classNamePrefix={className}
-      value={value}
-      filterOption={filterOptions}
-      onChange={onItemSelected}
-      {...attrs}
-      options={[
-        multi ? undefined : DEFAULT_VALUE,
-        ...options
-      ].filter(o => !!o)}
-      isMulti={multi}
-      openMenuOnClick={false}
-      menuShouldScrollIntoView={false}
-      isDisabled={disabled}
-      isClearable={true}
+        components={customComponents}
+        styles={customStyles}
+        theme={customTheme}
+        ref={aacRef}
+        id={id}
+        fieldId={fieldId}
+        classNamePrefix={className}
+        value={value}
+        filterOption={filterOptions}
+        onChange={onItemSelected}
+        {...attrs}
+        options={[
+          multi ? undefined : DEFAULT_VALUE,
+          ...options
+        ].filter(o => !!o)}
+        isMulti={multi}
+        openMenuOnClick={false}
+        menuShouldScrollIntoView={false}
+        isDisabled={disabled}
+        isClearable={true}
       />
     </div>
   )
@@ -196,7 +186,6 @@ MultiSelectAutocomplete.propTypes = {
 };
 
 MultiSelectAutocomplete.defaultProps = {
-  classBlock: DEFAULT_CLASS,
   value: DEFAULT_VALUE,
 };
 
