@@ -103,35 +103,12 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--is-multi hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
+          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
         >
-          <div
-            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
-          >
-            alpha
-          </div>
-          <div
-            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            onTouchEnd={[Function]}
-          >
-            <svg
-              aria-hidden="true"
-              className="css-6q0nyr-Svg"
-              focusable="false"
-              height={14}
-              viewBox="0 0 20 20"
-              width={14}
-            >
-              <path
-                d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
-              />
-            </svg>
-          </div>
+          alpha
         </div>
         <div
           className="css-b8ldur-Input"
@@ -214,63 +191,12 @@ exports[`Autocomplete should render an autocomplete component in multi select mo
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--is-multi hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
       >
         <div
-          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
+          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
         >
-          <div
-            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
-          >
-            alpha
-          </div>
-          <div
-            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            onTouchEnd={[Function]}
-          >
-            <svg
-              aria-hidden="true"
-              className="css-6q0nyr-Svg"
-              focusable="false"
-              height={14}
-              viewBox="0 0 20 20"
-              width={14}
-            >
-              <path
-                d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
-              />
-            </svg>
-          </div>
-        </div>
-        <div
-          className="css-13jmfyo-multiValue hods-multi-select-autocomplete__multi-value"
-        >
-          <div
-            className="css-10ku62j hods-multi-select-autocomplete__multi-value__label"
-          >
-            bravo
-          </div>
-          <div
-            className="css-1qfl7aq hods-multi-select-autocomplete__multi-value__remove"
-            onClick={[Function]}
-            onMouseDown={[Function]}
-            onTouchEnd={[Function]}
-          >
-            <svg
-              aria-hidden="true"
-              className="css-6q0nyr-Svg"
-              focusable="false"
-              height={14}
-              viewBox="0 0 20 20"
-              width={14}
-            >
-              <path
-                d="M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z"
-              />
-            </svg>
-          </div>
+          alpha
         </div>
         <div
           className="css-b8ldur-Input"

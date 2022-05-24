@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 import Readonly from '../Readonly';
 
-import { getTemplates } from './MultiSelectAutocomplete.utils';
+import { getTemplates } from '../Autocomplete/Autocomplete.utils';
 
 import { concatClasses } from '../utils/Utils';
 
@@ -36,7 +36,7 @@ const MultiSelectAutocomplete = ({
   item,
   value,
   options,
-  isMulti,
+  multi,
   templates: _templates,
   onChange,
   onConfirm: _onConfirm,
@@ -155,10 +155,10 @@ const MultiSelectAutocomplete = ({
       onChange={onItemSelected}
       {...attrs}
       options={[
-        isMulti ? undefined : DEFAULT_VALUE,
+        multi ? undefined : DEFAULT_VALUE,
         ...options
       ].filter(o => !!o)}
-      isMulti={isMulti}
+      isMulti={multi}
       openMenuOnClick={false}
       menuShouldScrollIntoView={false}
       isDisabled={disabled}
@@ -184,7 +184,8 @@ MultiSelectAutocomplete.propTypes = {
   value: PropTypes.any,
   /** The autocomplete options */
   options: PropTypes.arrayOf(PropTypes.object),
-  isMulti: PropTypes.bool,
+  /** Controls which slelection mode the component is rendered with. */
+  multi: PropTypes.bool,
   /** Functions for formatting the labels that appear in the options menu and in the input when a selection is made. */
   templates: PropTypes.shape({ inputValue: PropTypes.func.isRequired, suggestion: PropTypes.func.isRequired }),
   /** Handler for when the value changes. */
