@@ -27,6 +27,7 @@ import TextInput from './TextInput';
 import TimeInput from './TimeInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
+import MultiSelectAutocomplete from './MultiSelectAutocomplete';
 
 export {
   Accordion,
@@ -51,6 +52,7 @@ export {
   Link,
   Markup,
   MediumHeading,
+  MultiSelectAutocomplete,
   NotificationBanner,
   Panel,
   Radio,
