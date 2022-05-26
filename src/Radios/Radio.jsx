@@ -45,6 +45,7 @@ const Radio = ({
       />
       <label className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`} htmlFor={id} disabled={option.disabled}>{option.label}</label>
       {option.hint && <Hint id={`${id}-hint`} className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}>{option.hint}</Hint>}
+      {selected && option.nestedJSX}
     </div>
   );
 };
