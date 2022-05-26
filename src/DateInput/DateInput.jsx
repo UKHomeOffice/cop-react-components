@@ -41,6 +41,7 @@ const DateInput = ({
     const name = event.target.name.replace(`${fieldId}-`, '');
     const value = event.target.value;
     setDate((prev) => ({ ...prev, [name]: value }));
+    console.log('handling date change ' + typeof(onChange))
   };
 
   const DATE_PARTS = [
@@ -54,10 +55,15 @@ const DateInput = ({
       let newValue = `${date.day}-${date.month}-${date.year}`;
       newValue = (newValue === '--') ? '' : newValue;
       if (newValue !== value) {
+        console.log('Date input calling on change ' + newValue + ' compared to ' + value)
         onChange({ target: { name: fieldId, value: newValue }});
       }
     }
   }, [date, value, fieldId, onChange]);
+
+  useEffect(() => {
+    console.log("onChange CHANGED")
+  }, [onChange])
 
   if (!date) {
     return null;

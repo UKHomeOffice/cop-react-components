@@ -9,16 +9,7 @@ import { classBuilder } from '../utils/Utils';
 import './Radios.scss';
 
 export const DEFAULT_CLASS = 'govuk-radios';
-const Radio = ({
-  id,
-  name,
-  option,
-  selected,
-  classBlock,
-  classModifiers,
-  className,
-  ...attrs
-}) => {
+const Radio = ({ id, name, option, selected, classBlock, classModifiers, className, ...attrs }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
   const inputRef = useRef(null);
   /**
@@ -31,21 +22,30 @@ const Radio = ({
     if (inputRef.current) {
       inputRef.current.checked = selected;
     }
-  }, [inputRef, selected]);
+  }, [inputRef, selected, option.nestedJSX]);
+
   return (
-    <div className={classes('item')} {...attrs}>
-      <input
-        ref={inputRef}
-        className={classes('input')}
-        id={id}
-        name={name}
-        type="radio"
-        value={option.value}
-        disabled={option.disabled}
-      />
-      <label className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`} htmlFor={id} disabled={option.disabled}>{option.label}</label>
-      {option.hint && <Hint id={`${id}-hint`} className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}>{option.hint}</Hint>}
-      {selected && option.nestedJSX}
+    <div>
+      <div className={classes('item')} {...attrs}>
+        <input
+          ref={inputRef}
+          className={classes('input')}
+          id={id}
+          name={name}
+          type='radio'
+          value={option.value}
+          disabled={option.disabled}
+        />
+        <label className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`} htmlFor={id} disabled={option.disabled}>
+          {option.label}
+        </label>
+        {option.hint && (
+          <Hint id={`${id}-hint`} className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}>
+            {option.hint}
+          </Hint>
+        )}
+      </div>
+      <div className={classes('conditional')}>{selected && option.nestedJSX}</div>
     </div>
   );
 };
@@ -58,19 +58,19 @@ Radio.propTypes = {
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       hint: PropTypes.string,
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
     }),
-    PropTypes.string
+    PropTypes.string,
   ]).isRequired,
   selected: PropTypes.bool,
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 Radio.defaultProps = {
   selected: false,
-  classBlock: DEFAULT_CLASS
+  classBlock: DEFAULT_CLASS,
 };
 
 export default Radio;
