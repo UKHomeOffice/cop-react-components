@@ -18,6 +18,15 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
   &--dark-grey{
     background: #5C6367;
   }
+  &--white{
+    background: #FFFFFF;
+    color: #000000;
+    border: 1px solid #BFC1C3
+    
+  }
+  &--dark-blue{
+    background: #005EA5;
+  }
 }
 
 @include hods-tag-colours('inactive'); // Deprecated.
