@@ -27,6 +27,7 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
   &--dark-blue{
     background: #005EA5;
   }
+  font-weight: normal;
 }
 
 @include hods-tag-colours('inactive'); // Deprecated.
