@@ -55,15 +55,10 @@ const DateInput = ({
       let newValue = `${date.day}-${date.month}-${date.year}`;
       newValue = (newValue === '--') ? '' : newValue;
       if (newValue !== value) {
-        console.log('Date input calling on change ' + newValue + ' compared to ' + value)
         onChange({ target: { name: fieldId, value: newValue }});
       }
     }
   }, [date, value, fieldId, onChange]);
-
-  useEffect(() => {
-    console.log("onChange CHANGED")
-  }, [onChange])
 
   if (!date) {
     return null;
