@@ -26,7 +26,7 @@ const Radio = ({ id, name, option, selected, classBlock, classModifiers, classNa
       // option.nested.sethidden(inputRef.current.checked);
       option.nested.shown = inputRef.current.checked;
     }
-  }, [inputRef, selected, option.nestedJSX]);
+  }, [inputRef, selected, option.nested]);
 
   return (
     <div>
@@ -62,19 +62,19 @@ Radio.propTypes = {
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       hint: PropTypes.string,
-      disabled: PropTypes.bool,
+      disabled: PropTypes.bool
     }),
-    PropTypes.string,
+    PropTypes.string
   ]).isRequired,
   selected: PropTypes.bool,
   classBlock: PropTypes.string,
   classModifiers: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 Radio.defaultProps = {
   selected: false,
-  classBlock: DEFAULT_CLASS,
+  classBlock: DEFAULT_CLASS
 };
 
 export default Radio;
