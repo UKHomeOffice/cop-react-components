@@ -23,7 +23,8 @@ const Radio = ({ id, name, option, selected, classBlock, classModifiers, classNa
       inputRef.current.checked = selected;
     }
     if(option.nested){
-      option.nested.sethidden(inputRef.current.checked);
+      // option.nested.sethidden(inputRef.current.checked);
+      option.nested.shown = inputRef.current.checked;
     }
   }, [inputRef, selected, option.nestedJSX]);
 
