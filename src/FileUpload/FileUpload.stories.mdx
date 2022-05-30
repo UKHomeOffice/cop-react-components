@@ -1,0 +1,119 @@
+<!-- Global imports -->
+import { useState } from 'react';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+<!-- Local imports -->
+import Details from '../Details';
+import Tag from '../Tag';
+import FileUpload from './FileUpload';
+
+<Meta title="File upload" id="D-FileUpload" component={ FileUpload } />
+
+# File upload
+
+<p><Tag text="Alpha" /></p>
+
+<Canvas>
+  <Story name="Default">
+    <FileUpload id="fileUpload" fieldId="fileUpload" />
+  </Story>
+</Canvas>
+
+<Details summary="Properties" className="no-indent">
+  <ArgsTable of={ FileUpload } />
+</Details>
+
+# Variants
+## Disabled
+
+A disabled file upload.
+
+<Canvas>
+  <Story name="Disabled">
+    <FileUpload id="disabled" fieldId="disabled" disabled />
+  </Story>
+</Canvas>
+
+## Error
+
+A file upload in an error state.
+
+<Canvas>
+  <Story name="Error">
+    <FileUpload id="error" fieldId="error" error="This is an error" />
+  </Story>
+</Canvas>
+
+## Readonly
+
+A readonly "file upload".
+
+<Canvas>
+  <Story name="Readonly">
+    <FileUpload
+      id="readonlyInput"
+      fieldId="readonlyInput"
+      value={{
+        name: 'govuk-crest.png',
+        type: 'image/png',
+        url: 'images/govuk-crest.png'
+      }}
+      readonly
+    />
+  </Story>
+</Canvas>
+
+## Track changes
+
+A file upload with an `onChange` handler that captures a selected or removed file.
+
+<Canvas>
+  <Story name="Track changes">
+    {() => {
+      const [value, setValue] = useState({});
+      const [changes, setChanges] = useState([]);
+      const onChange = ({ target }) => {
+        setValue(prev => {
+          const next = { ...prev, [target.name]: target.value };
+          setChanges(prevChanges => {
+            return [...prevChanges, { ts: Date.now(), value: next }];
+          });
+          return next;
+        });
+      };
+      const fieldId = 'fileUpload';
+      const options = {
+        id: fieldId,
+        fieldId,
+        value: value[fieldId] || '',
+        onChange
+      };
+      return (
+        <>
+          <FileUpload {...options} />
+          {changes && 
+            <>
+              <br /><br />
+              <Details summary="Change series" className="no-indent">
+                <ol>
+                  {changes && changes.map(change => (
+                    <li key={change.ts}>{JSON.stringify(change.value)}</li>
+                  ))}
+                </ol>
+              </Details>
+            </>
+          }
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## When to use this component
+You should only ask users to upload something if it's critical to the delivery of your service.
+
+<Canvas>
+  <Story name="Default2">
+    <FileUpload id="fileUpload" fieldId="fileUpload" />
+  </Story>
+</Canvas>
