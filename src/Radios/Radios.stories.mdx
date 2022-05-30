@@ -6,6 +6,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Details from '../Details';
 import FormGroup from '../FormGroup';
 import Radios from './Radios';
+import Textinput from '../TextInput'
 
 <Meta
   id="D-Radios"
@@ -446,6 +447,37 @@ For example, ‘Select if you are employed or self-employed’.
 
 Say ‘Select [whatever it is]’.
 For example, ‘Select the day of the week you pay your rent’.
+
+### Conditionally revealing a related question
+
+You can ask the user a related question when they select a particular radio option, 
+so they only see the question when it’s relevant to them.
+
+This might make two related questions easier to answer by grouping them on the same page. 
+For example, you could reveal a phone number input when the user selects the ‘Contact me by phone’ option.
+
+<Canvas>
+  <Story name="Conditional">
+    <FormGroup
+      id="conditional"
+      label={<h1 className="govuk-heading-l">How would you prefer to be contacted?</h1>}>
+      <Radios
+        id="conditional"
+        fieldId="how-would-you-prefer-to-be-contacted"
+        options={[
+          { value: 'email', label: 'Email', nestedJSX: <h2>HELLO</h2>, nested: {
+            id: 'name',
+            fieldId: 'name',
+            label: 'Your name',
+            type: 'text'
+          },},
+          { value: 'phone', label: 'Phone' },
+          { value: 'textMessage', label: 'Text message' },
+        ]}
+      />
+    </FormGroup>
+  </Story>
+</Canvas>
 
 
 [one question per page]: https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page

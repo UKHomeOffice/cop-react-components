@@ -1,5 +1,5 @@
 // Global imports
-import React, { useEffect, useRef } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -29,7 +29,7 @@ const Radio = ({ id, name, option, selected, classBlock, classModifiers, classNa
   }, [inputRef, selected, option.nested]);
 
   return (
-    <div>
+    <>
       <div className={classes('item')} {...attrs}>
         <input
           ref={inputRef}
@@ -49,8 +49,8 @@ const Radio = ({ id, name, option, selected, classBlock, classModifiers, classNa
           </Hint>
         )}
       </div>
-      <div className={classes('conditional')}>{selected && option.nestedJSX}</div>
-    </div>
+      {selected && <div className={classes('conditional')}>{option.nestedJSX}</div>}
+    </>
   );
 };
 

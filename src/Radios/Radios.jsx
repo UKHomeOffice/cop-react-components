@@ -28,6 +28,7 @@ const Radios = ({
     return (
       <Readonly id={id} className={className} {...attrs}>
         {selectedOption?.label}
+        {selectedOption?.nestedJSX}
       </Readonly>
     );
   }

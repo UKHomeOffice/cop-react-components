@@ -27,7 +27,7 @@ describe('Radios', () => {
       <Radios data-testid={id} id={id} fieldId={fieldId} options={OPTIONS} value={value} />
     );
     OPTIONS.forEach((opt, index) => {
-      const input = wrapper.childNodes[index].childNodes[0];
+      const input = wrapper.childNodes[index * 2].childNodes[0];
       expect(input.checked).toEqual(opt.value === checkedValue);
     });
   };
@@ -39,10 +39,10 @@ describe('Radios', () => {
       <Radios data-testid={ID} id={ID} fieldId={FIELD_ID} options={OPTIONS} />
     );
     const wrapper = checkSetup(container, ID);
-    // Options.
-    expect(wrapper.childNodes.length).toEqual(OPTIONS.length);
+    // Options length * 2 to accomodate conditionally rendererd components
+    expect(wrapper.childNodes.length).toEqual(OPTIONS.length * 2);
     OPTIONS.forEach((opt, index) => {
-      const item = wrapper.childNodes[index];
+      const item = wrapper.childNodes[index * 2];
       expect(item.classList).toContain(`${DEFAULT_CLASS}__item`);
       expect(item.innerHTML).toContain(opt.label);
       const input = item.childNodes[0];
@@ -61,7 +61,7 @@ describe('Radios', () => {
     );
     const wrapper = checkSetup(container, ID);
     OPTIONS.forEach((_, index) => {
-      const input = wrapper.childNodes[index].childNodes[0];
+      const input = wrapper.childNodes[index * 2].childNodes[0];
       expect(input.checked).toEqual(false);
     });
     checkValueChange(ID, FIELD_ID, rerender, OPTIONS[2], wrapper);
@@ -81,7 +81,7 @@ describe('Radios', () => {
       <Radios data-testid={ID} id={ID} fieldId={FIELD_ID} options={OPTIONS} onChange={ON_CHANGE} />
     );
     const wrapper = checkSetup(container, ID);
-    const input = wrapper.childNodes[2].childNodes[0]; // Third option (Wales).
+    const input = wrapper.childNodes[4].childNodes[0]; // Third option (Wales).
     expect(CHANGE_EVENTS.length).toEqual(0);
     fireEvent.click(input);
     expect(CHANGE_EVENTS.length).toEqual(1);
