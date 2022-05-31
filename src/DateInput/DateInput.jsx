@@ -41,7 +41,6 @@ const DateInput = ({
     const name = event.target.name.replace(`${fieldId}-`, '');
     const value = event.target.value;
     setDate((prev) => ({ ...prev, [name]: value }));
-    console.log('handling date change ' + typeof(onChange))
   };
 
   const DATE_PARTS = [

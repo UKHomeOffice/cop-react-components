@@ -9,7 +9,16 @@ import { classBuilder } from '../utils/Utils';
 import './Radios.scss';
 
 export const DEFAULT_CLASS = 'govuk-radios';
-const Radio = ({ id, name, option, selected, classBlock, classModifiers, className, ...attrs }) => {
+const Radio = ({ 
+    id, 
+    name, 
+    option, 
+    selected, 
+    classBlock, 
+    classModifiers, 
+    className, 
+    ...attrs 
+  }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
   const inputRef = useRef(null);
   /**
