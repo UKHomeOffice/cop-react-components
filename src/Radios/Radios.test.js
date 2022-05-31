@@ -42,7 +42,7 @@ describe('Radios', () => {
       <Radios data-testid={ID} id={ID} fieldId={FIELD_ID} options={OPTIONS} />
     );
     const wrapper = checkSetup(container, ID);
-    // Options length * 2 to accomodate conditionally rendererd components
+    // Options.
     expect(wrapper.childNodes.length).toEqual(OPTIONS.length);
     OPTIONS.forEach((opt, index) => {
       const item = wrapper.childNodes[index];
