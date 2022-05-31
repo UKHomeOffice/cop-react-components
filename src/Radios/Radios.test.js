@@ -27,8 +27,11 @@ describe('Radios', () => {
       <Radios data-testid={id} id={id} fieldId={fieldId} options={OPTIONS} value={value} />
     );
     OPTIONS.forEach((opt, index) => {
-      const input = wrapper.childNodes[index * 2].childNodes[0];
-      expect(input.checked).toEqual(opt.value === checkedValue);
+      const prevSelected = OPTIONS[index > 0 ? index - 1 : index].value === value?.value;
+      if(!prevSelected){
+        const input = wrapper.childNodes[index].childNodes[0];
+        expect(input.checked).toEqual(opt.value === checkedValue);
+      }
     });
   };
 
@@ -40,9 +43,9 @@ describe('Radios', () => {
     );
     const wrapper = checkSetup(container, ID);
     // Options length * 2 to accomodate conditionally rendererd components
-    expect(wrapper.childNodes.length).toEqual(OPTIONS.length * 2);
+    expect(wrapper.childNodes.length).toEqual(OPTIONS.length);
     OPTIONS.forEach((opt, index) => {
-      const item = wrapper.childNodes[index * 2];
+      const item = wrapper.childNodes[index];
       expect(item.classList).toContain(`${DEFAULT_CLASS}__item`);
       expect(item.innerHTML).toContain(opt.label);
       const input = item.childNodes[0];
@@ -61,12 +64,12 @@ describe('Radios', () => {
     );
     const wrapper = checkSetup(container, ID);
     OPTIONS.forEach((_, index) => {
-      const input = wrapper.childNodes[index * 2].childNodes[0];
+      const input = wrapper.childNodes[index].childNodes[0];
       expect(input.checked).toEqual(false);
     });
     checkValueChange(ID, FIELD_ID, rerender, OPTIONS[2], wrapper);
     checkValueChange(ID, FIELD_ID, rerender, OPTIONS[0], wrapper);
-    checkValueChange(ID, FIELD_ID, rerender, OPTIONS[1].value, wrapper);
+    checkValueChange(ID, FIELD_ID, rerender, OPTIONS[1], wrapper);
     checkValueChange(ID, FIELD_ID, rerender, null, wrapper);
   });
 
@@ -81,7 +84,7 @@ describe('Radios', () => {
       <Radios data-testid={ID} id={ID} fieldId={FIELD_ID} options={OPTIONS} onChange={ON_CHANGE} />
     );
     const wrapper = checkSetup(container, ID);
-    const input = wrapper.childNodes[4].childNodes[0]; // Third option (Wales).
+    const input = wrapper.childNodes[2].childNodes[0]; // Third option (Wales).
     expect(CHANGE_EVENTS.length).toEqual(0);
     fireEvent.click(input);
     expect(CHANGE_EVENTS.length).toEqual(1);
