@@ -6,7 +6,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Details from '../Details';
 import FormGroup from '../FormGroup';
 import Radios from './Radios';
-import Textinput from '../TextInput'
+import TextInput from '../TextInput'
 
 <Meta
   id="D-Radios"
@@ -458,27 +458,61 @@ For example, you could reveal a phone number input when the user selects the ‘
 
 <Canvas>
   <Story name="Conditional">
-    <FormGroup
-      id="conditional"
-      label={<h1 className="govuk-heading-l">How would you prefer to be contacted?</h1>}>
-      <Radios
-        id="conditional"
-        fieldId="how-would-you-prefer-to-be-contacted"
-        options={[
-          { value: 'email', label: 'Email', nestedJSX: <h2>HELLO</h2>, nested: {
-            id: 'name',
-            fieldId: 'name',
-            label: 'Your name',
-            type: 'text'
-          },},
-          { value: 'phone', label: 'Phone' },
-          { value: 'textMessage', label: 'Text message' },
-        ]}
-      />
-    </FormGroup>
+    {() => {
+      const [value, setValue] = useState(undefined);
+      const onChange = (e) => {
+        setValue(e.target.value);
+      };
+      const NestableEmail = () => {
+        return(
+          <div>
+            <h2> Email Address </h2>
+            <TextInput id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      const NestablePhone = () => {
+        return(
+          <div>
+            <h2> Phone Number </h2>
+            <TextInput id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      const NestableMobile = () => {
+        return(
+          <div>
+            <h2> Mobile Number </h2>
+            <TextInput id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      return(
+        <FormGroup
+          id="conditional"
+          label={<h1 className="govuk-heading-l">How would you prefer to be contacted?</h1>}>
+          <Radios
+            id="conditional"
+            fieldId="how-would-you-prefer-to-be-contacted"
+            options={[
+              { value: 'email', label: 'Email', nestedJSX: <NestableEmail/>, nested: {
+                id: 'email'
+              }},
+              { value: 'phone', label: 'Phone', nestedJSX: <NestablePhone/>, nested: {
+                id: 'phone'
+              }},
+              { value: 'textMessage', label: 'Text message', nestedJSX: <NestableMobile/>, nested: {
+                id: 'textMessage'
+              }},
+            ]}
+            value={value}
+            onChange={onChange}
+          />
+        </FormGroup>
+      );
+    }}
   </Story>
 </Canvas>
-
 
 [one question per page]: https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page
 [why and how to set legends as headings]: https://design-system.service.gov.uk/get-started/labels-legends-headings
