@@ -27,8 +27,8 @@ const Radios = ({
     const selectedOption = options ? options.find(option => option.value === selectedValue) : undefined;
     return (
       <Readonly id={id} className={className} {...attrs}>
-        {selectedOption?.label}
-        {selectedOption?.nestedJSX}
+        <div>{selectedOption?.label}</div>
+        <div>{selectedOption?.nestedJSX}</div>
       </Readonly>
     );
   }
