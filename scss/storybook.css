@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('../fonts/Roboto-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''), url('../fonts/Roboto-Bold.woff') format('woff');
+}
+
+body {
+  font-family: 'Roboto', arial, sans-serif !important;
+}
+
+[class*='govuk-'],
+[class*=' govuk-'],
+a {
+  font-family: 'Roboto', arial, sans-serif !important;
+}
+
+/* Fix the size of the sidebar */
+.react-draggable {
+  display: none;
+  pointer-events: none;
+}
+.sidebar-container {
+  min-width: 260px;
+  margin-left: 30px;
+}
+
+/* Hide the header and search field */
+.sidebar-container .sidebar-header,
+.sidebar-container .search-field {
+  display: none;
+}
+
+/* Set up the roots */
+#storybook-explorer-tree .sidebar-subheading {
+  pointer-events: none; /* We don't want collapsing or expanding at all */
+  color: #0b0c0c;
+  margin-top: 25px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  text-transform: none;
+  justify-content: left;
+  letter-spacing: 0.1em;
+}
+#storybook-explorer-tree .sidebar-subheading:first-child {
+  margin-top: 0px;
+}
+/* Hide the icons for the roots */
+#storybook-explorer-tree .sidebar-subheading button span,
+#storybook-explorer-tree .sidebar-subheading button svg {
+  display: none;
+}
+
+/* Set up the story links */
+#storybook-explorer-tree .sidebar-item {
+  margin: 5px;
+  padding: 2px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  display: inline-block;
+}
+#storybook-explorer-tree .sidebar-item[data-nodetype="document"] {
+  color: #005ea5;
+  margin-left: 30px;
+}
+#storybook-explorer-tree .sidebar-item[data-nodetype="document"]:focus,
+#storybook-explorer-tree .sidebar-item[data-nodetype="document"]:hover {
+  background: none;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+#storybook-explorer-tree .sidebar-item[data-nodetype="document"]:focus {
+  background: #ffdd00;
+  color: #0b0c0c;
+}
+#storybook-explorer-tree .sidebar-item + a {
+  display: block;
+  position: relative;
+  display: none;
+}
+#storybook-explorer-tree .sidebar-item[data-selected="true"] {
+  color: #005ea5;
+  background: none;
+}
+#storybook-explorer-tree .sidebar-item[data-selected="true"]::before {
+  content: " ";
+  border-left: 4px solid #005ea5;
+  position: absolute;
+  left: 18px;
+  top: 3px;
+  bottom: 3px;
+}
+#storybook-explorer-tree .sidebar-item svg {
+  display: none;
+}
+
+#storybook-preview-iframe {
+  border: 0;
+}
+
+div[role="main"] > div {
+  box-shadow: none;
+}
+
+#docs-root .sbdocs.sbdocs-wrapper {
+  padding-top: 1.75rem;
+}
+
+#docs-root .sbdocs-p {
+  font-size: 1.1875rem;
+  line-height: 1.31579;
+  margin-bottom: 20px;
+}
