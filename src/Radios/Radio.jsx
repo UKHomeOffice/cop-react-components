@@ -74,7 +74,8 @@ Radio.propTypes = {
       nested: PropTypes.shape({
         id: PropTypes.string.isRequired,
         label: PropTypes.string,
-        type: PropTypes.string.isRequired
+        type: PropTypes.string.isRequired,
+        shown: PropTypes.bool
       })
     }),
     PropTypes.string
