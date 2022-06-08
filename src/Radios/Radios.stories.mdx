@@ -6,6 +6,7 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Details from '../Details';
 import FormGroup from '../FormGroup';
 import Radios from './Radios';
+import TextArea from '../TextArea'
 import TextInput from '../TextInput'
 
 <Meta
@@ -483,7 +484,7 @@ For example, you could reveal a phone number input when the user selects the ‘
         return(
           <div>
             <h2> Mobile Number </h2>
-            <TextInput id='id' fieldId='fieldId'/>
+            <TextArea id='id' fieldId='fieldId'/>
           </div>
         )
       }

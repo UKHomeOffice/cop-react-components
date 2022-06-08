@@ -1,5 +1,5 @@
 // Global imports
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Local imports
@@ -70,7 +70,12 @@ Radio.propTypes = {
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       hint: PropTypes.string,
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
+      nested: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string,
+        type: PropTypes.string.isRequired
+      })
     }),
     PropTypes.string
   ]).isRequired,
