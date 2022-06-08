@@ -6,6 +6,8 @@ import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import Details from '../Details';
 import FormGroup from '../FormGroup';
 import Radios from './Radios';
+import TextArea from '../TextArea'
+import TextInput from '../TextInput'
 
 <Meta
   id="D-Radios"
@@ -447,6 +449,71 @@ For example, ‘Select if you are employed or self-employed’.
 Say ‘Select [whatever it is]’.
 For example, ‘Select the day of the week you pay your rent’.
 
+### Conditionally revealing a related question
+
+You can ask the user a related question when they select a particular radio option, 
+so they only see the question when it’s relevant to them.
+
+This might make two related questions easier to answer by grouping them on the same page. 
+For example, you could reveal a phone number input when the user selects the ‘Contact me by phone’ option.
+
+<Canvas>
+  <Story name="Conditional">
+    {() => {
+      const [value, setValue] = useState(undefined);
+      const onChange = (e) => {
+        setValue(e.target.value);
+      };
+      const NestableEmail = () => {
+        return(
+          <div>
+            <h2> Email Address </h2>
+            <TextInput id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      const NestablePhone = () => {
+        return(
+          <div>
+            <h2> Phone Number </h2>
+            <TextInput id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      const NestableMobile = () => {
+        return(
+          <div>
+            <h2> Mobile Number </h2>
+            <TextArea id='id' fieldId='fieldId'/>
+          </div>
+        )
+      }
+      return(
+        <FormGroup
+          id="conditional"
+          label={<h1 className="govuk-heading-l">How would you prefer to be contacted?</h1>}>
+          <Radios
+            id="conditional"
+            fieldId="how-would-you-prefer-to-be-contacted"
+            options={[
+              { value: 'email', label: 'Email', nestedJSX: <NestableEmail/>, nested: {
+                id: 'email'
+              }},
+              { value: 'phone', label: 'Phone', nestedJSX: <NestablePhone/>, nested: {
+                id: 'phone'
+              }},
+              { value: 'textMessage', label: 'Text message', nestedJSX: <NestableMobile/>, nested: {
+                id: 'textMessage'
+              }},
+            ]}
+            value={value}
+            onChange={onChange}
+          />
+        </FormGroup>
+      );
+    }}
+  </Story>
+</Canvas>
 
 [one question per page]: https://design-system.service.gov.uk/patterns/question-pages/#start-by-asking-one-question-per-page
 [why and how to set legends as headings]: https://design-system.service.gov.uk/get-started/labels-legends-headings

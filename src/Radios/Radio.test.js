@@ -4,6 +4,7 @@ import { getByTestId, render } from '@testing-library/react';
 
 // Local imports
 import Radio, { DEFAULT_CLASS } from './Radio';
+import TextInput from './../TextInput'
 
 describe('Radio', () => {
 
@@ -108,6 +109,28 @@ describe('Radio', () => {
     // And toggle it back to false.
     rerender(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={false} />);
     expect(input.checked).toEqual(false);
+  });
+
+  it('should show a nested component when selected', async () => {
+    const ID = 'radio';
+    const FIELD_ID = 'radioFieldId';
+    const OPTION = {
+      value: 'england',
+      label: 'England',
+      nested: {
+        id: 'name',
+        fieldId: 'name',
+        label: 'Your name',
+        type: 'text'
+      },
+      nestedJSX: <TextInput/>
+    };
+    const { container } = render(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />);
+    const { input } = checkSetup(container, ID);
+
+    const conditional = input.parentNode.parentNode.childNodes[1];
+    expect(conditional.classList).toContain(`${DEFAULT_CLASS}__conditional`);
+    expect(conditional.childNodes[0].tagName).toEqual('INPUT');
   });
 
 });

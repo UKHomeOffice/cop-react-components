@@ -31,21 +31,34 @@ const Radio = ({
     if (inputRef.current) {
       inputRef.current.checked = selected;
     }
-  }, [inputRef, selected]);
+    if(option.nested){
+      option.nested.shown = inputRef.current.checked;
+    }
+  }, [inputRef, selected, option.nested]);
+
   return (
-    <div className={classes('item')} {...attrs}>
-      <input
-        ref={inputRef}
-        className={classes('input')}
-        id={id}
-        name={name}
-        type="radio"
-        value={option.value}
-        disabled={option.disabled}
-      />
-      <label className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`} htmlFor={id} disabled={option.disabled}>{option.label}</label>
-      {option.hint && <Hint id={`${id}-hint`} className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}>{option.hint}</Hint>}
-    </div>
+    <>
+      <div className={classes('item')} {...attrs}>
+        <input
+          ref={inputRef}
+          className={classes('input')}
+          id={id}
+          name={name}
+          type='radio'
+          value={option.value}
+          disabled={option.disabled}
+        />
+        <label className={`${DEFAULT_LABEL_CLASS} ${classes('label')}`} htmlFor={id} disabled={option.disabled}>
+          {option.label}
+        </label>
+        {option.hint && (
+          <Hint id={`${id}-hint`} className={`${DEFAULT_HINT_CLASS} ${classes('hint')}`}>
+            {option.hint}
+          </Hint>
+        )}
+      </div>
+      {selected && <div className={classes('conditional')}>{option.nestedJSX}</div>}
+    </>
   );
 };
 
@@ -57,7 +70,13 @@ Radio.propTypes = {
       value: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       hint: PropTypes.string,
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
+      nested: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string,
+        type: PropTypes.string.isRequired,
+        shown: PropTypes.bool
+      })
     }),
     PropTypes.string
   ]).isRequired,

@@ -27,8 +27,11 @@ describe('Radios', () => {
       <Radios data-testid={id} id={id} fieldId={fieldId} options={OPTIONS} value={value} />
     );
     OPTIONS.forEach((opt, index) => {
-      const input = wrapper.childNodes[index].childNodes[0];
-      expect(input.checked).toEqual(opt.value === checkedValue);
+      const prevSelected = OPTIONS[index > 0 ? index - 1 : index].value === value?.value;
+      if(!prevSelected){
+        const input = wrapper.childNodes[index].childNodes[0];
+        expect(input.checked).toEqual(opt.value === checkedValue);
+      }
     });
   };
 
@@ -66,7 +69,7 @@ describe('Radios', () => {
     });
     checkValueChange(ID, FIELD_ID, rerender, OPTIONS[2], wrapper);
     checkValueChange(ID, FIELD_ID, rerender, OPTIONS[0], wrapper);
-    checkValueChange(ID, FIELD_ID, rerender, OPTIONS[1].value, wrapper);
+    checkValueChange(ID, FIELD_ID, rerender, OPTIONS[1], wrapper);
     checkValueChange(ID, FIELD_ID, rerender, null, wrapper);
   });
 
