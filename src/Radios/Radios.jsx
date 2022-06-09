@@ -32,6 +32,10 @@ const Radios = ({
       </Readonly>
     );
   }
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
   return (
     <div id={id} className={classes()} onChange={onChange} {...attrs}>
       {options && options.map((option, index) => {
@@ -39,7 +43,6 @@ const Radios = ({
         if (typeof option === 'string') {
           return <div className={classes('divider')} key={optionId}>{option}</div>
         } else {
-          const name = fieldId;
           const selected = typeof(value) === 'object' ? (option.value === value?.value) : (option.value === value);
           return (
             <Radio

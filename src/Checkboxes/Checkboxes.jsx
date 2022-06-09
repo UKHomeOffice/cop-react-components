@@ -50,6 +50,10 @@ const Checkboxes = ({
     );
   }
 
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
   return (
     <div id={id} className={classes()} {...attrs}>
       {options &&
@@ -60,7 +64,7 @@ const Checkboxes = ({
             <Checkbox
               key={optionId}
               id={optionId}
-              name={`${fieldId}-${index}`}
+              name={`${name}-${index}`}
               option={option}
               selected={selected}
               onChange={updateSelection}
