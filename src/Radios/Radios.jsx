@@ -35,7 +35,7 @@ const Radios = ({
   return (
     <div id={id} className={classes()} onChange={onChange} {...attrs}>
       {options && options.map((option, index) => {
-        const optionId = `${fieldId}-${index}`;
+        const optionId = `${id}-${index}`;
         if (typeof option === 'string') {
           return <div className={classes('divider')} key={optionId}>{option}</div>
         } else {
