@@ -36,8 +36,16 @@ const Radios = ({
   idParts.pop();
   idParts.push(fieldId);
   const name = idParts.join('.');
+
+  const internalOnChange = ({ target }) => {
+    if (typeof onChange === 'function') {
+      onChange({
+        target: { name: fieldId, value: target.value }
+      });
+    }
+  };
   return (
-    <div id={id} className={classes()} onChange={onChange} {...attrs}>
+    <div id={id} className={classes()} onChange={internalOnChange} {...attrs}>
       {options && options.map((option, index) => {
         const optionId = `${id}-${index}`;
         if (typeof option === 'string') {
