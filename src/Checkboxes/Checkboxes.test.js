@@ -32,7 +32,7 @@ describe('Checkboxes', () => {
       expect(item.classList).toContain(`${DEFAULT_CLASS}__item`);
       expect(item.innerHTML).toContain(opt.label);
       const input = item.childNodes[0];
-      expect(input.id).toEqual(`${FIELD_ID}-${index}`);
+      expect(input.id).toEqual(`${ID}-${index}`);
       expect(input.name).toEqual(`${FIELD_ID}-${index}`);
       expect(input.value).toEqual(opt.value);
       expect(input.checked).toEqual(false);

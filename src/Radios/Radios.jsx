@@ -32,14 +32,25 @@ const Radios = ({
       </Readonly>
     );
   }
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
+
+  const internalOnChange = ({ target }) => {
+    if (typeof onChange === 'function') {
+      onChange({
+        target: { name: fieldId, value: target.value }
+      });
+    }
+  };
   return (
-    <div id={id} className={classes()} onChange={onChange} {...attrs}>
+    <div id={id} className={classes()} onChange={internalOnChange} {...attrs}>
       {options && options.map((option, index) => {
-        const optionId = `${fieldId}-${index}`;
+        const optionId = `${id}-${index}`;
         if (typeof option === 'string') {
           return <div className={classes('divider')} key={optionId}>{option}</div>
         } else {
-          const name = fieldId;
           const selected = typeof(value) === 'object' ? (option.value === value?.value) : (option.value === value);
           return (
             <Radio
