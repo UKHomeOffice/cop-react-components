@@ -28,7 +28,9 @@ const Radios = ({
     return (
       <Readonly id={id} className={className} {...attrs}>
         <div>{selectedOption?.label}</div>
-        <div>{selectedOption?.nestedJSX}</div>
+        {selectedOption?.nestedJSX?.map((nested, index) => {
+          return <div key={id + index}>{nested}</div>
+        })}
       </Readonly>
     );
   }
