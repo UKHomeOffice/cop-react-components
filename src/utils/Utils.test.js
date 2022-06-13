@@ -165,6 +165,17 @@ describe('Utils', () => {
       expect(RESULT).toEqual('<div>William Fallback-Jones</div>');
     });
 
+    it('should interpolate properties on the json format template', () => {
+      // eslint-disable-next-line no-template-curly-in-string
+      const TEMPLATE = '[{"id":"something","type":"text","label":"First name ${currentUser.firstName}","fieldId":"something","required":true}]';
+      const OBJECT = { currentUser: {
+        firstName: 'Bob'
+      } };
+      const FALLBACK = '';
+      const RESULT = interpolateString(TEMPLATE, OBJECT, FALLBACK);
+      expect(RESULT).toEqual('[{"id":"something","type":"text","label":"First name Bob","fieldId":"something","required":true}]');
+    });
+
     it('should default fallback to an empty string', () => {
       // eslint-disable-next-line no-template-curly-in-string
       const TEMPLATE = '<div>${forename} ${surname}</div>';
