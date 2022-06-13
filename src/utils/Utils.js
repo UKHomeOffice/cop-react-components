@@ -1,4 +1,4 @@
-const INTERPOLATE_REGEX = /\${[^{]+}/g;
+const INTERPOLATE_REGEX = /\${[^}]+}/g;
 
 const getObjPath = (path, obj, fallback = '') => {
   return path.split('.').reduce((res, key) => res[key] || fallback, obj);
