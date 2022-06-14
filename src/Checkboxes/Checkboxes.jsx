@@ -50,17 +50,21 @@ const Checkboxes = ({
     );
   }
 
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
   return (
     <div id={id} className={classes()} {...attrs}>
       {options &&
         options.map((option, index) => {
-          const optionId = `${fieldId}-${index}`;
+          const optionId = `${id}-${index}`;
           const selected = Array.isArray(value) ? value.includes(option.value) : false;
           return (
             <Checkbox
               key={optionId}
               id={optionId}
-              name={optionId}
+              name={`${name}-${index}`}
               option={option}
               selected={selected}
               onChange={updateSelection}
