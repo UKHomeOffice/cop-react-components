@@ -4,7 +4,7 @@ import { getByTestId, render } from '@testing-library/react';
 
 // Local imports
 import Radio, { DEFAULT_CLASS } from './Radio';
-import TextInput from './../TextInput'
+import DateInput from './../DateInput';
 
 describe('Radio', () => {
 
@@ -117,20 +117,24 @@ describe('Radio', () => {
     const OPTION = {
       value: 'england',
       label: 'England',
-      nested: {
+      nested: [
+        {
         id: 'name',
         fieldId: 'name',
         label: 'Your name',
-        type: 'text'
-      },
-      nestedJSX: <TextInput/>
+        type: 'date'
+        }
+      ],
+      nestedJSX: [
+        <DateInput id='name' fieldId='name'/>
+      ] 
     };
+    
     const { container } = render(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />);
-    const { input } = checkSetup(container, ID);
+    const nestedElement = container.childNodes[1].childNodes[0];
 
-    const conditional = input.parentNode.parentNode.childNodes[1];
-    expect(conditional.classList).toContain(`${DEFAULT_CLASS}__conditional`);
-    expect(conditional.childNodes[0].tagName).toEqual('INPUT');
+    expect(nestedElement.classList).toContain(`govuk-date-input`);
+    expect(nestedElement.tagName).toEqual('DIV');
   });
 
 });
