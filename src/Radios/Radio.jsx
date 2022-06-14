@@ -30,13 +30,8 @@ const Radio = ({
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.checked = selected;
-      console.log("Radio use effect.");
-      if (typeof option.setShown === "function") {
-        console.log("Calling setShown.");
-        option.setShown(inputRef.current.checked);
-      }
     }
-  }, [inputRef, selected, option]);
+  }, [inputRef, selected]);
 
   return (
     <>
@@ -59,10 +54,11 @@ const Radio = ({
           </Hint>
         )}
       </div>
-      {selected && Array.isArray(option.nestedJSX) && option.nestedJSX.map((nested, index) => {
-        let k = option.nested[index].id;
-        return <div className={classes('conditional')} key={k}>{nested}</div>
-      })}
+      {selected && Array.isArray(option.nestedJSX) && <div className={classes('conditional')}>
+        {option.nestedJSX.map((nested, index) => {
+          return <React.Fragment key={option.nested[index].id}>{nested}</React.Fragment>
+        })}
+      </div>}
     </>
   );
 };
@@ -80,8 +76,7 @@ Radio.propTypes = {
         PropTypes.shape({
           id: PropTypes.string.isRequired,
           label: PropTypes.string,
-          type: PropTypes.string.isRequired,
-          shown: PropTypes.bool
+          type: PropTypes.string.isRequired
         })
       )
     }),
