@@ -40,7 +40,12 @@ const Radios = ({
   const name = idParts.join('.');
 
   const internalOnChange = ({ target }) => {
-    if (typeof onChange === 'function') {
+    let output = target.name;
+    const nameParts = target.name.split('.');
+    if(nameParts.length > 1){
+      output = nameParts[1];
+    }
+    if (typeof onChange === 'function' && fieldId === output ) {
       onChange({
         target: { name: fieldId, value: target.value }
       });
