@@ -147,9 +147,10 @@ describe('DateInput', () => {
     //day
     const dayInput = wrapper.childNodes[0].childNodes[1];
     expect(dayInput.value).toEqual('6');
-    fireEvent.change(dayInput, { target: { name: `${FIELD_ID}-day`, value: 12 } });
     expect(onChangeCalls.length).toEqual(1);
-    expect(onChangeCalls[0]).toMatchObject({
+    fireEvent.change(dayInput, { target: { name: `${FIELD_ID}-day`, value: 12 } });
+    expect(onChangeCalls.length).toEqual(2);
+    expect(onChangeCalls[1]).toMatchObject({
       target: {
         name: FIELD_ID,
         value: '12-3-2076'
@@ -160,13 +161,13 @@ describe('DateInput', () => {
     const monthInput = wrapper.childNodes[1].childNodes[1];
     expect(monthInput.value).toEqual('3');
     fireEvent.change(monthInput, { target: { value: 2 } });
-    expect(onChangeCalls.length).toEqual(2);
+    expect(onChangeCalls.length).toEqual(3);
 
     //year
     const yearInput = wrapper.childNodes[2].childNodes[1];
     expect(yearInput.value).toEqual('2076');
     fireEvent.change(yearInput, { target: { value: 1999 } });
-    expect(onChangeCalls.length).toEqual(3);
+    expect(onChangeCalls.length).toEqual(4);
   });
 
   it('should appropriately set up the necessary components when read only', async () => {
