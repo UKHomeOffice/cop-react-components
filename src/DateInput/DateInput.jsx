@@ -3,13 +3,29 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 // Local imports
-import FormGroup from '../FormGroup/FormGroup';
+import FormGroup from '../FormGroup';
 import Readonly from '../Readonly';
 import TextInput from '../TextInput';
 import { classBuilder, getMonthName } from '../utils/Utils';
 
 // Styles
 import './DateInput.scss';
+
+const toDateFromString = (str) => {
+  if (str) {
+    const [ day, month, year ] = str.split('-');
+    return { day, month, year };
+  }
+  return { day: '', month: '', year: '' };
+};
+
+const toStringFromDate = (date) => {
+  if (date) {
+    const str = `${date.day}-${date.month}-${date.year}`;
+    return str === '--' ? '' : str;
+  }
+  return '';
+};
 
 export const DEFAULT_CLASS = 'govuk-date-input';
 const DateInput = ({
@@ -27,20 +43,26 @@ const DateInput = ({
 }) => {
   const classes = classBuilder(classBlock, classModifiers, className);
   const [date, setDate] = useState(undefined);
+  const [dateChanged, setDateChanged] = useState(false);
 
   useEffect(() => {
-    if (value) {
-      const [ day, month, year ] = value.split('-');
-      setDate({ day, month, year });
-    } else {
-      setDate({ day: '', month: '', year: '' });
-    }
-  }, [value, setDate]);
+    setDate(prev => {
+      const existingDate = toStringFromDate(prev);
+      if (existingDate !== (value || '')) {
+        setDateChanged(true);
+        return toDateFromString(value);
+      }
+      return prev || toDateFromString('');
+    });
+  }, [value, setDate, setDateChanged]);
 
   const handleChange = (event) => {
     const name = event.target.name.replace(`${fieldId}-`, '');
     const value = event.target.value;
-    setDate((prev) => ({ ...prev, [name]: value }));
+    if (date && date[name] !== value) {
+      setDate((prev) => ({ ...prev, [name]: value }));
+      setDateChanged(true);
+    }
   };
 
   const DATE_PARTS = [
@@ -50,14 +72,12 @@ const DateInput = ({
   ];
 
   useEffect(() => {
-    if (typeof onChange === 'function' && date) {
-      let newValue = `${date.day}-${date.month}-${date.year}`;
-      newValue = (newValue === '--') ? '' : newValue;
-      if (newValue !== value) {
-        onChange({ target: { name: fieldId, value: newValue }});
-      }
+    if (typeof onChange === 'function' && dateChanged) {
+      const newValue = toStringFromDate(date);
+      setDateChanged(false);
+      onChange({ target: { name: fieldId, value: newValue }});
     }
-  }, [date, value, fieldId, onChange]);
+  }, [dateChanged, date, fieldId, onChange, setDateChanged]);
 
   if (!date) {
     return null;
