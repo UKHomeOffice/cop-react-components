@@ -28,9 +28,7 @@ const Radios = ({
     return (
       <Readonly id={id} className={className} {...attrs}>
         <div>{selectedOption?.label}</div>
-        {selectedOption?.nestedJSX?.map((nested, index) => {
-          return <div key={id + index}>{nested}</div>
-        })}
+        {selectedOption?.children}
       </Readonly>
     );
   }
@@ -40,12 +38,8 @@ const Radios = ({
   const name = idParts.join('.');
 
   const internalOnChange = ({ target }) => {
-    let output = target.name;
-    const nameParts = target.name.split('.');
-    if(nameParts.length > 1){
-      output = nameParts[1];
-    }
-    if (typeof onChange === 'function' && fieldId === output ) {
+    const truncatedName = target.name.split('.').pop();
+    if (typeof onChange === 'function' && truncatedName === fieldId) {
       onChange({
         target: { name: fieldId, value: target.value }
       });
@@ -85,7 +79,8 @@ Radios.propTypes = {
         value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
         hint: PropTypes.string,
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        children: PropTypes.element
       }),
       PropTypes.string
     ])
