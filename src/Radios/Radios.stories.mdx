@@ -469,6 +469,8 @@ For example, you could reveal a phone number input when the user selects the ‘
           <div>
             <h2> Email Address </h2>
             <TextInput id='id' fieldId='fieldId'/>
+            <h2> Secondary Email Address </h2>
+            <TextInput id='id2' fieldId='fieldId2'/>
           </div>
         )
       }
@@ -496,13 +498,13 @@ For example, you could reveal a phone number input when the user selects the ‘
             id="conditional"
             fieldId="how-would-you-prefer-to-be-contacted"
             options={[
-              { value: 'email', label: 'Email', nestedJSX: <NestableEmail/>, nested: {
+              { value: 'email', label: 'Email', children: <NestableEmail/>, nested: {
                 id: 'email'
               }},
-              { value: 'phone', label: 'Phone', nestedJSX: <NestablePhone/>, nested: {
+              { value: 'phone', label: 'Phone', children: <NestablePhone/>, nested: {
                 id: 'phone'
               }},
-              { value: 'textMessage', label: 'Text message', nestedJSX: <NestableMobile/>, nested: {
+              { value: 'textMessage', label: 'Text message', children: <NestableMobile/>, nested: {
                 id: 'textMessage'
               }},
             ]}

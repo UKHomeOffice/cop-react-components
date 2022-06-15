@@ -54,11 +54,7 @@ const Radio = ({
           </Hint>
         )}
       </div>
-      {selected && Array.isArray(option.nestedJSX) && <div className={classes('conditional')}>
-        {option.nestedJSX.map((nested, index) => {
-          return <React.Fragment key={option.nested[index].id}>{nested}</React.Fragment>
-        })}
-      </div>}
+      {selected && option.children && <div className={classes('conditional')}>{option.children}</div>}
     </>
   );
 };
@@ -72,13 +68,7 @@ Radio.propTypes = {
       label: PropTypes.string.isRequired,
       hint: PropTypes.string,
       disabled: PropTypes.bool,
-      nested: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          label: PropTypes.string,
-          type: PropTypes.string.isRequired
-        })
-      )
+      children: PropTypes.element
     }),
     PropTypes.string
   ]).isRequired,
