@@ -125,9 +125,7 @@ describe('Radio', () => {
         type: 'date'
         }
       ],
-      nestedJSX: [
-        <DateInput id='name' fieldId='name'/>
-      ] 
+      children: <DateInput id='name' fieldId='name'/> 
     };
     
     const { container } = render(<Radio data-testid={ID} id={ID} name={FIELD_ID} option={OPTION} selected={true} />);
