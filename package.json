@@ -1,6 +1,6 @@
 {
   "name": "@ukhomeoffice/cop-react-components",
-  "version": "1.7.4",
+  "version": "1.7.5-alpha",
   "private": false,
   "scripts": {
     "clean": "rimraf dist",

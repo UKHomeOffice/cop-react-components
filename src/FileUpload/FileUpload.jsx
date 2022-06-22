@@ -100,6 +100,10 @@ const FileUpload = ({
       </Readonly>
     );
   }
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
 
   return (
     <div className={classes()} disabled={disabled}>
@@ -109,11 +113,11 @@ const FileUpload = ({
         onChange={onFileSelected}
         disabled={disabled}
         id={`${id}-select`}
-        name={`${fieldId}-select`}
+        name={`${name}-select`}
         type="file"
         className={classes('select')}
       />
-      <label htmlFor={`${fieldId}-select`} className={classes('label')}>
+      <label htmlFor={`${name}-select`} className={classes('label')}>
         <span className={classes('label-button')}>Choose file</span>
         {value?.name ? (
           <span className={classes('label-filename')}>{value.name}</span>
