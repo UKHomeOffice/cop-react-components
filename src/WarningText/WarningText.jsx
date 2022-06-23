@@ -1,9 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { classBuilder } from "../utils/Utils";
-import "./WarningText.scss";
+// Global imports
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export const DEFAULT_CLASS = "govuk-warning-text";
+// Local imports
+import { classBuilder } from '../utils/Utils';
+import './WarningText.scss';
+
+export const DEFAULT_CLASS = 'govuk-warning-text';
 
 const WarningText = ({
   children,
@@ -15,9 +18,9 @@ const WarningText = ({
   const classes = classBuilder(classBlock, classModifiers, className);
   return (
     <div {...attrs} className={classes()}>
-      <span className={classes("icon")}>!</span>
-      <strong className={classes("text")}>
-        <span className={classes("assistive")}>Warning</span>
+      <span className={classes('icon')}>!</span>
+      <strong className={classes('text')}>
+        <span className={classes('assistive')}>Warning</span>
         {children}
       </strong>
     </div>

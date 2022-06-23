@@ -1,3 +1,3 @@
-import WarningText from "./WarningText";
+import WarningText from './WarningText';
 
 export default WarningText;
