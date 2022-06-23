@@ -28,6 +28,7 @@ import TimeInput from './TimeInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
 import MultiSelectAutocomplete from './MultiSelectAutocomplete';
+import WarningText from './WarningText/WarningText';
 
 export {
   Accordion,
@@ -66,5 +67,6 @@ export {
   TimeInput,
   Utils,
   VisuallyHidden,
-  XLargeHeading
+  XLargeHeading,
+  WarningText
 };
