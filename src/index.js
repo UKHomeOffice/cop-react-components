@@ -17,6 +17,7 @@ import InsetText from './InsetText';
 import Label from './Label';
 import Link from './Link';
 import Markup from './Markup';
+import MultiSelectAutocomplete from './MultiSelectAutocomplete';
 import NotificationBanner from './NotificationBanner';
 import Panel from './Panel';
 import Radios, { Radio } from './Radios';
@@ -27,7 +28,9 @@ import TextInput from './TextInput';
 import TimeInput from './TimeInput';
 import Utils from './utils/Utils';
 import VisuallyHidden from './VisuallyHidden';
-import MultiSelectAutocomplete from './MultiSelectAutocomplete';
+import WarningText from './WarningText/WarningText';
+
+
 
 export {
   Accordion,
@@ -66,5 +69,6 @@ export {
   TimeInput,
   Utils,
   VisuallyHidden,
+  WarningText,
   XLargeHeading
 };
