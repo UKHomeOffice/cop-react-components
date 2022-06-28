@@ -94,7 +94,6 @@ const MultiSelectAutocomplete = ({
     DropdownIndicator:() => null,
     ClearIndicator:() => null,
     IndicatorSeparator:() => null,
-    NoOptionsMessage:() => 'No results found',
   };
 
   /**
@@ -158,7 +157,6 @@ const MultiSelectAutocomplete = ({
         classNamePrefix={className}
         value={value}
         filterOption={filterOptions}
-        //filterOption={filterFunction}
         onChange={onItemSelected}
         {...attrs}
         options={[
@@ -203,6 +201,7 @@ MultiSelectAutocomplete.propTypes = {
 };
 
 MultiSelectAutocomplete.defaultProps = {
+  className: DEFAULT_CLASS,
   value: DEFAULT_VALUE,
   item: { value: 'value', label: 'label' }
 };

@@ -93,6 +93,22 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
       padding-left: 0px;
     }
 
+    &__menu-notice--no-options::before {
+      content: 'No results found';
+      visibility: visible;
+    }
+
+    &__menu-notice--no-options {
+      display: inline-block;
+      visibility: hidden;
+      color: govuk-colour("black");
+      padding-left: 0.4375em;
+    }
+
+    &__option {
+      padding-left: 0.4375em;
+    }
+
     &.error__control {
       border: $govuk-border-width-form-element-error solid $govuk-error-colour;
       
