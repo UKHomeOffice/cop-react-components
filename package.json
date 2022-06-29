@@ -1,6 +1,6 @@
 {
   "name": "@ukhomeoffice/cop-react-components",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "private": false,
   "scripts": {
     "clean": "rimraf dist",
@@ -19,7 +19,7 @@
     "accessible-autocomplete": "2.0.3",
     "govuk-frontend": "^3.13.0",
     "html-react-parser": "^0.10.5",
-    "react-select": "^3.2.0",
+    "react-select": "^5.3.2",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
