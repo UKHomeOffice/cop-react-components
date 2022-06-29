@@ -5,79 +5,74 @@ exports[`MultiSelectAutocomplete should render a fully wired-up autocomplete com
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-3-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete__placeholder css-1wa3eu0-placeholder"
+          className="hods-multi-select-autocomplete__placeholder css-14el2xx-placeholder"
+          id="react-select-3-placeholder"
         >
           Select...
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-describedby="react-select-3-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete__input"
+            disabled={false}
+            id="react-select-3-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-3-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -93,79 +88,72 @@ exports[`MultiSelectAutocomplete should render an autocomplete component in mult
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-8-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-qc6sy-singleValue"
         >
           alpha
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete__input"
+            disabled={false}
+            id="react-select-8-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-8-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -181,79 +169,72 @@ exports[`MultiSelectAutocomplete should render an autocomplete component in mult
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-9-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-qc6sy-singleValue"
         >
           alpha
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete__input"
+            disabled={false}
+            id="react-select-9-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-9-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -269,79 +250,72 @@ exports[`MultiSelectAutocomplete should render an autocomplete component with a 
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-6-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-qc6sy-singleValue"
         >
           alpha
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete__input"
+            disabled={false}
+            id="react-select-6-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-6-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -357,79 +331,72 @@ exports[`MultiSelectAutocomplete should render an autocomplete component with a 
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-7-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete__control css-e56m7-control"
+      className="hods-multi-select-autocomplete__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete__single-value css-qc6sy-singleValue"
         >
           bravo
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete__input"
+            disabled={false}
+            id="react-select-7-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-7-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -442,86 +409,79 @@ exports[`MultiSelectAutocomplete should render an autocomplete component with a 
 
 exports[`MultiSelectAutocomplete should render an autocomplete component with an error control 1`] = `
 <div
-  className="hods-multi-select-autocomplete__outer-wrapper error"
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete error"
 >
   <div
-    className=" css-2b097c-container"
+    className=" css-b62m3t-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-5-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="error__control css-e56m7-control"
+      className="hods-multi-select-autocomplete error__control css-x19aeh-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="error__value-container error__value-container--has-value css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete error__value-container hods-multi-select-autocomplete error__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className="error__single-value css-1uccc91-singleValue"
+          className="hods-multi-select-autocomplete error__single-value css-qc6sy-singleValue"
         >
           alpha
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete error__input-container css-6j8wv5-Input"
+          data-value=""
         >
-          <div
-            className="error__input"
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className="hods-multi-select-autocomplete error__input"
+            disabled={false}
+            id="react-select-5-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={false}
-              id="react-select-5-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
-        className="error__indicators css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete error__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
@@ -533,79 +493,74 @@ exports[`MultiSelectAutocomplete should render an input with disabled flag set a
   className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete error"
 >
   <div
-    className="hods-multi-select-autocomplete error--is-disabled css-14jk2my-container"
+    className="hods-multi-select-autocomplete error--is-disabled css-3iigni-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-4-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className="hods-multi-select-autocomplete error__control hods-multi-select-autocomplete error__control--is-disabled css-g8u311-control"
+      className="hods-multi-select-autocomplete error__control hods-multi-select-autocomplete error__control--is-disabled css-13ibep8-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className="hods-multi-select-autocomplete error__value-container css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete error__value-container css-319lph-ValueContainer"
       >
         <div
-          className="hods-multi-select-autocomplete error__placeholder css-1wa3eu0-placeholder"
+          className="hods-multi-select-autocomplete error__placeholder css-14el2xx-placeholder"
+          id="react-select-4-placeholder"
         >
           Select...
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete error__input-container css-jzldcf-Input"
+          data-value=""
         >
-          <div
+          <input
+            aria-autocomplete="list"
+            aria-describedby="react-select-4-placeholder"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
             className="hods-multi-select-autocomplete error__input"
+            disabled={true}
+            id="react-select-4-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={true}
-              id="react-select-4-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
@@ -618,86 +573,79 @@ exports[`MultiSelectAutocomplete should render an input with disabled flag set a
 
 exports[`MultiSelectAutocomplete should render when disabled flag is set 1`] = `
 <div
-  className="hods-multi-select-autocomplete__outer-wrapper "
+  className="hods-multi-select-autocomplete__outer-wrapper hods-multi-select-autocomplete"
 >
   <div
-    className=" css-14jk2my-container"
+    className="hods-multi-select-autocomplete--is-disabled css-3iigni-container"
     id="autocompleteId"
     onKeyDown={[Function]}
   >
+    <span
+      className="css-1f43avz-a11yText-A11yText"
+      id="react-select-2-live-region"
+    />
+    <span
+      aria-atomic="false"
+      aria-live="polite"
+      aria-relevant="additions text"
+      className="css-1f43avz-a11yText-A11yText"
+    />
     <div
-      className=" css-g8u311-control"
+      className="hods-multi-select-autocomplete__control hods-multi-select-autocomplete__control--is-disabled css-13ibep8-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
       <div
-        className=" css-g1d714-ValueContainer"
+        className="hods-multi-select-autocomplete__value-container hods-multi-select-autocomplete__value-container--has-value css-319lph-ValueContainer"
       >
         <div
-          className=" css-107lb6w-singleValue"
+          className="hods-multi-select-autocomplete__single-value hods-multi-select-autocomplete__single-value--is-disabled css-lr9fot-singleValue"
         >
           alpha
         </div>
         <div
-          className="css-b8ldur-Input"
+          className="hods-multi-select-autocomplete__input-container css-jzldcf-Input"
+          data-value=""
         >
-          <div
-            className=""
+          <input
+            aria-autocomplete="list"
+            aria-expanded={false}
+            aria-haspopup={true}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className="hods-multi-select-autocomplete__input"
+            disabled={true}
+            id="react-select-2-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            role="combobox"
+            spellCheck="false"
             style={
               Object {
-                "display": "inline-block",
+                "background": 0,
+                "border": 0,
+                "color": "inherit",
+                "font": "inherit",
+                "gridArea": "1 / 2",
+                "label": "input",
+                "margin": 0,
+                "minWidth": "2px",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "100%",
               }
             }
-          >
-            <input
-              aria-autocomplete="list"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={true}
-              id="react-select-2-input"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              spellCheck="false"
-              style={
-                Object {
-                  "background": 0,
-                  "border": 0,
-                  "boxSizing": "content-box",
-                  "color": "inherit",
-                  "fontSize": "inherit",
-                  "label": "input",
-                  "opacity": 1,
-                  "outline": 0,
-                  "padding": 0,
-                  "width": "1px",
-                }
-              }
-              tabIndex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style={
-                Object {
-                  "height": 0,
-                  "left": 0,
-                  "overflow": "scroll",
-                  "position": "absolute",
-                  "top": 0,
-                  "visibility": "hidden",
-                  "whiteSpace": "pre",
-                }
-              }
-            >
-              
-            </div>
-          </div>
+            tabIndex={0}
+            type="text"
+            value=""
+          />
         </div>
       </div>
       <div
-        className=" css-1hb7zxy-IndicatorsContainer"
+        className="hods-multi-select-autocomplete__indicators css-1hb7zxy-IndicatorsContainer"
       />
     </div>
   </div>
