@@ -32,6 +32,11 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
         border: 2px solid $govuk-input-border-colour;
       }
     }
+
+    .error__input-container,
+    &__input-container {
+      margin: 2px 2px 2px 0px;
+    }
     
     .error__value-container,
     &__value-container {
@@ -69,11 +74,10 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
     &.error__single-value,
     &__single-value {
       color: govuk-colour("black");
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 0px;
+      margin-right: 0px;
       position: relative;
       display: inline-block;
-      top: 12px;
     }
 
     &.error__multi-value__label,
@@ -89,24 +93,32 @@ $govuk-font-family: 'Roboto', arial, sans-serif;
       }
     }
 
+    .error__placeholder,
+    &__placeholder {
+      position: absolute;
+      margin-left: 0px;
+    }
+
     &__input {
       padding-left: 0px;
     }
 
+    .error__menu-notice--no-options::before,
     &__menu-notice--no-options::before {
       content: 'No results found';
       visibility: visible;
     }
 
+    .error__menu-notice--no-options,
     &__menu-notice--no-options {
       display: inline-block;
       visibility: hidden;
       color: govuk-colour("black");
-      padding-left: 0.4375em;
+      padding-left: 0.34375em;
     }
 
     &__option {
-      padding-left: 0.4375em;
+      padding-left: 0.34375em;
     }
 
     &.error__control {
