@@ -22,6 +22,7 @@ import NotificationBanner from './NotificationBanner';
 import Panel from './Panel';
 import Radios, { Radio } from './Radios';
 import Readonly from './Readonly';
+import Select from './Select';
 import Tag from './Tag';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
@@ -61,6 +62,7 @@ export {
   Radio,
   Radios,
   Readonly,
+  Select,
   SmallHeading,
   StartButton,
   Tag,
