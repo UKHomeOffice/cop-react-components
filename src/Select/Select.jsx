@@ -28,9 +28,7 @@ const Select = ({
 }) => {
   const classModifiers = [...toArray(_classModifiers), error ? 'error' : undefined ];
   const classes = classBuilder(classBlock, classModifiers, className);
-
   const [selected, setSelected ] = useState(value || defaultValue || "");
-
   const onSelectChanged = ({ target }) => {
     setSelected(target.value);
     if (typeof onChange === "function") {
@@ -42,7 +40,6 @@ const Select = ({
       })
     }
   };
-
   if (readonly) {
     const selectedValue = typeof(value) === 'object' ? value?.value : value;
     const selectedOption = options ? options.find(option => option.value === selectedValue) : undefined;
@@ -52,7 +49,6 @@ const Select = ({
       </Readonly>
     );
   }
-
   return (
       <select id={id} name={fieldId} value={selected} disabled={disabled} className={classes()} onChange={onSelectChanged} {...attrs}>
         {options && options.map((option, index) => {
