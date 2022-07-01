@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import Readonly from '../Readonly';
 import { classBuilder, toArray } from '../utils/Utils';
 import './Select.scss';
-import { useEffect } from 'react';
 
 export const DEFAULT_CLASS = 'govuk-select';
 const DEFAULT_PLACEHOLDER = "Select an option...";
@@ -19,7 +18,6 @@ const Select = ({
   readonly,
   options,
   onChange,
-  item,
   classBlock,
   classModifiers: _classModifiers,
   className,
@@ -48,9 +46,6 @@ const Select = ({
   if (readonly) {
     const selectedValue = typeof(value) === 'object' ? value?.value : value;
     const selectedOption = options ? options.find(option => option.value === selectedValue) : undefined;
-    console.log(options);
-    console.log(selectedValue);
-    console.log(selectedOption);
     return (
       <Readonly id={id} classModifiers={classModifiers} className={className} {...attrs}>
         {selectedOption?.label}
