@@ -8,7 +8,7 @@ import { classBuilder, toArray } from '../utils/Utils';
 import './Select.scss';
 
 export const DEFAULT_CLASS = 'govuk-select';
-const DEFAULT_PLACEHOLDER = "Select an option...";
+export const DEFAULT_PLACEHOLDER = "Select an option...";
 
 const Select = ({
   id,
@@ -54,15 +54,13 @@ const Select = ({
   }
 
   return (
-    <div id={id} {...attrs}>
-      <select value={selected} disabled={disabled} className={classes()} onChange={onSelectChanged}>
+      <select id={id} name={fieldId} value={selected} disabled={disabled} className={classes()} onChange={onSelectChanged} {...attrs}>
         {options && options.map((option, index) => {
           const optionId = `${id}-${index}`;
           return <option key={optionId} id={optionId} className={className} value={option.value}>{option.label}</option>;
         })}
         <option value="" disabled hidden>{placeholder || DEFAULT_PLACEHOLDER}</option>
       </select>
-    </div>
   );
 };
 
