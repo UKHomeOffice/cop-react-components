@@ -8,7 +8,7 @@ import { classBuilder, toArray } from '../utils/Utils';
 import './Select.scss';
 
 export const DEFAULT_CLASS = 'govuk-select';
-export const DEFAULT_PLACEHOLDER = "Select an option...";
+export const DEFAULT_PLACEHOLDER = 'Select an option...';
 
 const Select = ({
   id,
@@ -28,10 +28,10 @@ const Select = ({
 }) => {
   const classModifiers = [...toArray(_classModifiers), error ? 'error' : undefined ];
   const classes = classBuilder(classBlock, classModifiers, className);
-  const [selected, setSelected ] = useState(value || defaultValue || "");
+  const [selected, setSelected ] = useState(value || defaultValue || '');
   const onSelectChanged = ({ target }) => {
     setSelected(target.value);
-    if (typeof onChange === "function") {
+    if (typeof onChange === 'function') {
       onChange({
         target: {
           name: fieldId, 
@@ -49,14 +49,19 @@ const Select = ({
       </Readonly>
     );
   }
+
+  const idParts = id.split('.');
+  idParts.pop();
+  idParts.push(fieldId);
+  const name = idParts.join('.');
   return (
-      <select id={id} name={fieldId} value={selected} disabled={disabled} className={classes()} onChange={onSelectChanged} {...attrs}>
-        {options && options.map((option, index) => {
-          const optionId = `${id}-${index}`;
-          return <option key={optionId} id={optionId} className={className} value={option.value}>{option.label}</option>;
-        })}
-        <option value="" disabled hidden>{placeholder || DEFAULT_PLACEHOLDER}</option>
-      </select>
+    <select id={id} name={name} value={selected} disabled={disabled} className={classes()} onChange={onSelectChanged} {...attrs}>
+      {options && options.map((option, index) => {
+        const optionId = `${id}-${index}`;
+        return <option key={optionId} id={optionId} className={className} value={option.value}>{option.label}</option>;
+      })}
+      <option value='' disabled hidden>{placeholder || DEFAULT_PLACEHOLDER}</option>
+    </select>
   );
 };
 
@@ -71,9 +76,6 @@ Select.propTypes = {
       PropTypes.shape({
         value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
-        hint: PropTypes.string,
-        disabled: PropTypes.bool,
-        children: PropTypes.element
       }),
       PropTypes.string
     ])

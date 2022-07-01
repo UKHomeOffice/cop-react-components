@@ -16,21 +16,21 @@ describe('Select', () => {
     const SELECT_FIELD_ID = 'selectFieldId';
     const OPTIONS = [
       {
-        label: "Option 1",
-        value: "option1"
+        label: 'Option 1',
+        value: 'option1'
       },
       {
-        label: "Option 2",
-        value: "option2"
+        label: 'Option 2',
+        value: 'option2'
       }
     ];
     const { container } = render(
       <Select data-testid={SELECT_ID} id={SELECT_ID} fieldId={SELECT_FIELD_ID} options={OPTIONS}/>
     );
     const select = checkSetup(container, SELECT_ID);
-    expect(select.tagName).toEqual("SELECT");
+    expect(select.tagName).toEqual('SELECT');
     expect(select.name).toEqual(SELECT_FIELD_ID);
-    expect(select.value).toEqual("");
+    expect(select.value).toEqual('');
     expect(select.getAttribute('disabled')).toBeNull();
   });
 
@@ -39,12 +39,12 @@ describe('Select', () => {
     const SELECT_FIELD_ID = 'selectFieldId';
     const OPTIONS = [
       {
-        label: "Option 1",
-        value: "option1"
+        label: 'Option 1',
+        value: 'option1'
       },
       {
-        label: "Option 2",
-        value: "option2"
+        label: 'Option 2',
+        value: 'option2'
       }
     ];
     const { container } = render(
@@ -52,22 +52,22 @@ describe('Select', () => {
     );
     const select = checkSetup(container, SELECT_ID);
     const selectedOption = select.childNodes[select.selectedIndex];
-    expect(select.value).toEqual("");
+    expect(select.value).toEqual('');
     expect(selectedOption.innerHTML).toEqual(DEFAULT_PLACEHOLDER);
   });
 
   it('should render with a custom placeholder', async () => {
     const SELECT_ID = 'selectId';
     const SELECT_FIELD_ID = 'selectFieldId';
-    const CUSTOM_PLACEHOLDER = "Choose an option...";
+    const CUSTOM_PLACEHOLDER = 'Choose an option...';
     const OPTIONS = [
       {
-        label: "Option 1",
-        value: "option1"
+        label: 'Option 1',
+        value: 'option1'
       },
       {
-        label: "Option 2",
-        value: "option2"
+        label: 'Option 2',
+        value: 'option2'
       }
     ];
     const { container } = render(
@@ -75,19 +75,19 @@ describe('Select', () => {
     );
     const select = checkSetup(container, SELECT_ID);
     const selectedOption = select.childNodes[select.selectedIndex];
-    expect(select.value).toEqual("");
+    expect(select.value).toEqual('');
     expect(selectedOption.innerHTML).toEqual(CUSTOM_PLACEHOLDER);
   });
 
   it('should render with a default value if one is provided', async () => {
     const SELECT_ID = 'selectId';
     const SELECT_FIELD_ID = 'selectFieldId';
-    const DEFAULT_TEXT = "Option 2"
-    const DEFAULT_VALUE = "option2";
+    const DEFAULT_TEXT = 'Option 2'
+    const DEFAULT_VALUE = 'option2';
     const OPTIONS = [
       {
-        label: "Option 1",
-        value: "option1"
+        label: 'Option 1',
+        value: 'option1'
       },
       {
         label: DEFAULT_TEXT,
@@ -106,12 +106,12 @@ describe('Select', () => {
   it('should accept the readonly flag', async () => {
     const SELECT_ID = 'selectId';
     const SELECT_FIELD_ID = 'selectFieldId';
-    const DEFAULT_TEXT = "Option 2"
-    const DEFAULT_VALUE = "option2";
+    const DEFAULT_TEXT = 'Option 2'
+    const DEFAULT_VALUE = 'option2';
     const OPTIONS = [
       {
-        label: "Option 1",
-        value: "option1"
+        label: 'Option 1',
+        value: 'option1'
       },
       {
         label: DEFAULT_TEXT,
@@ -155,7 +155,7 @@ describe('Select', () => {
   it('should set the value and onChange on the underlying input appropriately', async () => {
     const SELECT_ID = 'select';
     const SELECT_FIELD_ID = 'selectFieldId';
-    const VALUE_LABEL = "Option 1";
+    const VALUE_LABEL = 'Option 1';
     const VALUE = 'option1';
     const OPTIONS = [
       {
@@ -163,8 +163,8 @@ describe('Select', () => {
         value: VALUE
       },
       {
-        label: "Option 2",
-        value: "option2"
+        label: 'Option 2',
+        value: 'option2'
       }
     ];
     let onChangeCalls = 0;
