@@ -26,9 +26,9 @@ const Select = ({
   placeholder,
   ...attrs
 }) => {
-  const classModifiers = [...toArray(_classModifiers), error ? 'error' : undefined ];
+  const classModifiers = [...toArray(_classModifiers), error ? 'error' : undefined];
   const classes = classBuilder(classBlock, classModifiers, className);
-  const [selected, setSelected ] = useState(value || defaultValue || '');
+  const [selected, setSelected] = useState(value || defaultValue || '');
   const onSelectChanged = ({ target }) => {
     setSelected(target.value);
     if (typeof onChange === 'function') {
