@@ -2,6 +2,7 @@
 import parse from 'html-react-parser';
 import PropTypes from 'prop-types';
 import React from 'react';
+import './Markup.scss';
 
 /**
  * The following list has been taken from w3.org:
