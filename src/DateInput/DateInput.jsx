@@ -33,6 +33,7 @@ const DateInput = ({
   fieldId,
   error,
   propsInError,
+  defaultValue,
   value,
   onChange,
   readonly,
@@ -78,6 +79,15 @@ const DateInput = ({
       onChange({ target: { name: fieldId, value: newValue }});
     }
   }, [dateChanged, date, fieldId, onChange, setDateChanged]);
+
+  useEffect(() => {
+    if (!value && defaultValue) {
+      setDate(toDateFromString(defaultValue));
+      if (typeof onChange === 'function') {
+        onChange({ target: { name: fieldId, value: defaultValue }});
+      }
+    }
+  }, []);
 
   if (!date) {
     return null;

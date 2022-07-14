@@ -223,4 +223,42 @@ describe('DateInput', () => {
     expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
     expect(input.textContent).toEqual('6  2076');
   });
+
+  it('should use a default value if one is provided and a value is not', async () => {
+    const ID = 'dateinput';
+    const FIELD_ID = 'dateinputId';
+    const DEFAULT_VALUE = '01-01-2000';
+    const { container } = render(
+      <DateInput
+        data-testid={ID}
+        id={ID}
+        fieldId={FIELD_ID}
+        defaultValue={DEFAULT_VALUE}
+        readonly
+      />
+    );
+    const input = checkSetup(container, ID);
+    expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
+    expect(input.textContent).toEqual('01 January 2000');
+  });
+
+  it('should use value instead of a default value if both are provided', async () => {
+    const ID = 'dateinput';
+    const FIELD_ID = 'dateinputId';
+    const DEFAULT_VALUE = '01-01-2000';
+    const VALUE = '01-01-2022';
+    const { container } = render(
+      <DateInput
+        data-testid={ID}
+        id={ID}
+        fieldId={FIELD_ID}
+        defaultValue={DEFAULT_VALUE}
+        value={VALUE}
+        readonly
+      />
+    );
+    const input = checkSetup(container, ID);
+    expect(input.classList).toContain(DEFAULT_READONLY_CLASS);
+    expect(input.textContent).toEqual('01 January 2022');
+  });
 });
