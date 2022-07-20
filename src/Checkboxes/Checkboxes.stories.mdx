@@ -69,20 +69,21 @@ Do not use the checkboxes component if users can only choose one option from a s
 ## How it works
 
 Always position checkboxes to the left of their labels. This makes them easier to find, especially for users of screen magnifiers.
-Í
+
 Unlike with radios, users can select multiple options from a list of checkboxes. Do not assume that users will know how many options they can select based on the visual difference between radios and checkboxes alone.
 
 If needed, add a hint explaining this, for example, 'Select all that apply'.
 
 Do not pre-select checkbox options as this makes it more likely that users will:
 
-not realise they've missed a question
-submit the wrong answer
+- not realise they've missed a question
+- submit the wrong answer
+
 Order checkbox options alphabetically by default.
 
-In some cases, it can be helpful to order them from most-to-least common options. For example, you could order options for 'What is your nationality?'' based on population size.
+In some cases, it can be helpful to order them from most-to-least common options. For example, you could order options for 'What is your nationality?' based on population size.
 
-Group checkboxes together in a <fieldset\> with a <legend\> that describes them, as shown in the examples on this page. This is usually a question, like 'How would you like to be contacted?''.
+Group checkboxes together in a <fieldset\> with a <legend\> that describes them, as shown in the examples on this page. This is usually a question, like 'How would you like to be contacted?'.
 
 ### If you’re asking one question on the page
 
@@ -182,6 +183,45 @@ You can add hints to checkbox items to provide additional information about the 
             value: 'CitizenOfAnotherCountry',
             label: 'Citizen of another country',
           },
+        ]}
+      />
+    </FormGroup>
+  </Story>
+</Canvas>
+
+### Checkbox items with divider
+
+You can split checkbox items with a divider to ensure the user is able to 
+select options from the list **or** the exclusive option.
+
+<Canvas>
+  <Story name='With Divider'>
+    <FormGroup
+      id='standard'
+      label={<h1 className='govuk-heading-l'>Which of these is the company involved in?</h1>}
+    >
+      <Checkboxes
+        id='activities'
+        fieldId='activities'
+        options={[
+          {
+            value: 'immigration',
+            label: 'Immigration or customs work, including interpretation services'
+          },
+          {
+            value: 'politics',
+            label: 'Political activity'
+          },
+          {
+            value: 'transport',
+            label: 'Transporting people or goods across international borders'
+          },
+          'or',
+          {
+            value: 'conflict',
+            label: 'Activities that potentially conflict with Border Force',
+            behaviour: 'exclusive'
+          }
         ]}
       />
     </FormGroup>
