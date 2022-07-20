@@ -26,39 +26,42 @@ const Checkboxes = ({
 
   // Selection is an array of the options which have been selected
   // Exclusive Flag is true when an option with the exclusive behaviour is checked
-  // Exclusive Option is the value of the checked exclusive option
   const [selection, setSelection] = useState(value ? value : []);
   const [exclusiveFlag, setExclusiveFlag] = useState(false);
-  const [exclusiveOption, setExclusiveOption] = useState('');
-  const [nonExclusiveOption, setNonExclusiveOption] = useState('');
 
   const updateSelection = (event, option) => {
+
     // Destructs the event target (checkbox) to its value and checked boolean
     // Passing option here allows us to expose the 'behaviour' field
     const { value: targetValue, checked: isTargetChecked } = event.target;
 
-    // console.log(`targetValue = ${targetValue}, isTargetChecked = ${isTargetChecked}, option = ${JSON.stringify(option, null, 2)}`)
-
-    // If this checkbox is checked then update the selection array with its value
+    // Update the selection array to reflect what has been clicked
     if (isTargetChecked) {
-      setSelection((prev) => [...prev, targetValue]);
-    } else {
-      setSelection((prev) => prev.filter((s) => s !== targetValue));
-    }
 
-    // If this option's behaviour is set to 'exclusive' and is checked then set the
-    // exclusiveFlag to true, update the exclusive option to its value and reset the
-    // selection array to only its value
-    if (option.behaviour === 'exclusive') {
-      setExclusiveFlag(isTargetChecked);
-      if (isTargetChecked) {
-        setExclusiveOption(option.value);
-        setSelection([option.value]);
+      // This block is entered when either:
+      // An exclusive checkbox has been newly checked
+      // A non-exclusive checkbox has been newly checked while an exclusive checkbox is already checked
+      if (
+        (option.behaviour === 'exclusive' && !exclusiveFlag) || 
+        (option.behaviour !== 'exclusive' && exclusiveFlag)
+        ) {
+
+        // Flip the exclusive flag and set the selection to only this checkbox
+        setExclusiveFlag(!exclusiveFlag);
+        setSelection([targetValue]);
+      } else if (option.behaviour === 'exclusive' && exclusiveFlag) {
+
+        // Flag is already on but a new exclusive option was selected so leave the flag on
+        setSelection([targetValue]);
+      } else {
+
+        // Normal conditions apply, add selection to selection array
+        setSelection((prev) => [...prev, targetValue]);
       }
-    } else if (exclusiveFlag && isTargetChecked) {
-      setExclusiveFlag(false);
-      setNonExclusiveOption([option.value]);
-      setSelection([option.value]);
+    } else {
+
+      // Checkbox was checked to begin with so uncheck it and remove from selections
+      setSelection((prev) => prev.filter((s) => s !== targetValue));
     }
   };
 
@@ -66,30 +69,14 @@ const Checkboxes = ({
     if (typeof onChange === 'function' && selection !== value) {
       onChange({ target: { name: fieldId, value: selection } });
     }
-
-    // Get a list of the checkbox components
+    
+    // Loop through checkbox elements for page and check it if it's in the selection array
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-    // If the checkbox isn't the exclusive option and the flag is on then uncheck it
     for (let checkbox of checkboxes) {
-      // console.log(`checkbox = ${checkbox.value}, exclusive option = ${exclusiveOption}`)
-      if (
-        (checkbox.value !== exclusiveOption && exclusiveFlag) ||
-        (checkbox.value === exclusiveOption && !exclusiveFlag)
-      ) {
-        // Either: this isn't the exclusive checkbox and the flag is on so uncheck it
-        // or: this is the exclusive checkbox but the flag is not on so uncheck it
-        checkbox.checked = false;
-      } else if (
-        checkbox.value === nonExclusiveOption &&
-        exclusiveOption !== '' &&
-        !exclusiveFlag) {
-        // This isn't the non-exclusive option and the flag is not on so check it
-        checkbox.checked = true;
-      }
+      checkbox.checked = selection.includes(checkbox.value);
     }
 
-  }, [selection, onChange, fieldId, value, exclusiveFlag, exclusiveOption, nonExclusiveOption]);
+  }, [selection, onChange, fieldId, value]);
 
   if (readonly) {
     return (
