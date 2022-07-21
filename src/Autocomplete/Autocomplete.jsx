@@ -22,6 +22,8 @@ const Autocomplete = ({
   value,
   defaultValue,
   displayMenu,
+  showAllValues,
+  placeholder,
   templates: _templates,
   onChange,
   onConfirm: _onConfirm,
@@ -69,9 +71,10 @@ const Autocomplete = ({
         displayMenu={displayMenu}
         onConfirm={onConfirm}
         confirmOnBlur={false}
-        showAllValues={false}
+        showAllValues={showAllValues}
         templates={templates}
         source={filterFunction}
+        placeholder={placeholder}
       />}
     </div>
   );
@@ -97,6 +100,10 @@ Autocomplete.propTypes = {
   defaultValue: PropTypes.any,
   /** Whether the menu of items should overlay elements below it or move those elements down the page. */
   displayMenu: PropTypes.oneOf(['overlay', 'inline']),
+  /** Whether or not all values should be shown when the input is selected. */
+  showAllValues: PropTypes.bool,
+  /** The text that should appear in the input when it is empty. */
+  placeholder: PropTypes.string,
   /** Functions for formatting the labels that appear in the options menu and in the input when a selection is made. */
   templates: PropTypes.shape({ inputValue: PropTypes.func.isRequired, suggestion: PropTypes.func.isRequired }),
   /** Handler for when the value changes. */
